@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Laurent Battaglia — Ingénieur Technique 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,200;1,400;1,700&family=Syne:wght@300;400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<style>
+/* ═══════════════════════════════════════════════════
+   TOKENS
+═══════════════════════════════════════════════════ */
+:root{
+  --bg:#060608;
+  --bg2:#0a0a0d;
+  --surf:rgba(255,255,255,.032);
+  --surf2:rgba(255,255,255,.06);
+  --b1:rgba(255,255,255,.06);
+  --b2:rgba(255,255,255,.11);
+  --b3:rgba(255,255,255,.18);
+  --text:#ede8df;
+  --t2:rgba(237,232,223,.5);
+  --t3:rgba(237,232,223,.2);
+  --t4:rgba(237,232,223,.08);
+  --gold:#c8a96e;
+  --gold2:rgba(200,169,110,.18);
+  --gold3:rgba(200,169,110,.06);
+  --green:#3ecf74;
+  --r:18px;
+  --rb:100px;
+  --fD:'Playfair Display',Georgia,serif;
+  --fU:'Syne',sans-serif;
+  --fM:'DM Mono',monospace;
+  --e1:cubic-bezier(.16,1,.3,1);
+  --e2:cubic-bezier(.22,1,.36,1);
+  --e3:cubic-bezier(.87,0,.13,1);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{font-size:16px;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--fU);font-size:14px;line-height:1.65;overflow-x:hidden;cursor:none}
+::-webkit-scrollbar{width:2px}
+::-webkit-scrollbar-thumb{background:var(--b2);border-radius:2px}
+
+/* ═══════════════════════════════════════════════════
+   GRAIN (animé)
+═══════════════════════════════════════════════════ */
+#grain{position:fixed;inset:0;z-index:9990;pointer-events:none;opacity:.04;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:200px;animation:grain .12s steps(1) infinite}
+@keyframes grain{0%{background-position:0 0}10%{background-position:-5% -10%}20%{background-position:-15% 5%}30%{background-position:7% -25%}40%{background-position:-5% 25%}50%{background-position:-15% 10%}60%{background-position:15% 0}70%{background-position:0 15%}80%{background-position:3% 35%}90%{background-position:-10% 10%}100%{background-position:0 0}}
+
+/* ═══════════════════════════════════════════════════
+   CURSOR
+═══════════════════════════════════════════════════ */
+#cb,#cd{position:fixed;top:0;left:0;pointer-events:none;z-index:99999;border-radius:50%;transform:translate(-50%,-50%);will-change:transform}
+#cb{width:40px;height:40px;background:var(--text);mix-blend-mode:difference;transition:width .5s var(--e1),height .5s var(--e1),opacity .3s}
+#cd{width:5px;height:5px;background:var(--text);mix-blend-mode:difference}
+body.cH #cb{width:80px;height:80px}
+body.cL #cb{width:56px;height:56px}
+body.cT #cb{width:120px;height:120px;opacity:.5}
+
+/* ═══════════════════════════════════════════════════
+   LOADING SCREEN
+═══════════════════════════════════════════════════ */
+#loader{position:fixed;inset:0;z-index:9999;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem}
+#loader-name{font-family:var(--fD);font-size:clamp(32px,5vw,64px);font-weight:400;letter-spacing:-.02em;color:var(--text);overflow:hidden}
+#loader-name span{display:block;transform:translateY(110%);transition:transform 0.8s var(--e1)}
+#loader-bar-wrap{width:200px;height:1px;background:var(--b1)}
+#loader-bar{height:100%;background:var(--gold);width:0%;transition:width .05s linear}
+#loader-pct{font-family:var(--fM);font-size:10px;letter-spacing:.2em;color:var(--t3)}
+
+/* ═══════════════════════════════════════════════════
+   TOPBAR
+═══════════════════════════════════════════════════ */
+#topbar{position:fixed;inset:0 0 auto;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;z-index:800;border-bottom:1px solid transparent;transition:border-color .4s,background .4s}
+#topbar.scrolled{background:rgba(6,6,8,.88);backdrop-filter:blur(20px);border-color:var(--b1)}
+.tb-logo{font-family:var(--fM);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--t3)}
+.tb-logo em{color:var(--gold);font-style:normal}
+.tb-links{display:flex;gap:2rem;list-style:none}
+.tb-links a{font-family:var(--fU);font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);text-decoration:none;transition:color .25s;position:relative}
+.tb-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:var(--gold);transition:width .3s var(--e1)}
+.tb-links a:hover{color:var(--text)}
+.tb-links a:hover::after{width:100%}
+.tb-status{display:flex;align-items:center;gap:.5rem;font-family:var(--fM);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--t3)}
+.tb-dot{width:5px;height:5px;border-radius:50%;background:var(--green);animation:pulse 2.5s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.7)}}
+
+/* ═══════════════════════════════════════════════════
+   SIDE NAV
+═══════════════════════════════════════════════════ */
+#sidenav{position:fixed;left:1.75rem;top:50%;transform:translateY(-50%);z-index:600;display:flex;flex-direction:column;gap:1.75rem}
+.sn-item{display:flex;align-items:center;gap:.6rem;cursor:none;text-decoration:none}
+.sn-line{width:18px;height:1px;background:var(--b2);transition:width .4s var(--e1),background .3s}
+.sn-label{font-family:var(--fM);font-size:8px;letter-spacing:.22em;text-transform:uppercase;color:var(--t4);transition:color .3s;white-space:nowrap;opacity:0;transform:translateX(-8px);transition:all .35s var(--e1)}
+.sn-item:hover .sn-line,.sn-item.active .sn-line{width:32px;background:var(--gold)}
+.sn-item:hover .sn-label,.sn-item.active .sn-label{opacity:1;color:var(--t2);transform:translateX(0)}
+.sn-item.active .sn-line{background:var(--gold)}
+
+/* ═══════════════════════════════════════════════════
+   LAYOUT
+═══════════════════════════════════════════════════ */
+main{padding-top:56px}
+.sec{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden}
+.inner{width:100%;max-width:1180px;margin:0 auto;padding:7rem 2.5rem 7rem 5rem}
+
+/* ═══════════════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════════════ */
+#hero{background:var(--bg)}
+
+/* Background animated grid */
+.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(var(--b1) 1px,transparent 1px),linear-gradient(90deg,var(--b1) 1px,transparent 1px);background-size:80px 80px;animation:gridFade 8s ease infinite alternate;opacity:.4}
+@keyframes gridFade{0%{opacity:.2}100%{opacity:.5}}
+
+/* Floating orb */
+.hero-orb{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(200,169,110,.07) 0%,transparent 70%);right:-100px;top:50%;transform:translateY(-50%);animation:orbFloat 6s ease-in-out infinite}
+@keyframes orbFloat{0%,100%{transform:translateY(-50%) scale(1)}50%{transform:translateY(-54%) scale(1.06)}}
+
+.h-pre{font-family:var(--fM);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--t3);margin-bottom:3.5rem;display:flex;align-items:center;gap:1rem;overflow:hidden}
+.h-pre-line{width:28px;height:1px;background:var(--gold);animation:lineExpand 1.2s var(--e1) 0.5s both}
+@keyframes lineExpand{from{width:0;opacity:0}to{width:28px;opacity:1}}
+
+.h-display{font-family:var(--fD);font-size:clamp(62px,10.5vw,158px);font-weight:400;line-height:.88;letter-spacing:-.03em;margin-bottom:1.5rem}
+.h-word{display:block;overflow:hidden}
+.h-word-in{display:block;transform:translateY(108%)}
+.h-em{font-style:italic;font-weight:200;color:var(--gold)}
+
+.h-sub{display:grid;grid-template-columns:1.1fr .9fr;gap:4rem;margin-top:3.5rem;align-items:end}
+.h-desc{font-size:13.5px;font-weight:300;line-height:1.9;color:var(--t2);max-width:400px}
+.h-desc strong{color:var(--text);font-weight:500}
+.h-right{display:flex;flex-direction:column;gap:1.75rem;align-items:flex-end}
+
+.h-badges{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:flex-end}
+.hbadge{font-family:var(--fM);font-size:8px;letter-spacing:.16em;text-transform:uppercase;padding:5px 13px;border-radius:var(--rb);border:1px solid var(--b2);color:var(--t2);cursor:none;transition:all .3s;position:relative;overflow:hidden}
+.hbadge::before{content:'';position:absolute;inset:0;background:var(--gold);transform:translateX(-105%);transition:transform .4s var(--e1)}
+.hbadge:hover{color:var(--bg);border-color:var(--gold)}
+.hbadge:hover::before{transform:translateX(0)}
+.hbadge span{position:relative;z-index:1}
+
+.h-scroll{display:flex;flex-direction:column;align-items:center;gap:.75rem;font-family:var(--fM);font-size:8px;letter-spacing:.22em;text-transform:uppercase;color:var(--t4)}
+.h-scroll-track{width:1px;height:56px;background:var(--b1);overflow:hidden;position:relative}
+.h-scroll-fill{position:absolute;top:-100%;left:0;width:100%;height:100%;background:var(--gold);animation:scrollDrop 2s var(--e1) infinite}
+@keyframes scrollDrop{0%{top:-100%}50%{top:0%}100%{top:100%}}
+
+/* ═══════════════════════════════════════════════════
+   MARQUEE
+═══════════════════════════════════════════════════ */
+.marquee-wrap{overflow:hidden;background:var(--text);padding:1.1rem 0;position:relative;z-index:2}
+.marquee-track{display:flex;gap:2.5rem;width:max-content;animation:marquee 20s linear infinite}
+.marquee-track:hover{animation-play-state:paused}
+.marquee-track span{font-family:var(--fD);font-size:20px;font-weight:400;font-style:italic;color:var(--bg);white-space:nowrap}
+.marquee-track .dot{font-style:normal;opacity:.25;font-family:var(--fU)}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ═══════════════════════════════════════════════════
+   PROJETS — BENTO
+═══════════════════════════════════════════════════ */
+#projets{background:var(--bg);align-items:flex-start}
+
+.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:8px;width:100%}
+
+/* Card base */
+.bc{background:var(--surf);border:1px solid var(--b1);border-radius:var(--r);padding:2rem;position:relative;overflow:hidden;transition:border-color .5s,background .4s;cursor:none}
+.bc::after{content:'';position:absolute;inset:0;background:radial-gradient(500px circle at var(--cx,50%) var(--cy,50%),rgba(200,169,110,.07),transparent 60%);opacity:0;transition:opacity .5s;border-radius:inherit;pointer-events:none}
+.bc:hover{border-color:var(--b2)}
+.bc:hover::after{opacity:1}
+
+/* Hover lift */
+.bc{transform:translateY(0);transition:transform .4s var(--e1),border-color .4s,background .4s}
+.bc:hover{transform:translateY(-3px)}
+
+/* Spans */
+.bc-A{grid-column:span 8;grid-row:span 2}
+.bc-B{grid-column:span 4}
+.bc-C{grid-column:span 4}
+.bc-D{grid-column:span 6}
+.bc-E{grid-column:span 6}
+
+.bc-num{font-family:var(--fM);font-size:8.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--t3);margin-bottom:1.4rem;display:flex;align-items:center;gap:.6rem}
+.bc-num::after{content:'';flex:1;height:1px;background:var(--b1)}
+.bc-co{font-family:var(--fM);font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem}
+.bc-ti{font-family:var(--fD);font-size:clamp(22px,2.8vw,36px);font-weight:400;line-height:1.1;color:var(--text);margin-bottom:1.1rem}
+.bc-ti em{font-style:italic;font-weight:200;color:var(--t2)}
+.bc-body{font-size:12.5px;font-weight:300;line-height:1.85;color:var(--t2);margin-bottom:1.4rem;max-width:440px}
+.bc-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1rem}
+.btag{font-family:var(--fM);font-size:8px;letter-spacing:.12em;text-transform:uppercase;padding:4px 11px;border-radius:var(--rb);border:1px solid var(--b2);color:var(--t2);transition:all .28s;cursor:none}
+.btag:hover{background:var(--gold2);border-color:rgba(200,169,110,.4);color:var(--gold)}
+.bc-ghost{position:absolute;bottom:-1.5rem;right:-.5rem;font-family:var(--fD);font-size:110px;font-weight:700;color:rgba(255,255,255,.022);pointer-events:none;user-select:none;line-height:1}
+.bc-corner{position:absolute;bottom:1.5rem;right:1.75rem;font-family:var(--fM);font-size:8px;letter-spacing:.15em;color:var(--t4)}
+.bc-big{font-family:var(--fD);font-size:clamp(36px,5vw,64px);font-weight:200;font-style:italic;color:var(--gold);line-height:1}
+.bc-biglabel{font-family:var(--fM);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:var(--t4);margin-top:.4rem}
+
+/* Progress ring in bento */
+.ring-wrap{display:flex;align-items:center;justify-content:center;width:100%;height:100%;flex:1}
+.ring{transform:rotate(-90deg)}
+.ring-bg{fill:none;stroke:var(--b2);stroke-width:2}
+.ring-fill{fill:none;stroke:var(--gold);stroke-width:2;stroke-linecap:round;stroke-dasharray:283;stroke-dashoffset:283;transition:stroke-dashoffset 1.8s var(--e1)}
+.ring-fill.anim{stroke-dashoffset:var(--offset)}
+.ring-text{font-family:var(--fD);font-size:11px;fill:var(--text)}
+
+/* ═══════════════════════════════════════════════════
+   SECTION — CHIFFRES (compteurs)
+═══════════════════════════════════════════════════ */
+#stats{background:var(--bg2);min-height:auto;padding:0}
+.stats-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--b1);border-top:1px solid var(--b1);border-bottom:1px solid var(--b1)}
+.stat-cell{background:var(--bg2);padding:3.5rem 2.5rem;position:relative;overflow:hidden;transition:background .35s}
+.stat-cell::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--e1)}
+.stat-cell:hover{background:rgba(255,255,255,.022)}
+.stat-cell:hover::before{transform:scaleX(1)}
+.stat-val{font-family:var(--fD);font-size:clamp(42px,5vw,72px);font-weight:400;line-height:1;margin-bottom:.4rem}
+.stat-val em{font-style:italic;color:var(--gold);font-weight:200}
+.stat-lab{font-family:var(--fM);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--t3)}
+
+/* ═══════════════════════════════════════════════════
+   PARALLAX QUOTE
+═══════════════════════════════════════════════════ */
+#quote-sec{background:var(--bg);min-height:60vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.quote-inner{text-align:center;padding:4rem 2.5rem;max-width:900px;margin:0 auto}
+.quote-mark{font-family:var(--fD);font-size:80px;line-height:.5;color:var(--b2);display:block;margin-bottom:1.5rem}
+.quote-text{font-family:var(--fD);font-size:clamp(28px,4.5vw,56px);font-weight:300;font-style:italic;line-height:1.2;letter-spacing:-.01em;color:var(--text)}
+.quote-text em{color:var(--gold);font-style:italic}
+.quote-attr{font-family:var(--fM);font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--t3);margin-top:2rem;display:flex;align-items:center;justify-content:center;gap:1rem}
+.quote-attr::before,.quote-attr::after{content:'';width:30px;height:1px;background:var(--b2)}
+
+/* ═══════════════════════════════════════════════════
+   COMPÉTENCES
+═══════════════════════════════════════════════════ */
+#skills{background:var(--bg2)}
+.skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;width:100%}
+.sk-card{background:var(--surf);border:1px solid var(--b1);border-radius:var(--r);padding:2.5rem;transition:border-color .4s,transform .4s var(--e1)}
+.sk-card:hover{border-color:var(--b2);transform:translateY(-2px)}
+.sk-card-title{font-family:var(--fM);font-size:8.5px;letter-spacing:.25em;text-transform:uppercase;color:var(--t3);margin-bottom:1.75rem;padding-bottom:.9rem;border-bottom:1px solid var(--b1)}
+
+/* Skill rows */
+.sk-row{display:flex;align-items:center;gap:1rem;padding:.62rem 0;border-bottom:1px solid var(--b1)}
+.sk-row:last-child{border:none}
+.sk-name{font-family:var(--fU);font-size:13px;font-weight:400;color:var(--text);min-width:115px}
+.sk-bar{flex:1;height:1.5px;background:var(--b2);border-radius:2px;overflow:hidden}
+.sk-fill{height:100%;background:linear-gradient(90deg,rgba(200,169,110,.5),var(--gold));transform:scaleX(0);transform-origin:left;transition:transform 1.8s var(--e1)}
+.sk-fill.go{transform:scaleX(1)}
+.sk-lv{font-family:var(--fM);font-size:8.5px;letter-spacing:.1em;color:var(--t3);min-width:70px;text-align:right}
+
+/* Formation */
+.form-list{display:flex;flex-direction:column;gap:.15rem}
+.form-item{padding:.95rem 1.2rem;border:1px solid transparent;border-radius:10px;transition:all .3s;cursor:none}
+.form-item:hover{border-color:var(--b1);background:var(--surf2)}
+.form-yr{font-family:var(--fM);font-size:8.5px;letter-spacing:.15em;color:var(--t4);margin-bottom:.25rem}
+.form-ti{font-family:var(--fD);font-size:17px;font-weight:400;color:var(--text);margin-bottom:.15rem}
+.form-sc{font-size:11px;font-weight:300;color:var(--t2)}
+.f-badge{display:inline-block;margin-top:.35rem;font-family:var(--fM);font-size:7.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold2);padding:2px 9px;border-radius:var(--rb)}
+
+/* Habilitations */
+.hab-list{display:flex;flex-direction:column;gap:.12rem}
+.hab-item{display:flex;align-items:center;gap:1rem;padding:.85rem 1.2rem;border:1px solid transparent;border-radius:10px;transition:all .3s;cursor:none}
+.hab-item:hover{border-color:var(--b1);background:var(--surf2)}
+.hab-ico{font-size:14px;opacity:.7}
+.hab-name{font-size:12.5px;font-weight:400;color:var(--text);flex:1}
+.hab-ok{font-family:var(--fM);font-size:7.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold2);padding:2px 9px;border-radius:var(--rb)}
+
+/* Passions */
+.pass-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
+.pass-item{padding:1.1rem;border:1px solid var(--b1);border-radius:10px;display:flex;flex-direction:column;gap:.3rem;cursor:none;transition:all .3s var(--e1);position:relative;overflow:hidden}
+.pass-item::before{content:'';position:absolute;inset:0;background:var(--gold3);transform:translateY(100%);transition:transform .4s var(--e1)}
+.pass-item:hover{border-color:var(--gold2)}
+.pass-item:hover::before{transform:translateY(0)}
+.pass-item>*{position:relative;z-index:1}
+.pass-ico{font-size:20px}
+.pass-lb{font-family:var(--fD);font-size:15px;font-weight:400;color:var(--text)}
+.pass-sub{font-size:10px;font-weight:300;color:var(--t2)}
+
+/* ═══════════════════════════════════════════════════
+   ACCORDION FAQ / QUESTIONS RECRUTEUR
+═══════════════════════════════════════════════════ */
+#faq{background:var(--bg);min-height:auto}
+.faq-inner{width:100%;max-width:1180px;margin:0 auto;padding:6rem 2.5rem 6rem 5rem}
+.faq-title{font-family:var(--fD);font-size:clamp(36px,5vw,64px);font-weight:400;font-style:italic;color:var(--text);margin-bottom:3rem}
+.faq-title em{color:var(--gold)}
+.accordion-item{border-bottom:1px solid var(--b1);overflow:hidden}
+.accordion-btn{width:100%;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 0;cursor:none;background:none;border:none;text-align:left;gap:1rem}
+.accordion-q{font-family:var(--fU);font-size:15px;font-weight:500;color:var(--text);transition:color .3s}
+.accordion-btn:hover .accordion-q{color:var(--gold)}
+.accordion-icon{font-family:var(--fM);font-size:16px;color:var(--t3);transition:transform .45s var(--e1),color .3s;flex-shrink:0;width:24px;text-align:center}
+.accordion-btn[aria-expanded="true"] .accordion-icon{transform:rotate(45deg);color:var(--gold)}
+.accordion-body{height:0;overflow:hidden;transition:height .5s var(--e1)}
+.accordion-body-inner{padding:0 0 1.4rem}
+.accordion-a{font-size:13.5px;font-weight:300;line-height:1.85;color:var(--t2);max-width:680px}
+.accordion-a strong{color:var(--text);font-weight:500}
+
+/* ═══════════════════════════════════════════════════
+   CONTACT
+═══════════════════════════════════════════════════ */
+#contact{background:var(--bg)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;width:100%}
+.c-ey{font-family:var(--fM);font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--t4);margin-bottom:1.75rem;display:flex;align-items:center;gap:.75rem}
+.c-ey::before{content:'';width:18px;height:1px;background:var(--gold);flex-shrink:0}
+.c-title{font-family:var(--fD);font-size:clamp(46px,7vw,80px);font-weight:400;line-height:.95;letter-spacing:-.02em;color:var(--text);margin-bottom:1.75rem}
+.c-title em{font-style:italic;font-weight:200;color:var(--gold)}
+.c-body{font-size:13px;font-weight:300;line-height:1.9;color:var(--t2);margin-bottom:2.5rem}
+.c-body strong{color:var(--text);font-weight:500}
+.c-links{display:flex;flex-direction:column;gap:.5rem}
+.clink{display:flex;align-items:center;gap:1.25rem;padding:1.1rem 1.4rem;border:1px solid var(--b1);border-radius:12px;background:var(--surf);color:var(--t2);text-decoration:none;cursor:none;font-size:12px;font-weight:300;transition:all .35s var(--e1);position:relative;overflow:hidden}
+.clink::before{content:'';position:absolute;inset:0;background:var(--gold3);transform:translateX(-105%);transition:transform .45s var(--e1)}
+.clink:hover{color:var(--text);border-color:var(--b2);transform:translateX(4px)}
+.clink:hover::before{transform:translateX(0)}
+.clink>*{position:relative;z-index:1}
+.clink-ico{font-size:14px;color:var(--gold);width:18px;text-align:center;flex-shrink:0}
+.clink-main{font-weight:500;display:block;font-size:12px}
+.clink-sub{font-size:10px;color:var(--t3);display:block;margin-top:1px}
+
+.avail{display:inline-flex;align-items:center;gap:.6rem;margin-top:2rem;border:1px solid rgba(62,207,116,.2);border-radius:var(--rb);padding:7px 16px;background:rgba(62,207,116,.04);font-family:var(--fM);font-size:8.5px;letter-spacing:.15em;text-transform:uppercase;color:rgba(62,207,116,.7)}
+.avail-d{width:5px;height:5px;border-radius:50%;background:var(--green);animation:pulse 2.5s infinite}
+
+.btn-dl{display:inline-flex;align-items:center;gap:.8rem;margin-top:2rem;font-family:var(--fM);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--bg);background:var(--text);padding:13px 26px;border-radius:var(--rb);text-decoration:none;cursor:none;transition:all .4s var(--e1)}
+.btn-dl:hover{background:var(--gold);transform:scale(1.03) translateY(-2px)}
+
+/* ═══════════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════════ */
+footer{background:var(--bg2);padding:1.75rem 2.5rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--b1)}
+.f-sig{font-family:var(--fD);font-size:13px;font-style:italic;color:var(--t3)}
+.f-line{font-family:var(--fM);font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--t4)}
+
+/* ═══════════════════════════════════════════════════
+   TOOLTIP ON HOVER
+═══════════════════════════════════════════════════ */
+.tooltip-wrap{position:relative}
+.tooltip{position:absolute;bottom:calc(100% + .6rem);left:50%;transform:translateX(-50%) translateY(6px);background:var(--text);color:var(--bg);font-family:var(--fM);font-size:9px;letter-spacing:.1em;padding:5px 12px;border-radius:var(--rb);white-space:nowrap;opacity:0;pointer-events:none;transition:all .28s var(--e1);z-index:200}
+.tooltip-wrap:hover .tooltip{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ═══════════════════════════════════════════════════
+   REVEAL CLASSES
+═══════════════════════════════════════════════════ */
+.rv{opacity:0;transform:translateY(32px)}
+.rv-l{opacity:0;transform:translateX(-36px)}
+.rv-s{opacity:0;transform:scale(.94)}
+.rv-r{opacity:0;transform:translateX(36px)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .inner{padding:5rem 1.75rem}
+  .h-sub{grid-template-columns:1fr;gap:2.5rem}
+  .bc-A,.bc-B,.bc-C,.bc-D,.bc-E{grid-column:span 12}
+  .skills-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr;gap:3rem}
+  .stats-inner{grid-template-columns:1fr 1fr}
+  #sidenav{display:none}
+  .tb-links{display:none}
+  footer,#topbar{padding-left:1.75rem;padding-right:1.75rem}
+  .faq-inner{padding:5rem 1.75rem}
+}
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div id="loader-name"><span>Laurent Battaglia</span></div>
+  <div id="loader-bar-wrap"><div id="loader-bar"></div></div>
+  <div id="loader-pct">0%</div>
+</div>
+
+<!-- GRAIN -->
+<div id="grain" aria-hidden="true"></div>
+
+<!-- CURSOR -->
+<div id="cb" aria-hidden="true"></div>
+<div id="cd" aria-hidden="true"></div>
+
+<!-- TOP BAR -->
+<header id="topbar">
+  <div class="tb-logo">LB<em>.</em>26</div>
+  <ul class="tb-links">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#projets">Projets</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="tb-status"><div class="tb-dot"></div>Disponible · Le Havre</div>
+</header>
+
+<!-- SIDE NAV -->
+<nav id="sidenav" aria-label="Navigation sections">
+  <a href="#hero"    class="sn-item" data-s="hero">   <div class="sn-line"></div><span class="sn-label">01 — Hero</span></a>
+  <a href="#projets" class="sn-item" data-s="projets"> <div class="sn-line"></div><span class="sn-label">02 — Projets</span></a>
+  <a href="#stats"   class="sn-item" data-s="stats">   <div class="sn-line"></div><span class="sn-label">03 — Stats</span></a>
+  <a href="#skills"  class="sn-item" data-s="skills">  <div class="sn-line"></div><span class="sn-label">04 — Skills</span></a>
+  <a href="#faq"     class="sn-item" data-s="faq">     <div class="sn-line"></div><span class="sn-label">05 — FAQ</span></a>
+  <a href="#contact" class="sn-item" data-s="contact"> <div class="sn-line"></div><span class="sn-label">06 — Contact</span></a>
+</nav>
+
+<main>
+
+<!-- ═══ 01 HERO ═══ -->
+<section id="hero" class="sec">
+  <div class="hero-grid-bg" aria-hidden="true"></div>
+  <div class="hero-orb" aria-hidden="true"></div>
+  <div class="inner">
+    <div class="h-pre"><div class="h-pre-line"></div>Ingénieur Technique — BTS ATI — 2026</div>
+    <div class="h-display" aria-label="Laurent Battaglia Précision">
+      <div class="h-word"><span class="h-word-in">LAURENT</span></div>
+      <div class="h-word"><span class="h-word-in">BATTAGLIA</span></div>
+      <div class="h-word"><em class="h-word-in h-em" data-scramble>PRÉCISION.</em></div>
+    </div>
+    <div class="h-sub">
+      <p class="h-desc rv">
+        Technicien spécialisé en <strong>modélisation 3D, automatismes
+        &amp; numérisation industrielle</strong>. Trois missions
+        en environnements exigeants — Safran Nacelles,
+        SIE Electric, Le Havre Seine Métropole.
+      </p>
+      <div class="h-right rv">
+        <div class="h-badges">
+          <span class="hbadge tooltip-wrap"><span>BTS ATI</span><span class="tooltip">En cours · 2026</span></span>
+          <span class="hbadge tooltip-wrap"><span>SolidWorks</span><span class="tooltip">Niveau Expert</span></span>
+          <span class="hbadge tooltip-wrap"><span>Catia 3D</span><span class="tooltip">Confirmé</span></span>
+          <span class="hbadge tooltip-wrap"><span>Automatismes</span><span class="tooltip">BTS ATI</span></span>
+          <span class="hbadge tooltip-wrap"><span>Impression 3D</span><span class="tooltip">FDM · Prototypage</span></span>
+          <span class="hbadge tooltip-wrap"><span>PIX Certifié</span><span class="tooltip">Compétences numériques</span></span>
+        </div>
+        <div class="h-scroll"><div class="h-scroll-track"><div class="h-scroll-fill"></div></div>Défiler</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <span>SolidWorks Expert</span><span class="dot">·</span>
+    <span>Modélisation 3D</span><span class="dot">·</span>
+    <span>Safran Nacelles</span><span class="dot">·</span>
+    <span>Animation Cinématique</span><span class="dot">·</span>
+    <span>Topographie</span><span class="dot">·</span>
+    <span>BTS ATI 2026</span><span class="dot">·</span>
+    <span>Habilitation Électrique</span><span class="dot">·</span>
+    <span>Catia 3D</span><span class="dot">·</span>
+    <span>Mention Bien EDPI</span><span class="dot">·</span>
+    <!-- Duplicate -->
+    <span>SolidWorks Expert</span><span class="dot">·</span>
+    <span>Modélisation 3D</span><span class="dot">·</span>
+    <span>Safran Nacelles</span><span class="dot">·</span>
+    <span>Animation Cinématique</span><span class="dot">·</span>
+    <span>Topographie</span><span class="dot">·</span>
+    <span>BTS ATI 2026</span><span class="dot">·</span>
+    <span>Habilitation Électrique</span><span class="dot">·</span>
+    <span>Catia 3D</span><span class="dot">·</span>
+    <span>Mention Bien EDPI</span><span class="dot">·</span>
+  </div>
+</div>
+
+<!-- ═══ 02 PROJETS ═══ -->
+<section id="projets" class="sec" style="align-items:flex-start">
+  <div class="inner">
+    <div style="display:flex;align-items:center;gap:1.5rem;margin-bottom:2.75rem" class="rv">
+      <span style="font-family:var(--fM);font-size:8.5px;letter-spacing:.25em;color:var(--t4)">02</span>
+      <div style="flex:1;height:1px;background:var(--b1)"></div>
+      <span style="font-family:var(--fM);font-size:8.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--t4)">Index des Travaux</span>
+    </div>
+
+    <div class="bento">
+
+      <!-- Safran — grande -->
+      <div class="bc bc-A rv">
+        <div class="bc-num" data-scramble>MISSION 01 — STAGE INDUSTRIE</div>
+        <div class="bc-co">Safran Nacelles · Aéronautique</div>
+        <h3 class="bc-ti">Modélisation 3D<br><em>Maquette Pédagogique</em></h3>
+        <p class="bc-body">
+          Conception et modélisation paramétrique d'une maquette représentant
+          la structure interne d'une nacelle de moteur d'avion. Assemblages
+          contraints, mises en plan normalisées ISO et rendu photoréaliste
+          pour support de formation technique interne. Mission en contexte
+          industriel aéronautique haute exigence.
+        </p>
+        <div class="bc-tags">
+          <span class="btag">SolidWorks</span>
+          <span class="btag">Modélisation 3D</span>
+          <span class="btag">Assemblage contraint</span>
+          <span class="btag">Norme ISO</span>
+          <span class="btag">Rendu photoréaliste</span>
+          <span class="btag">Aéronautique</span>
+        </div>
+        <div class="bc-ghost">01</div>
+        <div class="bc-corner">2024 · 6 semaines</div>
+      </div>
+
+      <!-- Stat ring -->
+      <div class="bc bc-B rv" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem">
+        <svg class="ring" width="90" height="90" viewBox="0 0 96 96" aria-hidden="true">
+          <circle class="ring-bg" cx="48" cy="48" r="45"/>
+          <circle class="ring-fill" id="ring1" cx="48" cy="48" r="45" style="--offset:30"/>
+        </svg>
+        <div style="text-align:center">
+          <div class="bc-big">93<span style="font-size:.45em;vertical-align:super">%</span></div>
+          <div class="bc-biglabel">Maîtrise SolidWorks</div>
+        </div>
+      </div>
+
+      <!-- Mini -->
+      <div class="bc bc-C rv" style="display:flex;flex-direction:column;justify-content:flex-end;gap:1rem">
+        <div style="font-family:var(--fD);font-size:28px;font-weight:200;font-style:italic;line-height:1.2;color:var(--t3)">
+          « La précision<br>comme langage »
+        </div>
+        <div style="height:1px;background:var(--b1)"></div>
+        <div class="bc-co">Secteur Aéronautique · FR</div>
+      </div>
+
+      <!-- SIE Electric -->
+      <div class="bc bc-D rv">
+        <div class="bc-num" data-scramble>MISSION 02 — STAGE INDUSTRIE</div>
+        <div class="bc-co">SIE Electric · Électrotechnique</div>
+        <h3 class="bc-ti">Animation<br><em>Cinématique</em></h3>
+        <p class="bc-body">
+          Production d'animations cinématiques et de vidéos techniques
+          pour illustrer le fonctionnement d'équipements électriques.
+          Modélisation Catia 3D, animation des mécanismes articulés,
+          montage vidéo pour diffusion client et formation.
+        </p>
+        <div class="bc-tags">
+          <span class="btag">Catia 3D</span>
+          <span class="btag">Animation</span>
+          <span class="btag">Vidéo Technique</span>
+          <span class="btag">Montage</span>
+        </div>
+        <div class="bc-ghost">02</div>
+        <div class="bc-corner">2024 · 8 semaines</div>
+      </div>
+
+      <!-- Topographie -->
+      <div class="bc bc-E rv">
+        <div class="bc-num" data-scramble>MISSION 03 — COLLECTIVITÉ</div>
+        <div class="bc-co">Le Havre Seine Métropole</div>
+        <h3 class="bc-ti"><em>Numérisation</em><br>&amp; Archivage</h3>
+        <p class="bc-body">
+          Numérisation et archivage de précision pour la collectivité
+          havraise. Relevés topographiques, traitement de données
+          géospatiales, livrables SIG pour urbanisme et infrastructures.
+        </p>
+        <div class="bc-tags">
+          <span class="btag">Topographie</span>
+          <span class="btag">SIG / GIS</span>
+          <span class="btag">Métrologie</span>
+          <span class="btag">Archivage</span>
+        </div>
+        <div class="bc-ghost">03</div>
+        <div class="bc-corner">2024 · 5 semaines</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 03 STATS ═══ -->
+<section id="stats" class="sec" style="min-height:auto">
+  <div class="stats-inner" style="width:100%">
+    <div class="stat-cell rv">
+      <div class="stat-val"><span class="counter" data-target="3">0</span><em>+</em></div>
+      <div class="stat-lab">Stages industriels</div>
+    </div>
+    <div class="stat-cell rv">
+      <div class="stat-val"><span class="counter" data-target="19">0</span></div>
+      <div class="stat-lab">Semaines terrain</div>
+    </div>
+    <div class="stat-cell rv">
+      <div class="stat-val"><span class="counter" data-target="2">0</span><em>+</em></div>
+      <div class="stat-lab">Logiciels CAO maîtrisés</div>
+    </div>
+    <div class="stat-cell rv">
+      <div class="stat-val"><em>TB</em></div>
+      <div class="stat-lab">Mention Bac Pro EDPI</div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE PARALLAX -->
+<section id="quote-sec">
+  <div class="quote-inner rv-s">
+    <span class="quote-mark" aria-hidden="true">&ldquo;</span>
+    <p class="quote-text">
+      L'ingénierie n'est pas une science,<br>c'est une <em>discipline</em>.
+    </p>
+    <div class="quote-attr">Laurent Battaglia · BTS ATI · Le Havre</div>
+  </div>
+</section>
+
+<!-- ═══ 04 SKILLS ═══ -->
+<section id="skills" class="sec" style="align-items:flex-start">
+  <div class="inner">
+    <div style="display:flex;align-items:center;gap:1.5rem;margin-bottom:2.75rem" class="rv">
+      <span style="font-family:var(--fM);font-size:8.5px;letter-spacing:.25em;color:var(--t4)">04</span>
+      <div style="flex:1;height:1px;background:var(--b1)"></div>
+      <span style="font-family:var(--fM);font-size:8.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--t4)">Matrice des Capacités</span>
+    </div>
+    <div class="skills-grid">
+
+      <div class="sk-card rv">
+        <div class="sk-card-title">Expertise Logicielle</div>
+        <div class="sk-row"><span class="sk-name">SolidWorks</span><div class="sk-bar"><div class="sk-fill" data-w=".93"></div></div><span class="sk-lv">Expert</span></div>
+        <div class="sk-row"><span class="sk-name">Catia 3D</span><div class="sk-bar"><div class="sk-fill" data-w=".75"></div></div><span class="sk-lv">Confirmé</span></div>
+        <div class="sk-row"><span class="sk-name">AutoCAD</span><div class="sk-bar"><div class="sk-fill" data-w=".62"></div></div><span class="sk-lv">Intermédiaire</span></div>
+        <div class="sk-row"><span class="sk-name">PIX</span><div class="sk-bar"><div class="sk-fill" data-w=".70"></div></div><span class="sk-lv">Certifié</span></div>
+        <div class="sk-row"><span class="sk-name">Suite Office</span><div class="sk-bar"><div class="sk-fill" data-w=".82"></div></div><span class="sk-lv">Avancé</span></div>
+      </div>
+
+      <div class="sk-card rv">
+        <div class="sk-card-title">Parcours de Formation</div>
+        <div class="form-list">
+          <div class="form-item"><div class="form-yr">2024 — 2026</div><div class="form-ti">BTS ATI</div><div class="form-sc">Automatismes &amp; Ingénierie Industrielle</div><span class="f-badge">En cours</span></div>
+          <div class="form-item"><div class="form-yr">2022 — 2024</div><div class="form-ti">Bac Pro EDPI</div><div class="form-sc">Lycée Jules Siegfried — Le Havre</div><span class="f-badge">Mention Bien</span></div>
+          <div class="form-item"><div class="form-yr">2022</div><div class="form-ti">Permis B — AAC</div><div class="form-sc">Conduite accompagnée</div></div>
+        </div>
+      </div>
+
+      <div class="sk-card rv">
+        <div class="sk-card-title">Habilitations &amp; Certifications</div>
+        <div class="hab-list">
+          <div class="hab-item"><span class="hab-ico">⚡</span><span class="hab-name">Habilitation Électrique</span><span class="hab-ok">Valide</span></div>
+          <div class="hab-item"><span class="hab-ico">🚗</span><span class="hab-name">Permis B — AAC (2022)</span><span class="hab-ok">Valide</span></div>
+          <div class="hab-item"><span class="hab-ico">🖥</span><span class="hab-name">Certification PIX</span><span class="hab-ok">Obtenue</span></div>
+          <div class="hab-item"><span class="hab-ico">📐</span><span class="hab-name">SolidWorks Expert</span><span class="hab-ok">Certifié</span></div>
+        </div>
+      </div>
+
+      <div class="sk-card rv">
+        <div class="sk-card-title">Profil Personnel</div>
+        <div class="pass-grid">
+          <div class="pass-item"><span class="pass-ico">🎵</span><div class="pass-lb">Clarinette</div><div class="pass-sub">Rigueur &amp; discipline</div></div>
+          <div class="pass-item"><span class="pass-ico">🖨</span><div class="pass-lb">Impression 3D</div><div class="pass-sub">FDM · Prototypage</div></div>
+          <div class="pass-item"><span class="pass-ico">✈</span><div class="pass-lb">Aéronautique</div><div class="pass-sub">Passion &amp; veille</div></div>
+          <div class="pass-item"><span class="pass-ico">🔧</span><div class="pass-lb">Mécanique</div><div class="pass-sub">DIY · Conception</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 05 FAQ ACCORDION ═══ -->
+<section id="faq" class="sec" style="align-items:flex-start;min-height:auto">
+  <div class="faq-inner">
+    <h2 class="faq-title rv">Questions<br><em>Recruteur.</em></h2>
+    <div id="accordion">
+
+      <div class="accordion-item rv">
+        <button class="accordion-btn" aria-expanded="false">
+          <span class="accordion-q">Pourquoi le BTS ATI après un Bac Pro EDPI ?</span>
+          <span class="accordion-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion-body" role="region">
+          <div class="accordion-body-inner">
+            <p class="accordion-a">Le Bac Pro EDPI m'a donné une solide base en <strong>dessin technique et CAO</strong>. Le BTS ATI est la suite naturelle pour monter en compétences sur les <strong>automatismes, l'ingénierie système</strong> et la gestion de projets industriels complets. C'est une montée en gamme logique et volontaire.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item rv">
+        <button class="accordion-btn" aria-expanded="false">
+          <span class="accordion-q">Quel est votre niveau réel sur SolidWorks ?</span>
+          <span class="accordion-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion-body" role="region">
+          <div class="accordion-body-inner">
+            <p class="accordion-a">J'ai utilisé SolidWorks en <strong>contexte industriel réel</strong> chez Safran Nacelles pour la modélisation complète d'une maquette pédagogique : modélisation de pièces, assemblages contraints, mises en plan ISO et rendu. Je le considère au niveau <strong>Expert</strong> pour les usages courants en bureau d'études.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item rv">
+        <button class="accordion-btn" aria-expanded="false">
+          <span class="accordion-q">Quelle est votre disponibilité et mobilité ?</span>
+          <span class="accordion-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion-body" role="region">
+          <div class="accordion-body-inner">
+            <p class="accordion-a">Disponible pour un <strong>stage de fin de BTS ATI ou une alternance à partir de 2026</strong>. Basé à Le Havre, mobile sur la région havraise et Normandie. Permis B (AAC 2022) en cours de finalisation.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item rv">
+        <button class="accordion-btn" aria-expanded="false">
+          <span class="accordion-q">Qu'avez-vous appris de votre stage chez SIE Electric ?</span>
+          <span class="accordion-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="accordion-body" role="region">
+          <div class="accordion-body-inner">
+            <p class="accordion-a">Chez SIE Electric, j'ai découvert la <strong>communication technique par le visuel</strong> : transformer une pièce mécanique en animation compréhensible pour un client non-technicien. C'est une compétence transversale rare — maîtriser à la fois <strong>Catia 3D et la narration technique</strong>.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 06 CONTACT ═══ -->
+<section id="contact" class="sec">
+  <div class="inner">
+    <div class="contact-grid">
+      <div>
+        <p class="c-ey rv">06 — Disponible 2026</p>
+        <h2 class="c-title rv">Travaillons<br><em>ensemble.</em></h2>
+        <p class="c-body rv">
+          Disponible pour un <strong>stage de fin de BTS ATI</strong>
+          ou une alternance. Recherche d'un environnement technique
+          exigeant — industrie aéronautique, bureaux d'études, automatismes.<br><br>
+          Basé à <strong>Le Havre, Normandie</strong>.
+          Temps de réponse : <strong style="color:var(--green)">24h</strong>.
+        </p>
+        <div class="avail rv"><div class="avail-d"></div>Actuellement disponible</div>
+        <a href="#" class="btn-dl rv">Télécharger le CV →</a>
+      </div>
+      <div class="rv">
+        <div class="c-links">
+          <a href="mailto:laurent.battaglia@email.com" class="clink">
+            <span class="clink-ico">✉</span>
+            <span><span class="clink-main">Email</span><span class="clink-sub">laurent.battaglia@email.com</span></span>
+          </a>
+          <a href="tel:+33600000000" class="clink">
+            <span class="clink-ico">☎</span>
+            <span><span class="clink-main">Téléphone</span><span class="clink-sub">+33 6 XX XX XX XX</span></span>
+          </a>
+          <a href="https://linkedin.com/in/" target="_blank" class="clink">
+            <span class="clink-ico">↗</span>
+            <span><span class="clink-main">LinkedIn</span><span class="clink-sub">linkedin.com/in/laurent-battaglia</span></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <span class="f-sig">Laurent Battaglia — 2026</span>
+  <span class="f-line">BTS ATI · Le Havre · Normandie</span>
+</footer>
+
+<script>
+/* ─────────────────────────────────────────────────────
+   LOADER
+───────────────────────────────────────────────────── */
+(function(){
+  const bar=document.getElementById('loader-bar');
+  const pct=document.getElementById('loader-pct');
+  const nameSpan=document.querySelector('#loader-name span');
+  let p=0;
+  nameSpan.style.transform='translateY(0%)';
+  const iv=setInterval(()=>{
+    p+=Math.random()*4+1;
+    if(p>=100){p=100;clearInterval(iv);finish();}
+    bar.style.width=p+'%';
+    pct.textContent=Math.round(p)+'%';
+  },40);
+  function finish(){
+    setTimeout(()=>{
+      gsap.to('#loader',{opacity:0,duration:.8,ease:'power2.inOut',onComplete:()=>{
+        document.getElementById('loader').style.display='none';
+        initAll();
+      }});
+    },300);
+  }
+})();
+
+/* ─────────────────────────────────────────────────────
+   MAIN INIT
+───────────────────────────────────────────────────── */
+function initAll(){
+
+  /* CURSOR */
+  const cb=document.getElementById('cb'),cd=document.getElementById('cd');
+  let mx=innerWidth/2,my=innerHeight/2,bx=mx,by=my;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+  (function loop(){
+    bx+=(mx-bx)*.09; by+=(my-by)*.09;
+    cb.style.transform=`translate(${bx}px,${by}px) translate(-50%,-50%)`;
+    cd.style.transform=`translate(${mx}px,${my}px) translate(-50%,-50%)`;
+    requestAnimationFrame(loop);
+  })();
+  const setC=s=>{document.body.className=s?'c'+s:''};
+  document.querySelectorAll('.bc,.sk-card,.pass-item,.form-item,.hab-item,.stat-cell').forEach(el=>{
+    el.addEventListener('mouseenter',()=>setC('H'));
+    el.addEventListener('mouseleave',()=>setC(''));
+  });
+  document.querySelectorAll('a,button,.btn-dl,.hbadge,.btag').forEach(el=>{
+    el.addEventListener('mouseenter',()=>setC('L'));
+    el.addEventListener('mouseleave',()=>setC(''));
+  });
+  document.querySelectorAll('[data-scramble]').forEach(el=>{
+    el.addEventListener('mouseenter',()=>setC('T'));
+    el.addEventListener('mouseleave',()=>setC(''));
+  });
+
+  /* Bento card spotlight */
+  document.querySelectorAll('.bc').forEach(c=>{
+    c.addEventListener('mousemove',e=>{
+      const r=c.getBoundingClientRect();
+      c.style.setProperty('--cx',((e.clientX-r.left)/r.width*100).toFixed(1)+'%');
+      c.style.setProperty('--cy',((e.clientY-r.top)/r.height*100).toFixed(1)+'%');
+    });
+  });
+
+  /* ─────── TEXT SCRAMBLE ─────── */
+  const CHR='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789·—≡∇';
+  function scramble(el,delay=0){
+    const orig=el.textContent; let f=0,tot=30;
+    setTimeout(()=>{
+      const iv=setInterval(()=>{
+        el.textContent=orig.split('').map((c,i)=>{
+          if(/[\s\n·—]/.test(c))return c;
+          return f/tot>i/orig.length?c:CHR[Math.floor(Math.random()*CHR.length)];
+        }).join('');
+        if(++f>tot){el.textContent=orig;clearInterval(iv);}
+      },36);
+    },delay);
+  }
+  /* Hero on load */
+  document.querySelectorAll('.h-word-in').forEach((el,i)=>scramble(el,400+i*200));
+  /* hover */
+  document.querySelectorAll('[data-scramble]').forEach(el=>{
+    let busy=false;
+    el.addEventListener('mouseenter',()=>{if(!busy){busy=true;scramble(el);setTimeout(()=>busy=false,1200);}});
+  });
+
+  /* ─────── GSAP ─────── */
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* Hero words reveal */
+  gsap.utils.toArray('.h-word-in').forEach((el,i)=>{
+    gsap.to(el,{translateY:'0%',duration:1.1,ease:'power4.out',delay:.1+i*.17});
+  });
+  gsap.from('.h-pre',{opacity:0,y:20,duration:1,ease:'power3.out',delay:.05});
+
+  /* Generic reveals */
+  const revealMap=[
+    ['.rv',  {opacity:0,y:32}],
+    ['.rv-l',{opacity:0,x:-36}],
+    ['.rv-r',{opacity:0,x:36}],
+    ['.rv-s',{opacity:0,scale:.94}],
+  ];
+  revealMap.forEach(([sel,from])=>{
+    gsap.utils.toArray(sel).forEach(el=>{
+      gsap.fromTo(el,from,{opacity:1,y:0,x:0,scale:1,duration:1,ease:'power3.out',
+        scrollTrigger:{trigger:el,start:'top 88%',toggleActions:'play none none none'}});
+    });
+  });
+
+  /* Bento stagger */
+  gsap.utils.toArray('.bc').forEach((c,i)=>{
+    gsap.fromTo(c,{opacity:0,y:28},{opacity:1,y:0,duration:.9,ease:'power3.out',delay:i*.08,
+      scrollTrigger:{trigger:c,start:'top 90%',toggleActions:'play none none none'}});
+  });
+
+  /* Quote parallax */
+  gsap.to('.quote-text',{y:'-12%',ease:'none',
+    scrollTrigger:{trigger:'#quote-sec',start:'top bottom',end:'bottom top',scrub:1.5}});
+
+  /* Skill bars */
+  const skObs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(!e.isIntersecting)return;
+      e.target.querySelectorAll('.sk-fill').forEach((b,i)=>{
+        setTimeout(()=>{b.style.transform=`scaleX(${b.dataset.w||1})`;},200+i*160);
+      });
+      skObs.unobserve(e.target);
+    });
+  },{threshold:.35});
+  document.querySelectorAll('.sk-card').forEach(c=>skObs.observe(c));
+
+  /* SVG ring animation */
+  const ringObs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(!e.isIntersecting)return;
+      /* ring1: 93% → offset = 283*(1-.93) = ~19.8 */
+      const r=document.getElementById('ring1');
+      if(r){setTimeout(()=>r.classList.add('anim'),300);}
+      ringObs.unobserve(e.target);
+    });
+  },{threshold:.5});
+  const ringCard=document.querySelector('.bc-B');
+  if(ringCard)ringObs.observe(ringCard);
+
+  /* ─────── COUNTERS ─────── */
+  const ctrObs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(!e.isIntersecting)return;
+      e.target.querySelectorAll('.counter').forEach(el=>{
+        const target=+el.dataset.target;
+        let cur=0; const step=Math.ceil(target/40);
+        const iv=setInterval(()=>{
+          cur+=step; if(cur>=target){cur=target;clearInterval(iv);}
+          el.textContent=cur;
+        },35);
+      });
+      ctrObs.unobserve(e.target);
+    });
+  },{threshold:.5});
+  document.querySelectorAll('.stats-inner').forEach(el=>ctrObs.observe(el));
+
+  /* ─────── ACCORDION ─────── */
+  document.querySelectorAll('.accordion-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const expanded=btn.getAttribute('aria-expanded')==='true';
+      /* Close all */
+      document.querySelectorAll('.accordion-btn').forEach(b=>{
+        b.setAttribute('aria-expanded','false');
+        b.nextElementSibling.style.height='0';
+      });
+      if(!expanded){
+        btn.setAttribute('aria-expanded','true');
+        const body=btn.nextElementSibling;
+        body.style.height=body.scrollHeight+'px';
+      }
+    });
+  });
+
+  /* ─────── SIDE NAV TRACKING ─────── */
+  const sections=document.querySelectorAll('section[id]');
+  const snItems=document.querySelectorAll('.sn-item[data-s]');
+  const secObs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        snItems.forEach(a=>{
+          a.classList.toggle('active',a.dataset.s===e.target.id);
+        });
+      }
+    });
+  },{threshold:.4});
+  sections.forEach(s=>secObs.observe(s));
+
+  /* ─────── TOPBAR SCROLL ─────── */
+  window.addEventListener('scroll',()=>{
+    document.getElementById('topbar').classList.toggle('scrolled',scrollY>40);
+  });
+
+  /* ─────── MAGNETIC BUTTONS ─────── */
+  document.querySelectorAll('.btn-dl,.nav-cta').forEach(btn=>{
+    btn.addEventListener('mousemove',e=>{
+      const r=btn.getBoundingClientRect();
+      const dx=(e.clientX-r.left-r.width/2)*.3;
+      const dy=(e.clientY-r.top-r.height/2)*.3;
+      btn.style.transform=`translate(${dx}px,${dy}px) scale(1.04)`;
+    });
+    btn.addEventListener('mouseleave',()=>btn.style.transform='');
+  });
+
+  /* ─────── NAV LINKS HOVER MAGNETIC ─────── */
+  document.querySelectorAll('.tb-links a').forEach(a=>{
+    a.addEventListener('mousemove',e=>{
+      const r=a.getBoundingClientRect();
+      const dx=(e.clientX-r.left-r.width/2)*.2;
+      const dy=(e.clientY-r.top-r.height/2)*.2;
+      a.style.transform=`translate(${dx}px,${dy}px)`;
+    });
+    a.addEventListener('mouseleave',()=>{a.style.transform='';});
+  });
+
+}/* end initAll */
+</script>
+</body>
+</html>
