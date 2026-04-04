@@ -2,224 +2,630 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Laurent Battaglia — Ingénieur Technique 2026</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,200;1,400;1,700&family=Syne:wght@300;400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#050508">
+<title>LORYX OS</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-/* ═══════════════════════════════════════════════════
-    TOKENS & CORE
-═══════════════════════════════════════════════════ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{
-  --bg:#060608;
-  --bg2:#0a0a0d;
-  --surf:rgba(255,255,255,.032);
-  --surf2:rgba(255,255,255,.06);
-  --b1:rgba(255,255,255,.06);
-  --b2:rgba(255,255,255,.11);
-  --text:#ede8df;
-  --gold:#c8a96e;
-  --gold2:rgba(200,169,110,.18);
-  --gold3:rgba(200,169,110,.06);
-  --green:#3ecf74;
-  --fD:'Playfair Display',serif;
-  --fU:'Syne',sans-serif;
-  --fM:'DM Mono',monospace;
-  --e1:cubic-bezier(.16,1,.3,1);
+  --bg:#050508;--surface:#0e0e15;--border:#1a1a26;
+  --accent:#c8a96e;--accent-glow:rgba(200,169,110,0.15);
+  --accent2:#6e8ec8;--danger:#ff5f5f;--green:#5fdb8f;
+  --text:#f0f0f5;--muted:#62627a;
+  --mono:'Space Mono',monospace;--sans:'DM Sans',sans-serif;
 }
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--bg);color:var(--text);font-family:var(--fU);overflow-x:hidden;cursor:none}
+html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);font-family:var(--sans)}
+body{display:flex;flex-direction:column}
 
-/* ═══════════════════════════════════════════════════
-    VIDEO BACKGROUND (FIXED)
-═══════════════════════════════════════════════════ */
-#video-bg {
-    position: fixed; inset: 0; width: 100%; height: 100%;
-    object-fit: cover; z-index: -2; opacity: 0.12; filter: grayscale(100%);
+/* HEADER */
+.header{
+  flex-shrink:0;
+  padding:env(safe-area-inset-top,14px) 18px 10px;
+  padding-top:max(env(safe-area-inset-top),14px);
+  display:flex;justify-content:space-between;align-items:center;
+  border-bottom:1px solid var(--border);
+  background:var(--bg);z-index:10;
 }
+.logo{font-family:var(--mono);font-size:9px;letter-spacing:0.3em;color:var(--accent)}
+.logo small{display:block;font-size:7px;letter-spacing:0.2em;color:var(--muted);margin-top:1px}
+.header-right{text-align:right}
+#clock{font-family:var(--mono);font-size:22px;font-weight:700;line-height:1}
+#cdate{font-family:var(--mono);font-size:7px;letter-spacing:0.15em;color:var(--muted);margin-top:2px}
 
-/* GRAIN */
-#grain{position:fixed;inset:0;z-index:9990;pointer-events:none;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain .12s steps(1) infinite}
-@keyframes grain{0%{background-position:0 0}50%{background-position:5% 5%}100%{background-position:0 0}}
+/* TABS */
+.tabs{
+  flex-shrink:0;
+  display:flex;gap:6px;padding:10px 15px;
+  overflow-x:auto;scrollbar-width:none;
+  border-bottom:1px solid var(--border);background:var(--bg);
+}
+.tabs::-webkit-scrollbar{display:none}
+.tab{
+  padding:7px 13px;background:var(--surface);
+  border:1px solid var(--border);color:var(--muted);
+  font-family:var(--mono);font-size:8px;letter-spacing:0.1em;
+  border-radius:20px;cursor:pointer;white-space:nowrap;
+  transition:all 0.15s;flex-shrink:0;
+}
+.tab.active{background:var(--accent);color:var(--bg);border-color:var(--accent)}
 
-/* CURSOR */
-#cb,#cd{position:fixed;top:0;left:0;pointer-events:none;z-index:99999;border-radius:50%;transform:translate(-50%,-50%)}
-#cb{width:40px;height:40px;background:var(--text);mix-blend-mode:difference;transition:width .5s var(--e1),height .5s var(--e1)}
-#cd{width:5px;height:5px;background:var(--gold)}
+/* PAGES */
+.pages{flex:1;overflow:hidden;position:relative}
+.page{position:absolute;inset:0;overflow-y:auto;-webkit-overflow-scrolling:touch;display:none;flex-direction:column}
+.page.active{display:flex}
 
-/* LOADING SCREEN */
-#loader{position:fixed;inset:0;z-index:9999;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem}
-#loader-bar-wrap{width:200px;height:1px;background:var(--b1)}
-#loader-bar{height:100%;background:var(--gold);width:0%}
+/* SCROLLABLE CONTENT */
+.scroll-content{padding:14px 15px 100px;display:flex;flex-direction:column;gap:10px}
 
-/* TOPBAR */
-#topbar{position:fixed;inset:0 0 auto;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;z-index:800;transition:all .4s}
-#topbar.scrolled{background:rgba(6,6,8,.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--b1)}
-.tb-logo{font-family:var(--fM);font-size:11px;letter-spacing:.22em;color:var(--t3)}
-.tb-links{display:flex;gap:2rem;list-style:none}
-.tb-links a{font-size:11px;text-transform:uppercase;color:var(--text);text-decoration:none;opacity:0.4;transition:0.3s}
-.tb-links a:hover{opacity:1;color:var(--gold)}
+/* CARD */
+.card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:14px;padding:14px;
+  border-left:3px solid var(--accent);
+  font-size:14px;line-height:1.6;
+}
+.card a{color:var(--accent2);text-decoration:underline}
+.card-title{font-family:var(--mono);font-size:8px;letter-spacing:0.2em;color:var(--accent);margin-bottom:10px}
+.card.accent2{border-left-color:var(--accent2)}
+.card.green{border-left-color:var(--green)}
 
-/* SECTIONS */
-.sec{min-height:100vh;display:flex;align-items:center;position:relative}
-.inner{width:100%;max-width:1180px;margin:0 auto;padding:7rem 2.5rem}
+/* INPUTS */
+input.field,textarea.field{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:12px;padding:12px 14px;color:var(--text);
+  width:100%;outline:none;font-size:14px;font-family:var(--sans);
+  transition:border-color 0.15s;
+}
+input.field:focus,textarea.field:focus{border-color:var(--accent)}
+textarea.field{resize:none;height:90px;line-height:1.5}
 
-/* HERO */
-.h-display{font-family:var(--fD);font-size:clamp(60px,10vw,150px);line-height:.85;letter-spacing:-.03em}
-.h-em{font-style:italic;color:var(--gold);font-weight:200}
-.h-sub{display:grid;grid-template-columns:1.1fr .9fr;gap:4rem;margin-top:3.5rem}
+/* BUTTONS */
+.btn{
+  background:var(--surface);border:1px solid var(--border);
+  color:var(--accent);border-radius:12px;padding:12px;
+  width:100%;font-family:var(--mono);font-size:9px;letter-spacing:0.1em;
+  cursor:pointer;transition:all 0.15s;
+}
+.btn:active{background:var(--accent-glow);border-color:var(--accent)}
+.btn.accent2{color:var(--accent2);border-color:var(--accent2)}
+.btn.danger{color:var(--danger)}
 
-/* BENTO */
-.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:10px;width:100%}
-.bc{background:var(--surf);border:1px solid var(--b1);border-radius:18px;padding:2.5rem;position:relative;overflow:hidden;transition:all .4s var(--e1)}
-.bc:hover{border-color:var(--b2);transform:translateY(-5px)}
-.bc-A{grid-column:span 8} .bc-B{grid-column:span 4} .bc-C{grid-column:span 4} .bc-D{grid-column:span 8}
+/* LIST ITEMS */
+.list-item{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:12px;padding:12px 14px;
+  border-left:3px solid var(--accent);
+}
+.list-item.agenda-item{border-left-color:var(--accent2)}
+.list-item-text{font-size:13px;line-height:1.5;margin-bottom:6px}
+.list-item-text a{color:var(--accent2);text-decoration:underline}
+.del-btn{font-family:var(--mono);font-size:8px;color:var(--danger);cursor:pointer;opacity:0.6;border:none;background:none;padding:0}
+.del-btn:active{opacity:1}
 
-/* SKILLS */
-.skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-.sk-card{background:var(--surf);border:1px solid var(--b1);border-radius:18px;padding:2.5rem}
+/* WEATHER */
+.w-big{font-family:var(--mono);font-size:52px;font-weight:700;line-height:1;color:var(--accent)}
+.w-big span{font-size:22px;color:var(--muted)}
+.w-desc{font-size:12px;letter-spacing:0.1em;color:var(--muted);margin-top:4px;font-family:var(--mono)}
+.w-stats{display:flex;gap:20px;margin-top:12px;padding-top:10px;border-top:1px solid var(--border)}
+.w-stat small{display:block;font-family:var(--mono);font-size:7px;letter-spacing:0.1em;color:var(--muted);margin-bottom:2px}
+.w-stat span{font-family:var(--mono);font-size:13px;color:var(--accent)}
 
-/* CONTACT */
-.btn-dl{display:inline-flex;align-items:center;gap:1rem;margin-top:2rem;font-family:var(--fM);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--bg);background:var(--text);padding:15px 30px;border-radius:100px;text-decoration:none;transition:all .4s var(--e1)}
-.btn-dl:hover{background:var(--gold);transform:scale(1.05)}
+/* CALENDAR */
+.cal-nav-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.cal-nav{background:none;border:1px solid var(--border);color:var(--muted);font-size:18px;width:32px;height:32px;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.cal-nav:active{border-color:var(--accent);color:var(--accent)}
+.cal-month-lbl{font-family:var(--mono);font-size:10px;letter-spacing:0.2em;color:var(--accent)}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin-bottom:14px}
+.cal-dh{text-align:center;font-family:var(--mono);font-size:7px;letter-spacing:0.1em;color:var(--muted);padding:4px 0}
+.cal-dc{
+  aspect-ratio:1;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:11px;
+  border-radius:8px;cursor:pointer;border:1px solid transparent;
+  position:relative;transition:all 0.1s;
+}
+.cal-dc:active{background:var(--accent-glow)}
+.cal-dc.today{border-color:var(--accent)!important;color:var(--accent)}
+.cal-dc.selected{background:var(--accent-glow)!important;border-color:var(--accent)!important;color:var(--accent)}
+.cal-dc.has-ev::after{content:'';width:4px;height:4px;border-radius:50%;background:var(--accent2);position:absolute;bottom:3px}
+.cal-dc.empty{cursor:default}
+.ev-section-title{font-family:var(--mono);font-size:8px;letter-spacing:0.2em;color:var(--accent2);margin-bottom:8px}
+.ev-item{display:flex;align-items:center;gap:8px;padding:8px 12px;background:rgba(110,142,200,0.07);border-left:2px solid var(--accent2);border-radius:0 8px 8px 0;font-size:13px;margin-bottom:4px}
+.ev-item-text{flex:1}
 
-.rv{opacity:0;transform:translateY(30px)}
+/* AI PAGE */
+.ai-page{padding:0!important}
+.ai-page .scroll-content{padding-bottom:120px}
+.msg{max-width:85%;padding:11px 15px;border-radius:18px;font-size:13px;line-height:1.6;animation:popin 0.2s ease}
+@keyframes popin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.msg.loryx{background:var(--surface);border:1px solid var(--border);align-self:flex-start;border-bottom-left-radius:4px}
+.msg.loryx a{color:var(--accent2);text-decoration:underline}
+.msg.user{background:var(--accent);color:var(--bg);align-self:flex-end;border-bottom-right-radius:4px;font-weight:500}
+.msg.thinking{opacity:0.6;font-style:italic;font-size:12px}
+
+/* API CONFIG */
+.api-bar{
+  background:rgba(200,169,110,0.06);
+  border-bottom:1px solid var(--border);
+  padding:10px 15px;flex-shrink:0;
+}
+.api-bar-row{display:flex;gap:8px;align-items:center}
+.api-bar input{
+  flex:1;background:transparent;border:1px solid var(--border);
+  border-radius:10px;padding:8px 12px;color:var(--text);
+  font-family:var(--mono);font-size:10px;outline:none;min-width:0;
+}
+.api-bar input:focus{border-color:var(--accent)}
+.api-bar-btn{
+  background:none;border:1px solid rgba(200,169,110,0.4);
+  color:var(--accent);font-family:var(--mono);font-size:8px;
+  letter-spacing:0.1em;padding:8px 12px;border-radius:10px;
+  cursor:pointer;white-space:nowrap;flex-shrink:0;
+}
+.api-bar-btn:active{background:var(--accent-glow)}
+.api-bar-status{font-family:var(--mono);font-size:7px;letter-spacing:0.1em;margin-top:5px}
+.api-bar-status.ok{color:var(--green)}
+.api-bar-status.err{color:var(--danger)}
+
+/* AI BOTTOM INPUT */
+.ai-bottom{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:10px 15px max(env(safe-area-inset-bottom),20px);
+  background:linear-gradient(to top,var(--bg) 85%,transparent);
+  z-index:10;
+}
+.ai-input-box{
+  background:rgba(14,14,21,0.97);border:1px solid var(--border);
+  border-radius:28px;padding:6px 6px 6px 16px;
+  display:flex;align-items:center;gap:8px;
+}
+#ai-input{flex:1;background:none;border:none;color:var(--text);outline:none;font-size:14px;min-width:0;height:38px;font-family:var(--sans)}
+#ai-input::placeholder{color:var(--muted)}
+.ai-btn{
+  width:40px;height:40px;border-radius:50%;border:none;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;cursor:pointer;flex-shrink:0;transition:transform 0.1s;
+}
+.ai-btn:active{transform:scale(0.9)}
+.send-btn{background:var(--accent)}
+.voice-btn{background:var(--surface);border:1px solid var(--border)}
+.voice-btn.listening{background:var(--danger);animation:pulse-red 1s ease-in-out infinite}
+@keyframes pulse-red{0%,100%{opacity:1}50%{opacity:0.5}}
+
+/* CCTV */
+.cam-box{width:100%;aspect-ratio:16/9;background:#000;border-radius:12px;overflow:hidden;border:1px solid var(--border)}
+.cam-box iframe{width:100%;height:100%;border:none}
+
+::-webkit-scrollbar{width:2px;height:2px}
+::-webkit-scrollbar-thumb{background:var(--border)}
+::-webkit-scrollbar-track{background:transparent}
 </style>
 </head>
 <body>
 
-<div id="loader">
-    <div style="font-family:var(--fD); font-size: 24px;">Laurent Battaglia</div>
-    <div id="loader-bar-wrap"><div id="loader-bar"></div></div>
+<!-- HEADER -->
+<div class="header">
+  <div class="logo">LORYX OS<small>SYSTÈME PERSONNEL</small></div>
+  <div class="header-right">
+    <div id="clock">00:00</div>
+    <div id="cdate"></div>
+  </div>
 </div>
 
-<div id="grain"></div>
-<div id="cb"></div><div id="cd"></div>
+<!-- TABS -->
+<div class="tabs">
+  <button class="tab active" data-page="ai">LORYX IA</button>
+  <button class="tab" data-page="home">ACCUEIL</button>
+  <button class="tab" data-page="agenda">AGENDA</button>
+  <button class="tab" data-page="notes">NOTES</button>
+  <button class="tab" data-page="cctv">CCTV</button>
+  <button class="tab" data-page="lia">LiA BUS</button>
+</div>
 
-<video id="video-bg" autoplay muted loop playsinline>
-    <source src="assets/videos/votre-video-sie.mp4" type="video/mp4">
-</video>
+<!-- PAGES -->
+<div class="pages">
 
-<header id="topbar">
-    <div class="tb-logo">LB // 2026</div>
-    <ul class="tb-links">
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#projets">Projets</a></li>
-        <li><a href="#skills">Capacités</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-</header>
+  <!-- IA -->
+  <div class="page active ai-page" id="page-ai">
+    <div class="api-bar">
+      <div class="card-title" style="margin-bottom:6px">CLÉ API GEMINI — GRATUIT</div>
+      <div class="api-bar-row">
+        <input type="password" id="apikey" placeholder="AIza..." autocomplete="off" spellcheck="false">
+        <button class="api-bar-btn" onclick="saveKey()">SAUVER</button>
+      </div>
+      <div class="api-bar-status" id="keystatus"></div>
+    </div>
+    <div class="scroll-content" id="ai-messages" style="gap:8px"></div>
+    <div class="ai-bottom">
+      <div class="ai-input-box">
+        <input type="text" id="ai-input" placeholder="Directive Loryx..." autocomplete="off" onkeypress="if(event.key==='Enter')sendAI()">
+        <button class="ai-btn voice-btn" id="voice-btn" onclick="toggleVoice()" title="Microphone">🎙️</button>
+        <button class="ai-btn send-btn" onclick="sendAI()" title="Envoyer">➤</button>
+      </div>
+    </div>
+  </div>
 
-<main>
-    <section id="hero" class="sec">
-        <div class="inner">
-            <div class="h-display">
-                <div class="rv">LAURENT</div>
-                <div class="rv">BATTAGLIA</div>
-                <div class="h-em rv" data-scramble>PRÉCISION.</div>
-            </div>
-            <div class="h-sub">
-                <p class="rv" style="opacity:0.6; line-height:1.8; max-width:400px">
-                    Technicien spécialisé en <strong>modélisation 3D et ingénierie</strong>. 
-                    Expertise développée chez Safran Nacelles et SIE Electric.
-                </p>
-            </div>
+  <!-- ACCUEIL -->
+  <div class="page" id="page-home">
+    <div class="scroll-content">
+
+      <div class="card">
+        <div class="card-title">MÉTÉO // LE HAVRE</div>
+        <div id="wtemp" class="w-big">--<span>°C</span></div>
+        <div id="wdesc" class="w-desc">CHARGEMENT...</div>
+        <div class="w-stats">
+          <div class="w-stat"><small>HUMIDITÉ</small><span id="whum">--%</span></div>
+          <div class="w-stat"><small>VENT km/h</small><span id="wwind">--</span></div>
+          <div class="w-stat"><small>RESSENTI</small><span id="wfeel">--°</span></div>
         </div>
-    </section>
+      </div>
 
-    <section id="projets" class="sec">
-        <div class="inner">
-            <div class="bento">
-                <div class="bc bc-A rv">
-                    <div style="font-family:var(--fM); font-size:10px; color:var(--gold); margin-bottom:1rem">MISSION 01</div>
-                    <h3 style="font-family:var(--fD); font-size:32px; margin-bottom:1rem">Safran Nacelles</h3>
-                    <p style="opacity:0.6; font-size:13px">Modélisation 3D d'une maquette pédagogique structurelle. Aéronautique de précision.</p>
-                </div>
-                <div class="bc bc-B rv" style="background:var(--gold); color:var(--bg)">
-                    <div style="font-size:48px; font-weight:bold">19</div>
-                    <div style="font-family:var(--fM); font-size:10px">Semaines de terrain</div>
-                </div>
-                <div class="bc bc-C rv">
-                    <h3 style="font-family:var(--fD); font-size:24px">SIE Electric</h3>
-                    <p style="opacity:0.5; font-size:12px">Cinématique moteur & Vidéo technique.</p>
-                </div>
-                <div class="bc bc-D rv">
-                    <h3 style="font-family:var(--fD); font-size:24px">Topographie</h3>
-                    <p style="opacity:0.5; font-size:12px">Numérisation pour Le Havre Seine Métropole.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+      <div class="card accent2">
+        <div class="card-title">MISSIONS EN COURS</div>
+        <div id="home-tasks-content" style="font-size:13px;color:var(--muted)">Aucune mission active.</div>
+      </div>
 
-    <section id="skills" class="sec">
-        <div class="inner">
-            <div class="skills-grid">
-                <div class="sk-card rv">
-                    <div style="font-family:var(--fM); font-size:10px; opacity:0.4; margin-bottom:2rem">EXPERTISE</div>
-                    <p>SolidWorks Expert</p>
-                    <p>Catia 3D Confirmé</p>
-                    <p>BTS ATI (En cours)</p>
-                </div>
-                <div class="sk-card rv">
-                    <div style="font-family:var(--fM); font-size:10px; opacity:0.4; margin-bottom:2rem">FORMATION</div>
-                    <p>Bac Pro EDPI (Mention Bien)</p>
-                    <p>Habilitation Électrique</p>
-                </div>
-            </div>
-        </div>
-    </section>
+      <div class="card green">
+        <div class="card-title">AGENDA DU JOUR</div>
+        <div id="home-evs-content" style="font-size:13px;color:var(--muted)">Aucun événement aujourd'hui.</div>
+      </div>
 
-    <section id="contact" class="sec">
-        <div class="inner" style="text-align:center">
-            <h2 style="font-family:var(--fD); font-size:64px; margin-bottom:2rem">Travaillons <em>ensemble.</em></h2>
-            <p style="opacity:0.5; margin-bottom:3rem">battaglialaurent11@gmail.com</p>
-            
-            <a href="assets/docs/CV_Laurent_Battaglia_2026.pdf" download="CV_Laurent_Battaglia_2026" class="btn-dl rv">
-                Télécharger le CV PDF →
-            </a>
+    </div>
+  </div>
+
+  <!-- AGENDA / CALENDRIER -->
+  <div class="page" id="page-agenda">
+    <div class="scroll-content">
+
+      <div class="card">
+        <div class="card-title">CHRONOLOGIE</div>
+        <div class="cal-nav-row">
+          <button class="cal-nav" onclick="navCal(-1)">&#8249;</button>
+          <div class="cal-month-lbl" id="calmonth"></div>
+          <button class="cal-nav" onclick="navCal(1)">&#8250;</button>
         </div>
-    </section>
-</main>
+        <div class="cal-grid" id="calgrid"></div>
+        <div class="ev-section-title">ÉVÉNEMENTS — <span id="seldaylbl" style="color:var(--muted)">SÉLECTIONNER UNE DATE</span></div>
+        <div id="evlist" style="margin-bottom:10px"></div>
+        <div style="display:flex;gap:8px">
+          <input type="text" class="field" id="evin" placeholder="Ajouter un événement..." autocomplete="off" style="flex:1">
+          <button class="btn accent2" style="width:auto;padding:0 16px" onclick="addEv()">+</button>
+        </div>
+      </div>
+
+      <div class="card accent2">
+        <div class="card-title">TÂCHES / MISSIONS</div>
+        <div id="age-list" style="margin-bottom:10px;display:flex;flex-direction:column;gap:6px"></div>
+        <input type="text" class="field" id="age-in" placeholder="Nouvelle mission..." autocomplete="off" style="margin-bottom:8px">
+        <button class="btn" onclick="addAgenda()">AJOUTER MISSION</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- NOTES -->
+  <div class="page" id="page-notes">
+    <div class="scroll-content">
+      <div class="card">
+        <div class="card-title">MÉMOIRE RAPIDE</div>
+        <div id="note-list" style="margin-bottom:10px;display:flex;flex-direction:column;gap:6px"></div>
+        <textarea class="field" id="note-in" placeholder="Mémo cliquable..."></textarea>
+        <button class="btn" style="margin-top:8px" onclick="addNote()">SAUVEGARDER NOTE</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CCTV -->
+  <div class="page" id="page-cctv">
+    <div class="scroll-content">
+      <div class="card">
+        <div class="card-title">CAM // LE HAVRE — LIVE</div>
+        <div class="cam-box">
+          <iframe src="https://www.vision-environnement.com/live/player/lehavre20.php" allowfullscreen></iframe>
+        </div>
+      </div>
+      <button class="btn" onclick="window.open('https://pv.viewsurf.com/588/Sainte-Adresse-Le-Havre?i=MzU3ODp1bmRlZmluZWQ','_blank')">VUE SAINTE-ADRESSE</button>
+      <button class="btn accent2" onclick="window.open('https://www.ville-lehavre.fr/ma-ville/vivre-au-havre/','_blank')">PORTAIL VILLE LE HAVRE</button>
+    </div>
+  </div>
+
+  <!-- ALEXA -->
+
+
+  <!-- LiA -->
+  <div class="page" id="page-lia">
+    <div class="scroll-content">
+      <div class="card">
+        <div class="card-title">LiA BUS // LE HAVRE — TEMPS RÉEL</div>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:12px">
+          <button class="btn" onclick="openLia('https://www.transports-lia.fr/fiche-horaire')">HORAIRES PAR LIGNE</button>
+          <button class="btn accent2" onclick="openLia('https://www.transports-lia.fr/calculateur-itineraire')">CALCULER UN ITINÉRAIRE</button>
+          <button class="btn" style="color:var(--green);border-color:var(--green)" onclick="openLia('https://www.transports-lia.fr/prochains-passages')">PROCHAINS PASSAGES</button>
+        </div>
+        <div style="font-family:var(--mono);font-size:8px;letter-spacing:0.15em;color:var(--muted);margin-bottom:8px">ACCÈS DIRECT — SITE OFFICIEL</div>
+        <div class="cam-box" style="aspect-ratio:unset;height:55vh">
+          <iframe id="lia-frame" src="about:blank" style="width:100%;height:100%;border:none;border-radius:12px"></iframe>
+        </div>
+        <div style="font-family:var(--mono);font-size:7px;color:var(--muted);margin-top:8px;text-align:center;letter-spacing:0.1em">Si le site ne s'affiche pas dans le cadre, utilisez les boutons ci-dessus</div>
+      </div>
+
+      <div class="card accent2">
+        <div class="card-title">ARRÊTS FAVORIS</div>
+        <div id="lia-favs" style="margin-bottom:10px;display:flex;flex-direction:column;gap:6px"></div>
+        <div style="display:flex;gap:8px">
+          <input type="text" class="field" id="lia-fav-in" placeholder="Nom de l'arrêt..." style="flex:1">
+          <button class="btn accent2" style="width:auto;padding:0 16px" onclick="addLiaFav()">+</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
 
 <script>
-/* LOADER */
-window.addEventListener('load', () => {
-    gsap.to("#loader-bar", {width: "100%", duration: 0.8});
-    gsap.to("#loader", {opacity: 0, duration: 0.5, delay: 1, onComplete: () => {
-        document.getElementById('loader').style.display = 'none';
-        initAnimations();
-    }});
-});
+const LS=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))??d}catch{return d}};
+const sv=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const MONTHS=['JANVIER','FEVRIER','MARS','AVRIL','MAI','JUIN','JUILLET','AOUT','SEPTEMBRE','OCTOBRE','NOVEMBRE','DECEMBRE'];
+const DAYS_SHORT=['LUN','MAR','MER','JEU','VEN','SAM','DIM'];
+const DAYS_LONG=['DIMANCHE','LUNDI','MARDI','MERCREDI','JEUDI','VENDREDI','SAMEDI'];
 
-function initAnimations() {
-    /* CURSOR */
-    const cb = document.getElementById('cb'), cd = document.getElementById('cd');
-    document.addEventListener('mousemove', e => {
-        gsap.to(cb, {x: e.clientX, y: e.clientY, duration: 0.5});
-        gsap.to(cd, {x: e.clientX, y: e.clientY, duration: 0.1});
-    });
-
-    /* REVEALS */
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.utils.toArray('.rv').forEach(el => {
-        gsap.to(el, {opacity: 1, y: 0, duration: 1.2, scrollTrigger: {trigger: el, start: "top 90%"}});
-    });
-
-    /* SCRAMBLE EFFECT */
-    const scramble = (el) => {
-        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-        const orig = el.innerText;
-        let iter = 0;
-        const iv = setInterval(() => {
-            el.innerText = orig.split("").map((l, i) => i < iter ? orig[i] : letters[Math.floor(Math.random()*36)]).join("");
-            if(iter >= orig.length) clearInterval(iv);
-            iter += 1/3;
-        }, 30);
-    };
-    document.querySelector('[data-scramble]').addEventListener('mouseenter', e => scramble(e.target));
+/* ── CLOCK ── */
+function tick(){
+  const n=new Date();
+  document.getElementById('clock').textContent=String(n.getHours()).padStart(2,'0')+':'+String(n.getMinutes()).padStart(2,'0');
+  document.getElementById('cdate').textContent=DAYS_LONG[n.getDay()]+' '+n.getDate()+' '+MONTHS[n.getMonth()].slice(0,3)+' '+n.getFullYear();
 }
+tick();setInterval(tick,10000);
+
+/* ── TABS ── */
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');
+  const page=document.getElementById('page-'+t.dataset.page);
+  page.classList.add('active');
+  if(t.dataset.page==='home')refreshHome();
+  if(t.dataset.page==='ai')setTimeout(()=>{const m=document.getElementById('ai-messages');m.scrollTop=m.scrollHeight;},50);
+}));
+
+/* ── MÉTÉO ── */
+const WC={0:'CIEL DÉGAGÉ',1:'PEU NUAGEUX',2:'PARTIELLEMENT NUAGEUX',3:'COUVERT',45:'BROUILLARD',51:'BRUINE',61:'PLUIE LÉGÈRE',63:'PLUIE',65:'PLUIE FORTE',71:'NEIGE',80:'AVERSES',95:'ORAGE'};
+fetch('https://api.open-meteo.com/v1/forecast?latitude=49.4938&longitude=0.1077&current=temperature_2m,apparent_temperature,relative_humidity_2m,wind_speed_10m,weathercode&wind_speed_unit=kmh&timezone=Europe/Paris')
+  .then(r=>r.json()).then(d=>{
+    const c=d.current;
+    document.getElementById('wtemp').innerHTML=Math.round(c.temperature_2m)+'<span>°C</span>';
+    document.getElementById('wdesc').textContent=WC[c.weathercode]||'CONDITIONS VARIABLES';
+    document.getElementById('whum').textContent=c.relative_humidity_2m+'%';
+    document.getElementById('wwind').textContent=Math.round(c.wind_speed_10m);
+    document.getElementById('wfeel').textContent=Math.round(c.apparent_temperature)+'°';
+  }).catch(()=>document.getElementById('wdesc').textContent='INDISPONIBLE');
+
+/* ── LINKIFY ── */
+function linkify(t){return t.replace(/(https?:\/\/[^\s]+)/g,'<a href="$1" target="_blank">$1</a>')}
+
+/* ── AGENDA (tâches) ── */
+let agenda=LS('loryx_agenda',[]);
+function renderAgenda(){
+  const l=document.getElementById('age-list');l.innerHTML='';
+  agenda.forEach((item,i)=>{
+    const d=document.createElement('div');d.className='list-item agenda-item';
+    d.innerHTML='<div class="list-item-text">'+linkify(esc(item))+'</div><button class="del-btn" data-i="'+i+'">[ EFFACER ]</button>';
+    d.querySelector('.del-btn').addEventListener('click',()=>{agenda.splice(i,1);sv('loryx_agenda',agenda);renderAgenda();refreshHome();});
+    l.appendChild(d);
+  });
+}
+function addAgenda(){
+  const v=document.getElementById('age-in').value.trim();if(!v)return;
+  agenda.push(v);sv('loryx_agenda',agenda);
+  document.getElementById('age-in').value='';renderAgenda();refreshHome();
+  speak('Mission enregistrée.');
+}
+document.getElementById('age-in').addEventListener('keydown',e=>{if(e.key==='Enter')addAgenda();});
+renderAgenda();
+
+/* ── NOTES ── */
+let notes=LS('loryx_notes',[]);
+function renderNotes(){
+  const l=document.getElementById('note-list');l.innerHTML='';
+  notes.slice().reverse().forEach((item,ri)=>{
+    const i=notes.length-1-ri;
+    const d=document.createElement('div');d.className='list-item';
+    d.innerHTML='<div class="list-item-text">'+linkify(esc(item))+'</div><button class="del-btn" data-i="'+i+'">[ EFFACER ]</button>';
+    d.querySelector('.del-btn').addEventListener('click',()=>{notes.splice(i,1);sv('loryx_notes',notes);renderNotes();});
+    l.appendChild(d);
+  });
+}
+function addNote(){
+  const v=document.getElementById('note-in').value.trim();if(!v)return;
+  notes.push(v);sv('loryx_notes',notes);
+  document.getElementById('note-in').value='';renderNotes();
+  speak('Note enregistrée, Monsieur.');
+}
+document.getElementById('note-in').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();addNote();}});
+renderNotes();
+
+/* ── CALENDAR ── */
+let cy=new Date().getFullYear(),cm=new Date().getMonth(),sel=null;
+let evs=LS('loryx_evs',{});
+function renderCal(){
+  document.getElementById('calmonth').textContent=MONTHS[cm]+' '+cy;
+  const g=document.getElementById('calgrid');g.innerHTML='';
+  DAYS_SHORT.forEach(d=>{const h=document.createElement('div');h.className='cal-dh';h.textContent=d;g.appendChild(h);});
+  const fd=new Date(cy,cm,1);const sd=(fd.getDay()+6)%7;
+  const dim=new Date(cy,cm+1,0).getDate();
+  const tn=new Date();const tk=tn.getFullYear()+'-'+tn.getMonth()+'-'+tn.getDate();
+  for(let i=0;i<sd;i++){const c=document.createElement('div');c.className='cal-dc empty';g.appendChild(c);}
+  for(let d=1;d<=dim;d++){
+    const c=document.createElement('div');c.className='cal-dc';
+    const k=cy+'-'+cm+'-'+d;
+    if(k===tk)c.classList.add('today');
+    if(k===sel)c.classList.add('selected');
+    if(evs[k]&&evs[k].length)c.classList.add('has-ev');
+    c.textContent=d;
+    c.addEventListener('click',()=>{sel=k;renderCal();renderEvList();});
+    g.appendChild(c);
+  }
+}
+function renderEvList(){
+  const l=document.getElementById('evlist');l.innerHTML='';
+  if(!sel){document.getElementById('seldaylbl').textContent='SÉLECTIONNER UNE DATE';return;}
+  const pts=sel.split('-');
+  document.getElementById('seldaylbl').textContent=pts[2]+' '+MONTHS[+pts[1]].slice(0,3)+' '+pts[0];
+  (evs[sel]||[]).forEach((ev,i)=>{
+    const d=document.createElement('div');d.className='ev-item';
+    d.innerHTML='<span class="ev-item-text">'+esc(ev)+'</span><button class="del-btn" data-i="'+i+'">×</button>';
+    d.querySelector('.del-btn').addEventListener('click',()=>{evs[sel].splice(i,1);sv('loryx_evs',evs);renderCal();renderEvList();refreshHome();});
+    l.appendChild(d);
+  });
+}
+function addEv(){
+  if(!sel){alert('Sélectionnez une date.');return;}
+  const v=document.getElementById('evin').value.trim();if(!v)return;
+  if(!evs[sel])evs[sel]=[];evs[sel].push(v);sv('loryx_evs',evs);
+  document.getElementById('evin').value='';renderCal();renderEvList();refreshHome();
+  speak('Événement planifié.');
+}
+function navCal(d){cm+=d;if(cm<0){cm=11;cy--;}if(cm>11){cm=0;cy++;}renderCal();}
+document.getElementById('evin').addEventListener('keydown',e=>{if(e.key==='Enter')addEv();});
+renderCal();
+
+/* ── HOME REFRESH ── */
+function refreshHome(){
+  const pending=agenda.filter((x,i)=>x).slice(0,5);
+  const ht=document.getElementById('home-tasks-content');
+  if(pending.length===0){ht.textContent='Aucune mission active.';}
+  else{ht.innerHTML=pending.map(t=>'<div style="padding:5px 0;border-bottom:1px solid var(--border);font-size:13px">'+esc(t)+'</div>').join('');}
+  const tn=new Date();const tk=tn.getFullYear()+'-'+tn.getMonth()+'-'+tn.getDate();
+  const todayEvs=evs[tk]||[];
+  const he=document.getElementById('home-evs-content');
+  if(todayEvs.length===0){he.textContent="Aucun événement aujourd'hui.";}
+  else{he.innerHTML=todayEvs.map(e=>'<div style="padding:5px 0;border-bottom:1px solid var(--border);font-size:13px;color:var(--accent2)">'+esc(e)+'</div>').join('');}
+}
+refreshHome();
+
+/* ── API KEY ── */
+let apiKey=LS('loryx_geminikey','');
+if(apiKey){document.getElementById('apikey').value=apiKey;setKeyStatus(true);}
+function setKeyStatus(ok){
+  const s=document.getElementById('keystatus');
+  s.textContent=ok?'✓ CLÉ ACTIVE — GEMINI GRATUIT':'✗ CLÉ MANQUANTE';
+  s.className='api-bar-status '+(ok?'ok':'err');
+}
+function saveKey(){
+  const k=document.getElementById('apikey').value.trim();
+  if(!k){setKeyStatus(false);return;}
+  apiKey=k;sv('loryx_geminikey',k);setKeyStatus(true);
+}
+
+/* ── AI / LORYX ── */
+let hist=[];
+const SYSTEM='Tu es LORYX, un assistant IA personnel intégré dans un dashboard high-tech. Tu es formel, précis et efficace — comme Jarvis dans Iron Man. Tu réponds toujours en français. Texte brut uniquement, sans markdown ni astérisques. Sois concis mais complet.';
+
+function appendMsg(role,text){
+  const d=document.createElement('div');d.className='msg '+role;
+  d.innerHTML=role==='loryx'?linkify(esc(text)):esc(text);
+  document.getElementById('ai-messages').appendChild(d);
+  setTimeout(()=>{const m=document.getElementById('ai-messages');m.scrollTop=m.scrollHeight;},50);
+  return d;
+}
+
+async function sendAI(forced){
+  const inp=document.getElementById('ai-input');
+  const q=(forced||inp.value).trim();if(!q)return;
+  if(!forced)inp.value='';
+  inp.disabled=true;
+  appendMsg('user',q);
+  hist.push({role:'user',content:q});
+  if(!apiKey){
+    appendMsg('loryx','Clé API Groq manquante. Entrez votre clé ci-dessus pour m\'activer, Monsieur.');
+    inp.disabled=false;return;
+  }
+  const thinking=appendMsg('loryx','...');
+  thinking.classList.add('thinking');
+  try{
+    const geminiMsgs=hist.map(m=>({role:m.role==='assistant'?'model':'user',parts:[{text:m.content}]}));
+    const r=await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key='+apiKey,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({contents:geminiMsgs,systemInstruction:{parts:[{text:SYSTEM}]}})
+    });
+    const data=await r.json();
+    if(data.error){
+      thinking.textContent='Erreur : '+data.error.message;
+      thinking.classList.remove('thinking');
+      setKeyStatus(false);
+    }else{
+      const reply=data.candidates?.[0]?.content?.parts?.[0]?.text||'Réponse vide.';
+      thinking.innerHTML=linkify(esc(reply));
+      thinking.classList.remove('thinking');
+      hist.push({role:'assistant',content:reply});
+      speak(reply);
+    }
+  }catch{
+    thinking.textContent='Connexion impossible, Monsieur.';
+    thinking.classList.remove('thinking');
+  }
+  inp.disabled=false;inp.focus();
+}
+
+/* ── VOIX ── */
+let recognition=null;let isListening=false;
+function speak(text){
+  window.speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text.slice(0,300));
+  u.lang='fr-FR';u.pitch=0.85;u.rate=1.05;
+  window.speechSynthesis.speak(u);
+}
+function toggleVoice(){
+  const Rec=window.SpeechRecognition||window.webkitSpeechRecognition;
+  const btn=document.getElementById('voice-btn');
+  if(!Rec){appendMsg('loryx','Reconnaissance vocale non supportée sur ce navigateur.');return;}
+  if(isListening){recognition&&recognition.stop();isListening=false;btn.classList.remove('listening');return;}
+  recognition=new Rec();recognition.lang='fr-FR';recognition.continuous=false;recognition.interimResults=false;
+  recognition.onstart=()=>{isListening=true;btn.classList.add('listening');};
+  recognition.onresult=e=>{
+    const t=e.results[0][0].transcript;
+    document.getElementById('ai-input').value=t;
+    sendAI();
+  };
+  recognition.onend=()=>{isListening=false;btn.classList.remove('listening');};
+  recognition.onerror=()=>{isListening=false;btn.classList.remove('listening');};
+  recognition.start();
+}
+
+/* ── INIT ── */
+appendMsg('loryx','Bonjour Monsieur. Systèmes LORYX initialisés. Modules actifs : météo Le Havre, calendrier, notes, CCTV, Alexa. Entrez votre clé Groq pour activer l\'interface IA.');
+
+/* ── LiA BUS ── */
+let liaFavs = LS('loryx_liafavs', []);
+function renderLiaFavs() {
+  const l = document.getElementById('lia-favs'); if(!l) return; l.innerHTML = '';
+  liaFavs.forEach((fav, i) => {
+    const d = document.createElement('div'); d.className = 'list-item agenda-item';
+    d.innerHTML = '<div style="display:flex;align-items:center;gap:8px"><span style="flex:1;font-size:13px">'+esc(fav)+'</span>'
+      + '<button class="btn accent2" style="width:auto;padding:4px 10px;font-size:8px" onclick="openLia(\'https://www.transports-lia.fr/prochains-passages?q='+encodeURIComponent(fav)+'\')">PASSAGES</button>'
+      + '<button class="del-btn" data-i="'+i+'">×</button></div>';
+    d.querySelector('.del-btn').addEventListener('click', () => { liaFavs.splice(i,1); sv('loryx_liafavs', liaFavs); renderLiaFavs(); });
+    l.appendChild(d);
+  });
+}
+function addLiaFav() {
+  const v = document.getElementById('lia-fav-in').value.trim(); if(!v) return;
+  liaFavs.push(v); sv('loryx_liafavs', liaFavs);
+  document.getElementById('lia-fav-in').value = ''; renderLiaFavs();
+}
+function openLia(url) {
+  const frame = document.getElementById('lia-frame');
+  if(frame) { frame.src = url; }
+  window.open(url, '_blank');
+}
+document.getElementById('lia-fav-in') && document.getElementById('lia-fav-in').addEventListener('keydown', e => { if(e.key==='Enter') addLiaFav(); });
+renderLiaFavs();
+
 </script>
 </body>
 </html>
