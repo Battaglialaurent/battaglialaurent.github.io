@@ -112,10 +112,17 @@ opacity:0;pointer-events:none;transition:opacity .38s var(--ease)}
 .on-dark .sn-t{color:var(--cr3)}
 
 /* ══ CURSOR (desktop) ══ */
-#cb,#cd{position:fixed;top:0;left:0;pointer-events:none;z-index:99999;border-radius:50%;transform:translate(-50%,-50%);will-change:transform;display:none}
-#cb{width:34px;height:34px;background:var(--ink);mix-blend-mode:difference;transition:width .5s var(--spring),height .5s var(--spring)}
-#cd{width:4px;height:4px;background:var(--ink);mix-blend-mode:difference}
-body.cH #cb{width:64px;height:64px} body.cL #cb{width:48px;height:48px}
+#cb,#cd{position:fixed;top:0;left:0;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);will-change:transform;display:none}
+/* Anneau extérieur */
+#cb{width:36px;height:36px;border:1.5px solid var(--gold);border-radius:50%;transition:width .45s var(--spring),height .45s var(--spring),border-color .3s,opacity .3s,background .3s}
+/* Point central */
+#cd{width:5px;height:5px;background:var(--gold);border-radius:50%;transition:width .25s var(--spring),height .25s var(--spring),background .3s}
+/* États hover */
+body.cH #cb{width:56px;height:56px;background:rgba(201,168,92,.07);border-color:var(--gold)}
+body.cL #cb{width:44px;height:44px;border-color:var(--gold);background:rgba(201,168,92,.12)}
+body.cL #cd{width:3px;height:3px}
+body.cClick #cb{width:28px;height:28px;background:rgba(201,168,92,.2)}
+body.cClick #cd{width:8px;height:8px}
 
 /* ══ LAYOUT ══ */
 main{padding-top:56px}
@@ -385,8 +392,19 @@ footer{background:var(--dk2);padding:1.5rem 1.25rem;padding-bottom:calc(1.5rem +
 @keyframes confetti-fall{0%{transform:translateY(0) rotate(0deg);opacity:1}100%{transform:translateY(300px) rotate(720deg);opacity:0}}
 
 /* ══ FLOATING CURSOR LABEL ══ */
-#cursor-label{position:fixed;pointer-events:none;z-index:9800;background:var(--gold);color:#fff;font-family:'DM Mono',monospace;font-size:7px;letter-spacing:.14em;text-transform:uppercase;padding:5px 10px;border-radius:20px;opacity:0;transform:translate(-50%,-50%);transition:opacity .2s,transform .1s linear;white-space:nowrap}
-#cursor-label.show{opacity:1}
+#cursor-label{
+  position:fixed;pointer-events:none;z-index:9800;
+  background:var(--dk);color:var(--gold);
+  font-family:'DM Mono',monospace;font-size:7px;letter-spacing:.18em;text-transform:uppercase;
+  padding:5px 12px;border-radius:var(--rb);
+  border:1px solid var(--g2);
+  opacity:0;
+  transform:translate(-50%,-140%) scale(.85);
+  transition:opacity .22s var(--ease),transform .22s var(--ease);
+  white-space:nowrap;
+  box-shadow:0 4px 20px rgba(0,0,0,.18);
+}
+#cursor-label.show{opacity:1;transform:translate(-50%,-140%) scale(1)}
 
 /* ══ SCRAMBLE placeholder ══ */
 .scramble-target{display:inline}
@@ -815,8 +833,12 @@ const MODALS = {
   mission2:{
     label:'Mission 02 · SIE Electric', title:'Vidéo Technique & Animation',
     body:`<p>Production d'<strong>animations cinématiques 3D</strong> et de vidéos techniques pour illustrer le fonctionnement d'équipements électriques industriels.</p>
-<h4>Lecteur vidéo</h4>
-<div class="m-video"><div class="m-vph"><div class="vi">▶</div><p>sie.gif</p></div></div>
+<h4>Aperçu animation</h4>
+<div class="m-video" style="position:relative">
+  <img src="sie.gif" alt="Animation cinématique SIE Electric" style="width:100%;height:100%;object-fit:cover;display:block"
+    onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+  <div class="m-vph" style="display:none;flex-direction:column;align-items:center;justify-content:center;position:absolute;inset:0"><div class="vi">▶</div><p>Déposer sie.gif dans le dossier du projet</p></div>
+</div>
 <div class="m-grid">
   <div class="m-cell"><div class="m-lab">Logiciel</div><div class="m-val">Catia 3D</div></div>
   <div class="m-cell"><div class="m-lab">Durée</div><div class="m-val">8 semaines</div></div>
@@ -1002,8 +1024,17 @@ function boot(){
   if(desk){
     const cb=document.getElementById('cb'),cd=document.getElementById('cd');
     let mx=innerWidth/2,my=innerHeight/2,bx=mx,by=my;
-    document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
-    (function loop(){bx+=(mx-bx)*.09;by+=(my-by)*.09;cb.style.transform=`translate(${bx}px,${by}px) translate(-50%,-50%)`;cd.style.transform=`translate(${mx}px,${my}px) translate(-50%,-50%)`;requestAnimationFrame(loop);})();
+    let visible=false;
+    function showCursor(){if(!visible){visible=true;cb.style.opacity='1';cd.style.opacity='1';}}
+    function hideCursor(){visible=false;cb.style.opacity='0';cd.style.opacity='0';}
+    cb.style.opacity='0';cd.style.opacity='0';
+    cb.style.transition+= ',opacity .3s';cd.style.transition+=',opacity .3s';
+    document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;showCursor();});
+    document.addEventListener('mouseleave',hideCursor);
+    document.addEventListener('mouseenter',showCursor);
+    document.addEventListener('mousedown',()=>document.body.classList.add('cClick'));
+    document.addEventListener('mouseup',()=>document.body.classList.remove('cClick'));
+    (function loop(){bx+=(mx-bx)*.10;by+=(my-by)*.10;cb.style.transform=`translate(${bx}px,${by}px) translate(-50%,-50%)`;cd.style.transform=`translate(${mx}px,${my}px) translate(-50%,-50%)`;requestAnimationFrame(loop);})();
     const setC=c=>document.body.className=c?'c'+c:'';
     document.querySelectorAll('.pc,.sk-card,.pass-item,.form-item,.hab-item,.tl-item').forEach(el=>{el.addEventListener('mouseenter',()=>setC('H'));el.addEventListener('mouseleave',()=>setC(''));});
     document.querySelectorAll('a,button,.pc-btn,.htag,.ptag,.f-badge,.acc-btn,.tl-badge,.ctlink').forEach(el=>{el.addEventListener('mouseenter',()=>setC('L'));el.addEventListener('mouseleave',()=>setC(''));});
@@ -1038,54 +1069,12 @@ function boot(){
 
     /* ── CURSOR LABEL ── */
     const cl=document.getElementById('cursor-label');
-    function showLabel(text){cl.textContent=text;cl.classList.add('show');}
-    function hideLabel(){cl.classList.remove('show');}
-    function bindLabel(selector,text){
-      document.querySelectorAll(selector).forEach(el=>{
-        el.addEventListener('mouseenter',()=>showLabel(text));
-        el.addEventListener('mouseleave',hideLabel);
-      });
-    }
-    /* Navigation links */
-    bindLabel('a[href="#hero"]','Accueil');
-    bindLabel('a[href="#projets"]','Projets');
-    bindLabel('a[href="#reel"]','Vision');
-    bindLabel('a[href="#timeline"]','Parcours');
-    bindLabel('a[href="#skills"]','Skills');
-    bindLabel('a[href="#contact"]','Contact');
-    /* Project cards — detail buttons */
-    bindLabel('.pc-btn[onclick*="openModal"]','Lire le détail');
-    /* Project cards — specs buttons */
-    bindLabel('.pc-btn[onclick*="openSpecs"]','Spécifications ⊡');
-    /* Project cards — hover on card body */
-    document.querySelectorAll('.pc').forEach(el=>{
-      el.addEventListener('mouseenter',()=>showLabel('Explorer'));
-      el.addEventListener('mouseleave',hideLabel);
-    });
-    /* Contact links */
-    bindLabel('a[href^="mailto"]','Envoyer un mail ✉');
-    bindLabel('a[href^="tel"]','Appeler ☎');
-    bindLabel('a[href*="linkedin"]','LinkedIn ↗');
-    /* CV download */
-    bindLabel('.btn-cv','Télécharger le CV →');
-    /* Accordion */
-    bindLabel('.acc-btn','Voir la réponse');
-    /* Timeline badges */
-    bindLabel('.tl-badge','Voir le détail');
-    /* Skill formation badges */
-    bindLabel('.f-badge','Détail ↗');
-    /* Passion items */
-    bindLabel('.pass-item','En savoir plus');
-    /* Hamburger */
-    bindLabel('#ham','Menu');
-    /* Modal close */
-    bindLabel('.modal-close','Fermer');
-    /* Specs close */
-    bindLabel('.specs-close','Fermer');
-    /* Tags (htag / ptag) */
-    bindLabel('.htag,.ptag','Compétence');
-    /* Move label with cursor */
-    document.addEventListener('mousemove',e=>{cl.style.left=e.clientX+'px';cl.style.top=(e.clientY-28)+'px';});
+    const labelMap={'#projets':'Voir les projets','#reel':'Stats','#skills':'Compétences','#contact':'Me contacter','#hero':'Accueil'};
+    document.querySelectorAll('.ctlink').forEach(el=>el.addEventListener('mouseenter',()=>{cl.textContent='Ouvrir ↗';cl.classList.add('show');}));
+    document.querySelectorAll('.ctlink').forEach(el=>el.addEventListener('mouseleave',()=>cl.classList.remove('show')));
+    document.querySelectorAll('.pc-btn[onclick*="openModal"]').forEach(el=>el.addEventListener('mouseenter',()=>{cl.textContent='Lire le détail';cl.classList.add('show');}));
+    document.querySelectorAll('.pc-btn[onclick*="openModal"]').forEach(el=>el.addEventListener('mouseleave',()=>cl.classList.remove('show')));
+    document.addEventListener('mousemove',e=>{cl.style.left=e.clientX+'px';cl.style.top=(e.clientY-18)+'px';});
   }
 
   /* ══ SCROLL REVEALS (enhanced stagger) ══ */
