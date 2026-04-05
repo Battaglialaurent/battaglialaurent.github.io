@@ -1038,11 +1038,53 @@ function boot(){
 
     /* ── CURSOR LABEL ── */
     const cl=document.getElementById('cursor-label');
-    const labelMap={'#projets':'Voir les projets','#reel':'Stats','#skills':'Compétences','#contact':'Me contacter','#hero':'Accueil'};
-    document.querySelectorAll('.ctlink').forEach(el=>el.addEventListener('mouseenter',()=>{cl.textContent='Ouvrir ↗';cl.classList.add('show');}));
-    document.querySelectorAll('.ctlink').forEach(el=>el.addEventListener('mouseleave',()=>cl.classList.remove('show')));
-    document.querySelectorAll('.pc-btn[onclick*="openModal"]').forEach(el=>el.addEventListener('mouseenter',()=>{cl.textContent='Lire le détail';cl.classList.add('show');}));
-    document.querySelectorAll('.pc-btn[onclick*="openModal"]').forEach(el=>el.addEventListener('mouseleave',()=>cl.classList.remove('show')));
+    function showLabel(text){cl.textContent=text;cl.classList.add('show');}
+    function hideLabel(){cl.classList.remove('show');}
+    function bindLabel(selector,text){
+      document.querySelectorAll(selector).forEach(el=>{
+        el.addEventListener('mouseenter',()=>showLabel(text));
+        el.addEventListener('mouseleave',hideLabel);
+      });
+    }
+    /* Navigation links */
+    bindLabel('a[href="#hero"]','Accueil');
+    bindLabel('a[href="#projets"]','Projets');
+    bindLabel('a[href="#reel"]','Vision');
+    bindLabel('a[href="#timeline"]','Parcours');
+    bindLabel('a[href="#skills"]','Skills');
+    bindLabel('a[href="#contact"]','Contact');
+    /* Project cards — detail buttons */
+    bindLabel('.pc-btn[onclick*="openModal"]','Lire le détail');
+    /* Project cards — specs buttons */
+    bindLabel('.pc-btn[onclick*="openSpecs"]','Spécifications ⊡');
+    /* Project cards — hover on card body */
+    document.querySelectorAll('.pc').forEach(el=>{
+      el.addEventListener('mouseenter',()=>showLabel('Explorer'));
+      el.addEventListener('mouseleave',hideLabel);
+    });
+    /* Contact links */
+    bindLabel('a[href^="mailto"]','Envoyer un mail ✉');
+    bindLabel('a[href^="tel"]','Appeler ☎');
+    bindLabel('a[href*="linkedin"]','LinkedIn ↗');
+    /* CV download */
+    bindLabel('.btn-cv','Télécharger le CV →');
+    /* Accordion */
+    bindLabel('.acc-btn','Voir la réponse');
+    /* Timeline badges */
+    bindLabel('.tl-badge','Voir le détail');
+    /* Skill formation badges */
+    bindLabel('.f-badge','Détail ↗');
+    /* Passion items */
+    bindLabel('.pass-item','En savoir plus');
+    /* Hamburger */
+    bindLabel('#ham','Menu');
+    /* Modal close */
+    bindLabel('.modal-close','Fermer');
+    /* Specs close */
+    bindLabel('.specs-close','Fermer');
+    /* Tags (htag / ptag) */
+    bindLabel('.htag,.ptag','Compétence');
+    /* Move label with cursor */
     document.addEventListener('mousemove',e=>{cl.style.left=e.clientX+'px';cl.style.top=(e.clientY-28)+'px';});
   }
 
