@@ -994,18 +994,221 @@ footer {
 
 .modal-tags { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: 1rem; }
 
-/* RESPONSIVE */
+/* ═══════════════════════════════════════
+   HAMBURGER MENU MOBILE
+═══════════════════════════════════════ */
+.tb-ham {
+  display: none;
+  flex-direction: column; justify-content: center; align-items: center;
+  gap: 5px; width: 40px; height: 40px;
+  background: none; border: 1px solid var(--b2);
+  border-radius: 10px; cursor: pointer;
+  transition: border-color .3s;
+  -webkit-tap-highlight-color: transparent;
+}
+.tb-ham:active { border-color: var(--gold); }
+.tb-ham span {
+  display: block; width: 18px; height: 1px;
+  background: var(--t2); border-radius: 2px;
+  transition: transform .4s var(--e1), opacity .3s, background .3s;
+  transform-origin: center;
+}
+.tb-ham.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); background: var(--gold); }
+.tb-ham.open span:nth-child(2) { opacity: 0; }
+.tb-ham.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); background: var(--gold); }
+
+/* Mobile nav drawer */
+#mob-nav {
+  position: fixed; inset: 0; z-index: 700;
+  background: rgba(5,5,10,.97);
+  backdrop-filter: blur(20px);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 0;
+  pointer-events: none; opacity: 0;
+  transition: opacity .4s var(--e1);
+}
+#mob-nav.open { pointer-events: all; opacity: 1; }
+.mob-nav-item {
+  width: 100%; text-align: center;
+  border-bottom: 1px solid var(--b1);
+}
+.mob-nav-item:first-child { border-top: 1px solid var(--b1); }
+.mob-nav-item a {
+  display: block; padding: 1.4rem 2rem;
+  font-family: var(--fD); font-size: clamp(28px, 8vw, 42px);
+  font-weight: 400; font-style: italic;
+  color: var(--t2); text-decoration: none;
+  transition: color .3s, background .3s;
+  -webkit-tap-highlight-color: transparent;
+}
+.mob-nav-item a:active { color: var(--gold); background: var(--g3); }
+.mob-nav-footer {
+  margin-top: 2rem;
+  font-family: var(--fM); font-size: 8px;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: var(--t4);
+}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE — TABLET 900px
+═══════════════════════════════════════ */
 @media(max-width:900px) {
-  .inner, .faq-wrap { padding: 5rem 1.75rem; }
-  .h-sub  { grid-template-columns: 1fr; gap: 2.5rem; }
+  body { cursor: auto; }
+  #cb, #cd { display: none; }
+
+  .inner, .faq-wrap { padding: 4.5rem 1.5rem; }
+  .h-sub  { grid-template-columns: 1fr; gap: 2rem; }
   .bc-A, .bc-B, .bc-C, .bc-D, .bc-E { grid-column: span 12; }
   .sk-grid { grid-template-columns: 1fr; }
   .ct-grid { grid-template-columns: 1fr; gap: 3rem; }
   .stats-grid { grid-template-columns: 1fr 1fr; }
-  #sidenav, .tb-nav { display: none; }
-  footer, #topbar { padding-left: 1.5rem; padding-right: 1.5rem; }
+  #sidenav, .tb-nav, .tb-status { display: none; }
+  .tb-ham { display: flex; }
+  footer, #topbar { padding-left: 1.25rem; padding-right: 1.25rem; }
   .modal-detail-grid { grid-template-columns: 1fr; }
-  .reel-stat-grid { gap: 2.5rem; }
+  .reel-stat-grid { gap: 2rem; }
+
+  /* Fix cursor: none on interactive elements */
+  button, a, .bc-modal-btn, .f-badge-click, .htag, .btag, .acc-btn { cursor: pointer; }
+  .form-item, .hab-item, .pass-item, .bc, .sk-card, .stat { cursor: default; }
+}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE — MOBILE 600px
+═══════════════════════════════════════ */
+@media(max-width:600px) {
+  /* BASE */
+  html { font-size: 15px; }
+  .inner { padding: 4rem 1.1rem 3rem; }
+  .faq-wrap { padding: 3.5rem 1.1rem; }
+
+  /* TOPBAR */
+  #topbar { height: 52px; padding: 0 1.1rem; }
+  .tb-logo { font-size: 9.5px; }
+
+  /* HERO */
+  #hero { min-height: 100svh; }
+  .h-grid { background-size: 48px 48px; }
+  .h-orb-1 { width: 300px; height: 300px; right: -60px; }
+  .h-orb-2 { width: 180px; height: 180px; }
+
+  .h-pre {
+    font-size: 7.5px; letter-spacing: .18em;
+    margin-bottom: 1.75rem; gap: .6rem;
+  }
+  .h-preline { width: 18px; }
+
+  .h-display {
+    font-size: clamp(52px, 16vw, 80px);
+    line-height: .88; letter-spacing: -.03em;
+  }
+
+  .h-bts-badge { margin-top: 1.25rem; gap: .4rem; }
+  .h-bts-title {
+    font-size: 7px; letter-spacing: .2em; gap: .5rem;
+    flex-wrap: wrap;
+  }
+  .h-bts-title::before { width: 14px; }
+  .h-bts-avail { font-size: 7px; letter-spacing: .16em; margin-left: 20px; }
+
+  .h-sub { margin-top: 2rem; gap: 1.5rem; }
+  .h-desc { font-size: 12px; line-height: 1.85; max-width: 100%; }
+
+  .h-right { align-items: flex-start; gap: 1.25rem; }
+  .h-tags { justify-content: flex-start; gap: .35rem; }
+  .htag { font-size: 7px; padding: 4px 10px; }
+
+  .h-scroll { display: none; }
+
+  /* MARQUEE */
+  .marquee-track span { font-size: 14px; }
+  .marquee-track { gap: 1.5rem; }
+
+  /* BENTO */
+  .bento { gap: 5px; }
+  .bc { padding: 1.35rem 1.25rem; }
+  .bc-ghost { font-size: 68px; }
+  .bc-ti { font-size: clamp(18px, 5.5vw, 26px); }
+  .bc-body { font-size: 11.5px; line-height: 1.8; }
+  .btag { font-size: 7px; padding: 3px 8px; }
+  .bc-modal-btn { font-size: 7px; padding: 5px 12px; margin-top: .25rem; }
+  .bc-ring { padding: 1rem 0; }
+  .bc-big { font-size: clamp(28px, 9vw, 42px); }
+  .bc-mention-main { font-size: clamp(24px, 8vw, 36px); }
+
+  /* REEL */
+  #reel { min-height: 50vh; }
+  .reel-inner { padding: 3.5rem 1.25rem; }
+  .reel-stat-grid { gap: 1.5rem; flex-direction: column; }
+  .reel-stat-val { font-size: clamp(40px, 12vw, 60px); }
+  .reel-eyebrow { font-size: 7.5px; letter-spacing: .2em; }
+
+  /* STATS */
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .stat { padding: 2rem 1.1rem; }
+  .stat-val { font-size: clamp(32px, 9vw, 48px); }
+  .stat-lab { font-size: 7.5px; letter-spacing: .14em; }
+
+  /* SKILLS */
+  .sk-grid { gap: 5px; }
+  .sk-card { padding: 1.5rem 1.25rem; }
+  .sk-head { font-size: 7.5px; letter-spacing: .2em; margin-bottom: 1.25rem; }
+  .sk-name { font-size: 12px; min-width: 90px; }
+  .sk-lv { font-size: 7.5px; min-width: 55px; }
+  .form-ti { font-size: 15px; }
+  .form-sc { font-size: 10.5px; }
+  .hab-name { font-size: 11px; }
+  .hab-ok { font-size: 6.5px; padding: 2px 7px; }
+  .pass-grid { grid-template-columns: 1fr 1fr; gap: .35rem; }
+  .pass-item { padding: .85rem .9rem; }
+  .pass-lb { font-size: 13px; }
+  .pass-sub { font-size: 9.5px; }
+  .pass-ico { font-size: 16px; }
+
+  /* SEC LABEL */
+  .sec-label { margin-bottom: 2rem; }
+  .sec-num { font-size: 7.5px; }
+  .sec-tag { font-size: 7.5px; }
+
+  /* FAQ */
+  .faq-title { font-size: clamp(30px, 9vw, 48px); margin-bottom: 2rem; }
+  .acc-q { font-size: 13px; }
+  .acc-a { font-size: 12px; }
+  .acc-btn { padding: 1.1rem 0; }
+
+  /* CONTACT */
+  .ct-title { font-size: clamp(36px, 11vw, 60px); }
+  .ct-body { font-size: 12px; }
+  .ct-eyebrow { font-size: 7.5px; margin-bottom: 1rem; }
+  .ct-avail { font-size: 7px; padding: 5px 12px; }
+  .btn-cv { font-size: 8px; padding: 11px 20px; }
+  .ctlink { padding: .85rem 1.1rem; gap: .9rem; }
+  .ctlink-main { font-size: 11px; }
+  .ctlink-sub { font-size: 9px; }
+
+  /* FOOTER */
+  footer { flex-direction: column; gap: .4rem; text-align: center; padding: 1.25rem 1.1rem; }
+  .f-sig { font-size: 11px; }
+  .f-line { font-size: 7px; }
+
+  /* MODAL */
+  #loryx-modal { padding: 0; align-items: flex-end; }
+  .modal-panel {
+    border-radius: 20px 20px 0 0;
+    max-height: 90svh;
+    padding: 1.75rem 1.25rem 2rem;
+    border-left: none; border-right: none; border-bottom: none;
+    border-top: 1px solid var(--gold);
+  }
+  #loryx-modal .modal-panel { transform: translateY(100%); }
+  #loryx-modal.open .modal-panel { transform: translateY(0); }
+  .modal-title { font-size: clamp(20px, 5.5vw, 28px); }
+  .modal-close { font-size: 8px; padding: 5px 11px; }
+  .modal-body { font-size: 12px; }
+
+  /* MOB NAV drawer items bigger on small screen */
+  .mob-nav-item a { font-size: clamp(24px, 7vw, 36px); padding: 1.2rem 1.5rem; }
 }
 </style>
 </head>
@@ -1037,6 +1240,17 @@ footer {
   </div>
 </div>
 
+<!-- MOBILE NAV DRAWER -->
+<nav id="mob-nav" aria-label="Menu mobile">
+  <div class="mob-nav-item"><a href="#hero"    onclick="closeMobNav()">Home</a></div>
+  <div class="mob-nav-item"><a href="#projets" onclick="closeMobNav()">Projets</a></div>
+  <div class="mob-nav-item"><a href="#reel"    onclick="closeMobNav()">Vision</a></div>
+  <div class="mob-nav-item"><a href="#skills"  onclick="closeMobNav()">Skills</a></div>
+  <div class="mob-nav-item"><a href="#faq"     onclick="closeMobNav()">FAQ</a></div>
+  <div class="mob-nav-item"><a href="#contact" onclick="closeMobNav()">Contact</a></div>
+  <div class="mob-nav-footer">BTS ATI · Le Havre · 2026</div>
+</nav>
+
 <!-- TOPBAR -->
 <header id="topbar">
   <div class="tb-logo">LB<em>.</em>26</div>
@@ -1047,6 +1261,9 @@ footer {
     <li><a href="#contact">Contact</a></li>
   </ul>
   <div class="tb-status"><div class="tb-dot"></div>Disponible · Le Havre</div>
+  <button class="tb-ham" id="ham-btn" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </header>
 
 <!-- SIDE NAV -->
@@ -1432,12 +1649,14 @@ footer {
         <div class="ct-avail rv"><div class="ct-avail-dot"></div>Actuellement disponible — Stage Mai–Juillet 2026</div>
         <a href="CV_Laurent_Battaglia_2026.pdf.pdf" download class="btn-cv rv">Télécharger le CV →</a>
       </div>
-      <div class="rv">
-        <div class="ct-links">
-          <a href="mailto:battaglialaurent11@gmail.com" class="ctlink">
-            <span class="ctlink-ico">✉</span>
-            <span><span class="ctlink-main">Email</span><span class="ctlink-sub">battaglialaurent11@gmail.com</span></span>
-          </a>
+     <div class="ct-links">
+  <a href="mailto:battaglialaurent11@gmail.com?subject=Contact%20Suite%20Portfolio%20-%20Stage%20BTS%20ATI" class="ctlink">
+    <span class="ctlink-ico">✉</span>
+    <span>
+      <span class="ctlink-main">Email</span>
+      <span class="ctlink-sub">battaglialaurent11@gmail.com</span>
+    </span>
+  </a>
           <a href="tel:+33621841613" class="ctlink">
             <span class="ctlink-ico">☎</span>
             <span><span class="ctlink-main">Téléphone</span><span class="ctlink-sub">06 21 84 16 13</span></span>
@@ -1459,10 +1678,32 @@ footer {
   <span class="f-line">BTS ATI · Le Havre · Normandie · Stage Mai–Juil 2026</span>
 </footer>
 
-<script>
-/* ═══════════════════════════════
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* ═══════════════════════════
+   MOBILE NAV
+═══════════════════════════ */
+const hamBtn = document.getElementById('ham-btn');
+const mobNav = document.getElementById('mob-nav');
+
+function openMobNav() {
+  hamBtn.classList.add('open');
+  mobNav.classList.add('open');
+  hamBtn.setAttribute('aria-expanded', 'true');
+  document.body.style.overflow = 'hidden';
+}
+function closeMobNav() {
+  hamBtn.classList.remove('open');
+  mobNav.classList.remove('open');
+  hamBtn.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+}
+hamBtn.addEventListener('click', () => {
+  hamBtn.classList.contains('open') ? closeMobNav() : openMobNav();
+});
+
+/* ═══════════════════════════
    MODAL SYSTEM
-═══════════════════════════════ */
+═══════════════════════════ */
 const MODAL_CONTENT = {
   maquette: {
     label: 'Mission 01 · Safran Nacelles',
@@ -1598,6 +1839,27 @@ function closeModal() {
 document.getElementById('modal-close-btn').addEventListener('click', closeModal);
 document.getElementById('modal-backdrop').addEventListener('click', closeModal);
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+/* Swipe down to close modal on mobile */
+(function() {
+  const panel = document.getElementById('modal-panel');
+  let startY = 0, dragging = false;
+  panel.addEventListener('touchstart', e => {
+    if (panel.scrollTop > 0) return;
+    startY = e.touches[0].clientY; dragging = true;
+  }, { passive: true });
+  panel.addEventListener('touchmove', e => {
+    if (!dragging) return;
+    const dy = e.touches[0].clientY - startY;
+    if (dy > 0) panel.style.transform = `translateY(${dy}px)`;
+  }, { passive: true });
+  panel.addEventListener('touchend', e => {
+    if (!dragging) return; dragging = false;
+    const dy = e.changedTouches[0].clientY - startY;
+    panel.style.transform = '';
+    if (dy > 80) closeModal();
+  });
+})();
 
 /* ═══ LOADER ═══ */
 (function () {
@@ -1816,13 +2078,4 @@ function initAll() {
   /* Magnetic nav */
   document.querySelectorAll('.tb-nav a').forEach(a => {
     a.addEventListener('mousemove', e => {
-      const r = a.getBoundingClientRect();
-      a.style.transform = `translate(${(e.clientX - r.left - r.width/2) * .2}px,${(e.clientY - r.top - r.height/2) * .2}px)`;
-    });
-    a.addEventListener('mouseleave', () => a.style.transform = '');
-  });
-
-} /* end initAll */
-</script>
-</body>
-</html>
+      const r = a.getBoundingClientRe
