@@ -27,6 +27,99 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <style>
+  /* Styles pour le bouton flottant (FAB) */
+.fab-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 15px;
+}
+
+/* Bouton principal "Me recruter" */
+.fab-main {
+  background: var(--gold);
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(201, 168, 92, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.3s cubic-bezier(.34,1.56,.64,1);
+}
+
+.fab-main:hover {
+  transform: scale(1.05);
+}
+
+/* Conteneur des options (Email et CV) */
+.fab-options {
+  display: none; /* Masqué par défaut */
+  flex-direction: column;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+/* Petits boutons circulaires */
+.fab-btn-mini {
+  background: var(--dk);
+  color: var(--gold);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border: 1px solid var(--dbd);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  font-size: 18px;
+}
+
+.fab-btn-mini:hover {
+  background: var(--gold);
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* Affichage des options au survol du conteneur global */
+.fab-container:hover .fab-options {
+  display: flex;
+  animation: fadeInOptions 0.3s ease forwards;
+}
+
+@keyframes fadeInOptions {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Ajustement pour mobile */
+@media (max-width: 900px) {
+  .fab-container {
+    bottom: 20px;
+    right: 20px;
+  }
+  .fab-text {
+    display: none; /* On ne garde que le '+' sur petit écran pour la discrétion */
+  }
+  .fab-main {
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    justify-content: center;
+  }
+}
 /* ══ TOKENS ══ */
 :root {
   --dk:#12100b; --dk2:#1a1712; --dk3:#221e16;
@@ -1225,5 +1318,15 @@ function boot(){
   }
 }
 </script>
+  <div class="fab-container">
+  <div class="fab-options">
+    <a href="mailto:battaglialaurent11@gmail.com" class="fab-btn-mini" title="M'envoyer un email">✉</a>
+    <a href="CV_Laurent_Battaglia_2026.pdf.pdf" download class="fab-btn-mini" title="Télécharger mon CV">📥</a>
+  </div>
+  <button class="fab-main">
+    <span class="fab-text">Me recruter</span>
+    <span class="fab-icon">+</span>
+  </button>
+</div>
 </body>
 </html>
