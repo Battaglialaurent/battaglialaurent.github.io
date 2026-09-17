@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, follow">
+<title>Mentions légales — Laurent Battaglia</title>
+<meta name="theme-color" content="#12100b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--dk:#12100b;--dk2:#1a1712;--lt:#f5f0e7;--ink:#1a1511;--ink2:rgba(26,21,17,.65);--gold:#c9a85c;--bd:rgba(255,255,255,.08)}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--dk);color:#eeeae1;font-family:'Syne',sans-serif;line-height:1.7;font-size:15.5px}
+  .wrap{max-width:760px;margin:0 auto;padding:4.5rem 1.5rem 5rem}
+  a.back{display:inline-block;margin-bottom:2.5rem;color:var(--gold);text-decoration:none;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.06em}
+  a.back:hover{text-decoration:underline}
+  h1{font-size:clamp(1.8rem,4vw,2.4rem);margin:0 0 .5rem;font-weight:800}
+  .updated{font-family:'DM Mono',monospace;font-size:11px;color:rgba(238,234,225,.4);letter-spacing:.05em;margin-bottom:2.8rem}
+  h2{font-size:1.05rem;color:var(--gold);margin:2.4rem 0 .8rem;font-weight:700;letter-spacing:.02em}
+  p,li{color:rgba(238,234,225,.82);margin:0 0 .9rem}
+  ul{padding-left:1.3rem}
+  strong{color:#fff}
+  a{color:var(--gold)}
+  .box{background:rgba(255,255,255,.03);border:1px solid var(--bd);border-radius:12px;padding:1.3rem 1.5rem;margin:1.2rem 0}
+  footer{margin-top:3.5rem;padding-top:1.5rem;border-top:1px solid var(--bd);font-family:'DM Mono',monospace;font-size:10.5px;color:rgba(238,234,225,.35)}
+  .email-link{cursor:pointer;color:var(--gold);text-decoration:underline}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="index.html">← Retour au portfolio</a>
+  <h1>Mentions légales</h1>
+  <div class="updated">Dernière mise à jour : septembre 2026</div>
+
+  <h2>Éditeur du site</h2>
+  <div class="box">
+    <p><strong>Laurent Battaglia</strong><br>
+    Étudiant en BTS ATI — Le Havre, Normandie, France<br>
+    Statut : site personnel à but non commercial (portfolio d'étudiant)<br>
+    Contact : <span class="email-link js-mail" data-e="YmF0dGFnbGlhbGF1cmVudDExQGdtYWlsLmNvbQ==">···</span></p>
+  </div>
+
+  <h2>Directeur de la publication</h2>
+  <p>Laurent Battaglia, également éditeur du site.</p>
+
+  <h2>Hébergement</h2>
+  <div class="box">
+    <p><strong>GitHub, Inc.</strong> (GitHub Pages)<br>
+    88 Colin P Kelly Jr St, San Francisco, CA 94107, États-Unis<br>
+    <a href="https://pages.github.com" target="_blank" rel="noopener">pages.github.com</a></p>
+  </div>
+
+  <h2>Propriété intellectuelle</h2>
+  <p>L'ensemble des contenus présents sur ce site (textes, mises en page, visuels, projets présentés, CV) est la propriété de Laurent Battaglia, sauf mention contraire. Toute reproduction, représentation ou diffusion, totale ou partielle, sans autorisation préalable est interdite.</p>
+  <p>Les logos, marques et contenus tiers éventuellement affichés (ex. Canva, LinkedIn) restent la propriété de leurs titulaires respectifs.</p>
+
+  <h2>Responsabilité</h2>
+  <p>Ce site est présenté à titre informatif dans le cadre d'une recherche de stage. L'éditeur s'efforce d'assurer l'exactitude des informations diffusées mais ne saurait être tenu responsable des erreurs, omissions ou de l'indisponibilité temporaire du site.</p>
+
+  <h2>Liens externes</h2>
+  <p>Ce site contient des liens vers des sites tiers (LinkedIn, Canva). L'éditeur n'exerce aucun contrôle sur ces sites et décline toute responsabilité quant à leur contenu.</p>
+
+  <h2>Droit applicable</h2>
+  <p>Les présentes mentions légales sont soumises au droit français.</p>
+
+  <footer>Laurent Battaglia — Le Havre, France</footer>
+</div>
+<script>
+document.querySelectorAll('.js-mail').forEach(el=>{
+  const mail=atob(el.dataset.e);
+  el.textContent=mail;
+  el.addEventListener('click',()=>window.location.href='mailto:'+mail);
+});
+</script>
+</body>
+</html>

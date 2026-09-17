@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, follow">
+<title>Conditions générales d'utilisation — Laurent Battaglia</title>
+<meta name="theme-color" content="#12100b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--dk:#12100b;--gold:#c9a85c;--bd:rgba(255,255,255,.08)}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--dk);color:#eeeae1;font-family:'Syne',sans-serif;line-height:1.7;font-size:15.5px}
+  .wrap{max-width:760px;margin:0 auto;padding:4.5rem 1.5rem 5rem}
+  a.back{display:inline-block;margin-bottom:2.5rem;color:var(--gold);text-decoration:none;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.06em}
+  a.back:hover{text-decoration:underline}
+  h1{font-size:clamp(1.8rem,4vw,2.4rem);margin:0 0 .5rem;font-weight:800}
+  .updated{font-family:'DM Mono',monospace;font-size:11px;color:rgba(238,234,225,.4);letter-spacing:.05em;margin-bottom:2.8rem}
+  h2{font-size:1.05rem;color:var(--gold);margin:2.4rem 0 .8rem;font-weight:700;letter-spacing:.02em}
+  p,li{color:rgba(238,234,225,.82);margin:0 0 .9rem}
+  ul{padding-left:1.3rem}
+  strong{color:#fff}
+  a{color:var(--gold)}
+  footer{margin-top:3.5rem;padding-top:1.5rem;border-top:1px solid var(--bd);font-family:'DM Mono',monospace;font-size:10.5px;color:rgba(238,234,225,.35)}
+  .email-link{cursor:pointer;color:var(--gold);text-decoration:underline}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="index.html">← Retour au portfolio</a>
+  <h1>Conditions générales d'utilisation</h1>
+  <div class="updated">Dernière mise à jour : septembre 2026</div>
+
+  <h2>Article 1 — Objet</h2>
+  <p>Les présentes conditions générales d'utilisation (CGU) régissent l'accès et l'utilisation du site portfolio de Laurent Battaglia, accessible à l'adresse battaglialaurent.github.io. L'utilisation du site implique l'acceptation pleine et entière des présentes CGU.</p>
+
+  <h2>Article 2 — Accès au site</h2>
+  <p>Le site est accessible gratuitement à tout visiteur disposant d'un accès à internet. L'éditeur met tout en œuvre pour assurer un accès continu au site, sans garantie de disponibilité permanente, notamment en cas de maintenance ou de panne indépendante de sa volonté.</p>
+
+  <h2>Article 3 — Contenu du site</h2>
+  <p>Ce site présente le parcours, les compétences, les projets et les expériences professionnelles de Laurent Battaglia dans le cadre d'une recherche de stage ou d'alternance. Les informations sont fournies à titre indicatif et peuvent être mises à jour sans préavis.</p>
+
+  <h2>Article 4 — Propriété intellectuelle</h2>
+  <p>Tous les éléments du site (textes, mises en page, projets présentés, visuels, CV téléchargeable) sont protégés par le droit d'auteur et restent la propriété exclusive de Laurent Battaglia, sauf mention contraire. Toute reproduction ou utilisation sans autorisation préalable écrite est interdite.</p>
+
+  <h2>Article 5 — Liens hypertextes</h2>
+  <p>Le site peut contenir des liens vers des sites tiers (LinkedIn, Canva). L'éditeur ne peut être tenu responsable du contenu de ces sites externes, sur lesquels il n'exerce aucun contrôle.</p>
+
+  <h2>Article 6 — Responsabilité</h2>
+  <p>L'éditeur s'efforce de fournir des informations exactes et à jour, mais ne saurait garantir l'exactitude, la complétude ou l'actualité des informations diffusées. L'utilisation des informations du site se fait sous la seule responsabilité de l'utilisateur.</p>
+
+  <h2>Article 7 — Données personnelles</h2>
+  <p>Le traitement des données personnelles est détaillé dans la <a href="politique-confidentialite.html">politique de confidentialité</a> du site, conforme au RGPD.</p>
+
+  <h2>Article 8 — Modification des CGU</h2>
+  <p>L'éditeur se réserve le droit de modifier les présentes CGU à tout moment, notamment pour se conformer à toute évolution législative, réglementaire ou technique. Les utilisateurs sont invités à les consulter régulièrement.</p>
+
+  <h2>Article 9 — Droit applicable et litiges</h2>
+  <p>Les présentes CGU sont soumises au droit français. En cas de litige, les tribunaux français seront seuls compétents.</p>
+
+  <h2>Contact</h2>
+  <p>Pour toute question relative aux présentes CGU : <span class="email-link js-mail" data-e="YmF0dGFnbGlhbGF1cmVudDExQGdtYWlsLmNvbQ==">···</span></p>
+
+  <footer>Laurent Battaglia — Le Havre, France</footer>
+</div>
+<script>
+document.querySelectorAll('.js-mail').forEach(el=>{
+  const mail=atob(el.dataset.e);
+  el.textContent=mail;
+  el.addEventListener('click',()=>window.location.href='mailto:'+mail);
+});
+</script>
+</body>
+</html>
