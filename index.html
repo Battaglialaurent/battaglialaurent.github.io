@@ -506,7 +506,22 @@ repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(255,255,255,.0
 .ctlink-main{font-weight:500;display:block;font-size:clamp(11px,3vw,12px)}
 .ctlink-sub{font-size:9px;color:var(--cr3);display:block;margin-top:1px}
 
-footer{background:var(--dk2);padding:1.5rem 1.25rem;padding-bottom:calc(1.5rem + var(--safe-b));display:flex;flex-wrap:wrap;gap:.35rem;justify-content:space-between;align-items:center;border-top:1px solid var(--dbd)}
+footer{background:var(--dk2);padding:1.5rem 1.25rem;padding-bottom:calc(1.5rem + var(--safe-b));display:flex;flex-wrap:wrap;gap:.35rem 1.5rem;justify-content:space-between;align-items:center;border-top:1px solid var(--dbd)}
+.f-legal{display:flex;flex-wrap:wrap;gap:.9rem;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.08em}
+.f-legal a{color:var(--cr3);text-decoration:none;transition:color .25s}
+.f-legal a:hover{color:var(--gold)}
+
+/* ══ COOKIE BANNER ══ */
+#cookie-banner{position:fixed;left:0;right:0;bottom:0;z-index:100000;background:var(--dk2);border-top:1px solid var(--dbd);padding:1.1rem 1.25rem calc(1.1rem + var(--safe-b));display:flex;flex-wrap:wrap;gap:1rem 1.5rem;align-items:center;justify-content:space-between;transform:translateY(110%);transition:transform .5s var(--ease);box-shadow:0 -8px 30px rgba(0,0,0,.35)}
+#cookie-banner.show{transform:translateY(0)}
+#cookie-banner p{color:var(--cr2);font-size:12.5px;line-height:1.55;max-width:640px;margin:0}
+#cookie-banner a{color:var(--gold);text-decoration:underline}
+.ck-actions{display:flex;gap:.6rem;flex-wrap:wrap}
+.ck-btn{font-family:'DM Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;padding:.65rem 1.1rem;border-radius:8px;cursor:pointer;border:1px solid var(--dbd);background:transparent;color:var(--cr2);transition:.25s}
+.ck-btn:hover{border-color:var(--gold);color:var(--gold)}
+.ck-btn.primary{background:var(--gold);color:#1a1511;border-color:var(--gold)}
+.ck-btn.primary:hover{opacity:.88;color:#1a1511}
+@media(max-width:640px){#cookie-banner{flex-direction:column;align-items:stretch}.ck-actions{justify-content:stretch}.ck-btn{flex:1}}
 .f-sig{font-family:'Playfair Display',serif;font-size:12px;font-style:italic;color:var(--cr3)}
 .f-line{font-family:'DM Mono',monospace;font-size:7.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--cr4)}
 
@@ -978,13 +993,13 @@ footer{background:var(--dk2);padding:1.5rem 1.25rem;padding-bottom:calc(1.5rem +
       </div>
       <div class="rv">
         <div class="ct-links">
-          <a href="mailto:battaglialaurent11@gmail.com" class="ctlink">
+          <a href="#" class="ctlink js-anti-spam" data-e="YmF0dGFnbGlhbGF1cmVudDExQGdtYWlsLmNvbQ==" data-txt="YmF0dGFnbGlhbGF1cmVudDExQGdtYWlsLmNvbQ==" data-type="mail">
             <span class="ctlink-ico">✉</span>
-            <span><span class="ctlink-main">Email</span><span class="ctlink-sub">battaglialaurent11@gmail.com</span></span>
+            <span><span class="ctlink-main">Email</span><span class="ctlink-sub js-anti-spam-txt">···</span></span>
           </a>
-          <a href="tel:+33621841613" class="ctlink">
+          <a href="#" class="ctlink js-anti-spam" data-e="KzMzNjIxODQxNjEz" data-txt="MDYgMjEgODQgMTYgMTM=" data-type="tel">
             <span class="ctlink-ico">☎</span>
-            <span><span class="ctlink-main">Téléphone</span><span class="ctlink-sub">06 21 84 16 13</span></span>
+            <span><span class="ctlink-main">Téléphone</span><span class="ctlink-sub js-anti-spam-txt">···</span></span>
           </a>
           <a href="https://www.linkedin.com/in/laurent-battaglia-7bb813369" target="_blank" rel="noopener" class="ctlink">
             <span class="ctlink-ico">↗</span>
@@ -1000,6 +1015,12 @@ footer{background:var(--dk2);padding:1.5rem 1.25rem;padding-bottom:calc(1.5rem +
 <footer>
   <span class="f-sig">Laurent Battaglia — 2027</span>
   <span class="f-line">BTS ATI · Le Havre · Stage Mai–Juil 2027</span>
+  <span class="f-legal">
+    <a href="mentions-legales.html">Mentions légales</a>
+    <a href="politique-confidentialite.html">Confidentialité (RGPD)</a>
+    <a href="cgu.html">CGU</a>
+    <a href="#" id="f-cookie-manage">Gérer les cookies</a>
+  </span>
 </footer>
 
 <script>
@@ -1357,12 +1378,24 @@ function boot(){
     mq.addEventListener('mouseenter',()=>mq.style.animationDuration='8s');
     mq.addEventListener('mouseleave',()=>mq.style.animationDuration='22s');
   }
+
+  /* ══ ANTI-SPAM : reconstruction des liens email/tél au runtime ══ */
+  document.querySelectorAll('.js-anti-spam').forEach(el=>{
+    const type=el.dataset.type;
+    const target=el.dataset.e?atob(el.dataset.e):'';
+    el.addEventListener('click',e=>{
+      e.preventDefault();
+      window.location.href=(type==='tel'?'tel:':'mailto:')+target;
+    });
+    const txtEl=el.querySelector('.js-anti-spam-txt');
+    if(txtEl&&el.dataset.txt)txtEl.textContent=atob(el.dataset.txt);
+  });
 }
 </script>
 
 <div class="fab-container">
   <div class="fab-options">
-    <a href="mailto:battaglialaurent11@gmail.com" class="fab-btn-mini" title="M'envoyer un email">✉</a>
+    <a href="#" class="fab-btn-mini js-anti-spam" data-e="YmF0dGFnbGlhbGF1cmVudDExQGdtYWlsLmNvbQ==" data-type="mail" title="M'envoyer un email">✉</a>
     <a href="CV Laurent BATTAGLIA..pdf" download class="fab-btn-mini" title="Télécharger mon CV">📥</a>
   </div>
   <button class="fab-main">
@@ -1370,5 +1403,40 @@ function boot(){
     <span class="fab-icon">+</span>
   </button>
 </div>
+
+<!-- ══ BANNIÈRE COOKIES / RGPD ══ -->
+<div id="cookie-banner" role="dialog" aria-live="polite" aria-label="Gestion des cookies">
+  <p>
+    Ce site dépose uniquement des données techniques locales (mémorisation de votre choix de cookies) et charge des polices via Google Fonts, ce qui peut transmettre votre adresse IP à Google.
+    Aucune donnée personnelle n'est collectée ni revendue. En savoir plus dans la
+    <a href="politique-confidentialite.html">politique de confidentialité</a>.
+  </p>
+  <div class="ck-actions">
+    <button class="ck-btn" id="ck-decline">Refuser</button>
+    <button class="ck-btn primary" id="ck-accept">Accepter</button>
+  </div>
+</div>
+<script>
+(function(){
+  const KEY='lb_cookie_consent';
+  const banner=document.getElementById('cookie-banner');
+  function show(){banner.classList.add('show');}
+  function hide(){banner.classList.remove('show');}
+  try{
+    const saved=localStorage.getItem(KEY);
+    if(!saved)show();
+  }catch(e){show();}
+  document.getElementById('ck-accept').addEventListener('click',()=>{
+    try{localStorage.setItem(KEY,JSON.stringify({choice:'accepted',date:new Date().toISOString()}));}catch(e){}
+    hide();
+  });
+  document.getElementById('ck-decline').addEventListener('click',()=>{
+    try{localStorage.setItem(KEY,JSON.stringify({choice:'declined',date:new Date().toISOString()}));}catch(e){}
+    hide();
+  });
+  const manage=document.getElementById('f-cookie-manage');
+  if(manage)manage.addEventListener('click',e=>{e.preventDefault();show();});
+})();
+</script>
 </body>
 </html>
