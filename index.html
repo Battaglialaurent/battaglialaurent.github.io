@@ -1139,12 +1139,13 @@ const MODALS = {
 };
 
 /* ══ MODAL ══ */
-const modal=document.getElementById('loryx-modal'),mPanel=document.getElementById('modal-panel');
-function openModal(t){const d=MODALS[t];if(!d)return;document.getElementById('modal-label').textContent=d.label;document.getElementById('modal-title').textContent=d.title;document.getElementById('modal-body').innerHTML=d.body;modal.classList.add('open');document.body.style.overflow='hidden';mPanel.scrollTop=0;}
-function closeModal(){modal.classList.remove('open');document.body.style.overflow='';}
-document.getElementById('modal-close-btn').addEventListener('click',closeModal);
+const modal=document.getElementById('loryx-modal'),mPanel=document.getElementById('modal-panel'),modalClose=document.getElementById('modal-close-btn');
+let lastModalFocus=null;
+function openModal(t){const d=MODALS[t];if(!d)return;lastModalFocus=document.activeElement;document.getElementById('modal-label').textContent=d.label;document.getElementById('modal-title').textContent=d.title;document.getElementById('modal-body').innerHTML=d.body;modal.classList.add('open');document.body.style.overflow='hidden';mPanel.scrollTop=0;requestAnimationFrame(()=>modalClose.focus());}
+function closeModal(){modal.classList.remove('open');document.body.style.overflow='';if(lastModalFocus&&typeof lastModalFocus.focus==='function')requestAnimationFrame(()=>lastModalFocus.focus());}
+modalClose.addEventListener('click',closeModal);
 document.getElementById('modal-bd').addEventListener('click',closeModal);
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+document.addEventListener('keydown',e=>{if(!modal.classList.contains('open'))return;if(e.key==='Escape'){e.preventDefault();closeModal();}if(e.key==='Tab'){const focusables=modal.querySelectorAll('button,a,input,select,textarea,[tabindex]:not([tabindex="-1"])');if(!focusables.length)return;const first=focusables[0],last=focusables[focusables.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});
 let sy=0,drag=false;
 mPanel.addEventListener('touchstart',e=>{if(mPanel.scrollTop>4)return;sy=e.touches[0].clientY;drag=true;},{passive:true});
 mPanel.addEventListener('touchmove',e=>{if(!drag)return;const dy=e.touches[0].clientY-sy;if(dy>0){mPanel.style.transition='none';mPanel.style.transform=`translateY(${dy}px)`;}},{passive:true});
