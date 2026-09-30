@@ -9,5 +9,7 @@
   ],
   "theme_color":"#12100b",
   "background_color":"#12100b",
-  "display":"standalone"
+  "display":"standalone",
+  "description":"Portfolio technique de Laurent Battaglia — BTS Assistance Technique d’Ingénieur",
+  "lang":"fr-FR"
 }
