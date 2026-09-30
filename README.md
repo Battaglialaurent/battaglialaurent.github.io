@@ -6,7 +6,7 @@
   <img src="https://img.shields.io/badge/Secteur-Normandie_%2F_Axe_Seine-05050a?style=for-the-badge" alt="Secteur">
   <br>
   <img src="https://img.shields.io/badge/SolidWorks-Expert-c9aa6e?style=for-the-badge&logo=solidworks&logoColor=white" alt="SolidWorks">
-  <img src="https://img.shields.io/badge/Catia_V5-Confirmé-c9aa6e?style=for-the-badge&logo=catia&logoColor=white" alt="Catia">
+  <img src="https://img.shields.io/badge/CATIA_V5-Confirmé-c9aa6e?style=for-the-badge&logo=catia&logoColor=white" alt="Catia">
 </div>
 
 ---
@@ -26,7 +26,7 @@ L'animation ci-dessous démontre ma capacité à simuler et valider des mécanis
 <div align="center">
   <img src="sie.gif" alt="Cinématique SIE Electric" width="700">
   <br>
-  <i>Validation des trajectoires et détection de collisions - Logiciel : Catia 3D</i>
+  <i>Validation des trajectoires et détection de collisions - Logiciel : CATIA 3D</i>
 </div>
 
 ---
