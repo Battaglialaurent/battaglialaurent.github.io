@@ -607,6 +607,11 @@ footer{background:var(--dk2);padding:1.5rem 1.25rem;padding-bottom:calc(1.5rem +
     scroll-behavior: auto !important;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .canva-frame { display:none; }
+  .canva-placeholder { display:flex !important; }
+}
 </style>
 </head>
 <body>
