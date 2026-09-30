@@ -2,17 +2,17 @@
 ### BTS Assistance Technique d'Ingénieur (2025–2027) • Le Havre
 
 <div align="center">
-  <img src="https://img.shields.io/badge/Statut-Disponible_Stage_Mai--Juillet_2026-3ecf74?style=for-the-badge&logo=github" alt="Statut">
+  <img src="https://img.shields.io/badge/Statut-Disponible_Stage_Mai--Juillet_2027-3ecf74?style=for-the-badge&logo=github" alt="Statut">
   <img src="https://img.shields.io/badge/Secteur-Normandie_%2F_Axe_Seine-05050a?style=for-the-badge" alt="Secteur">
   <br>
-  <img src="https://img.shields.io/badge/SolidWorks-Expert_93%25-c9aa6e?style=for-the-badge&logo=solidworks&logoColor=white" alt="SolidWorks">
+  <img src="https://img.shields.io/badge/SolidWorks-Expert-c9aa6e?style=for-the-badge&logo=solidworks&logoColor=white" alt="SolidWorks">
   <img src="https://img.shields.io/badge/Catia_V5-Confirmé-c9aa6e?style=for-the-badge&logo=catia&logoColor=white" alt="Catia">
 </div>
 
 ---
 
 ## 🔬 APERÇU DES COMPÉTENCES SYSTÈME
-> Étudiant en **BTS ATI**, je me spécialise dans l'optimisation des flux industriels et la conception CAO avancée. Mon objectif est d'intégrer une équipe d'ingénierie exigeante pour la période **mai–juillet 2026**.
+> Étudiant en **BTS ATI**, je me spécialise dans l'optimisation des flux industriels et la conception CAO avancée. Mon objectif est d'intégrer une équipe d'ingénierie exigeante pour la période **mai–juillet 2027**.
 
 * **Conception & Simulation :** Modélisation paramétrique, assemblages complexes, analyse cinématique.
 * **Industrialisation :** Mise en plan ISO, cotation fonctionnelle, documentation technique.
@@ -49,7 +49,7 @@ Mon travail est organisé selon les standards de rigueur industrielle :
 ---
 
 ## 📍 CONTACT & ACCÈS DIRECT
-* 🌐 **Portfolio Live :** [battaglialaurent.github.io/Portfolio/](https://battaglialaurent.github.io/Portfolio/)
+* 🌐 **Portfolio Live :** [battaglialaurent.github.io/](https://battaglialaurent.github.io/)
 * ✉️ **Email :** battaglialaurent11@gmail.com
 * ☎️ **Téléphone :** 06 21 84 16 13
 * 💼 **LinkedIn :** [Laurent Battaglia](https://www.linkedin.com/in/laurent-battaglia-7bb813369)
