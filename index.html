@@ -17,15 +17,20 @@
 
   <meta name="msapplication-TileColor" content="#05050a">
 
-  <title>Laurent Battaglia — BTS ATI 2027 | Portfolio</title>
+  <title>Laurent Battaglia — BTS ATI | Portfolio</title>
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://battaglialaurent.github.io/">
-  <meta property="og:title" content="Laurent Battaglia — BTS ATI 2027 | Portfolio">
+  <meta property="og:title" content="Laurent Battaglia — BTS ATI | Portfolio">
   <meta property="og:description" content="Portfolio de Laurent Battaglia, étudiant en BTS ATI au Havre. CAO, SolidWorks, CATIA 3D, automatismes et conception industrielle. Stage de fin de BTS en 2027.">
   <meta property="og:image" content="https://battaglialaurent.github.io/social-card.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Portfolio de Laurent Battaglia — BTS ATI">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Laurent Battaglia — BTS ATI | Portfolio">
+  <meta name="twitter:description" content="Portfolio de Laurent Battaglia, étudiant en BTS Assistance Technique d’Ingénieur au Havre. CAO, conception industrielle et projets techniques.">
+  <meta name="twitter:image" content="https://battaglialaurent.github.io/social-card.png">
 
   <script type="application/ld+json">
   {
@@ -210,6 +215,9 @@
   --safe-b:env(safe-area-inset-bottom,0px); --safe-t:env(safe-area-inset-top,0px);
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+.skip-link{position:fixed;left:1rem;top:1rem;z-index:100000;padding:.7rem 1rem;background:var(--gold);color:#fff;border-radius:8px;font-family:'DM Mono',monospace;font-size:11px;text-decoration:none;transform:translateY(-180%);transition:transform .2s}
+.skip-link:focus{transform:translateY(0)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
 html{font-size:16px;scroll-behavior:smooth;overflow-x:hidden}
 body{background:var(--lt);color:var(--ink);font-family:'Syne',sans-serif;font-size:15px;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 ::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--lt2)}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
@@ -610,6 +618,7 @@ footer{background:var(--dk2);padding:1.5rem 1.25rem;padding-bottom:calc(1.5rem +
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Passer au contenu</a>
 
 <div id="spbar" aria-hidden="true"><div id="spfill"></div></div>
 <div id="grain" aria-hidden="true"></div>
@@ -626,7 +635,7 @@ footer{background:var(--dk2);padding:1.5rem 1.25rem;padding-bottom:calc(1.5rem +
 </div>
 
 <!-- MODAL -->
-<div id="loryx-modal" role="dialog" aria-modal="true" aria-label="Détail du projet">
+<div id="loryx-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-body" tabindex="-1">
   <div class="modal-bd" id="modal-bd"></div>
   <div class="modal-panel" id="modal-panel">
     <div class="modal-handle"></div>
@@ -635,7 +644,7 @@ footer{background:var(--dk2);padding:1.5rem 1.25rem;padding-bottom:calc(1.5rem +
         <div class="modal-label" id="modal-label">Mission</div>
         <h2 class="modal-title" id="modal-title">Titre</h2>
       </div>
-      <button class="modal-close" id="modal-close-btn">[ × ]</button>
+      <button type="button" class="modal-close" id="modal-close-btn" aria-label="Fermer le détail">[ × ]</button>
     </div>
     <div class="modal-body" id="modal-body"></div>
   </div>
@@ -680,7 +689,7 @@ footer{background:var(--dk2);padding:1.5rem 1.25rem;padding-bottom:calc(1.5rem +
   <a href="#contact"  class="sn" data-s="contact"> <div class="sn-l"></div><span class="sn-t">06 — Contact</span></a>
 </nav>
 
-<main>
+<main id="main-content">
 
 <!-- 01 HERO -->
 <section id="hero" class="sec dk-sec" data-color="dark">
@@ -704,7 +713,7 @@ footer{background:var(--dk2);padding:1.5rem 1.25rem;padding-bottom:calc(1.5rem +
     <div class="h-tags" id="htags">
       <span class="htag">BTS ATI</span>
       <span class="htag">SolidWorks</span>
-      <span class="htag">Catia 3D</span>
+      <span class="htag">CATIA 3D</span>
       <span class="htag">Automatismes</span>
       <span class="htag">Impression 3D</span>
       <span class="htag">Permis B</span>
@@ -718,14 +727,14 @@ footer{background:var(--dk2);padding:1.5rem 1.25rem;padding-bottom:calc(1.5rem +
   <div class="mq-track" id="mq-track">
     <span>SolidWorks</span><span class="dot">·</span><span>Modélisation 3D</span><span class="dot">·</span>
     <span>Safran Nacelles</span><span class="dot">·</span><span>Modélisation d'une nacelle</span><span class="dot">·</span>
-    <span>Topographie</span><span class="dot">·</span><span>BTS ATI 2026</span><span class="dot">·</span>
-    <span>Habilitation B0V/H0V</span><span class="dot">·</span><span>Catia 3D</span><span class="dot">·</span>
+    <span>Topographie</span><span class="dot">·</span><span>BTS ATI 2025–2027</span><span class="dot">·</span>
+    <span>Habilitation B0V/H0V</span><span class="dot">·</span><span>CATIA 3D</span><span class="dot">·</span>
     <span>Mention Bien EDPI</span><span class="dot">·</span><span>Stage Mai–Juil 2027</span><span class="dot">·</span>
     <span>SolidWorks Expert</span><span class="dot">·</span><span>Modélisation 3D</span><span class="dot">·</span>
     <span>Safran Nacelles</span><span class="dot">·</span><span>Modélisation d'une nacelle</span><span class="dot">·</span>
-    <span>Topographie</span><span class="dot">·</span><span>BTS ATI 2026</span><span class="dot">·</span>
-    <span>Habilitation B0V/H0V</span><span class="dot">·</span><span>Catia 3D</span><span class="dot">·</span>
-    <span>Mention Bien EDPI</span><span class="dot">·</span><span>Stage Mai–Juil 2026</span><span class="dot">·</span>
+    <span>Topographie</span><span class="dot">·</span><span>BTS ATI 2025–2027</span><span class="dot">·</span>
+    <span>Habilitation B0V/H0V</span><span class="dot">·</span><span>CATIA 3D</span><span class="dot">·</span>
+    <span>Mention Bien EDPI</span><span class="dot">·</span><span>Stage Mai–Juil 2027</span><span class="dot">·</span>
   </div>
 </div>
 
@@ -743,7 +752,7 @@ footer{background:var(--dk2);padding:1.5rem 1.25rem;padding-bottom:calc(1.5rem +
         <h3 class="pc-ti">Modélisation 3D<br><em>Maquette Pédagogique</em></h3>
         <p class="pc-body">Conception et modélisation paramétrique d'une maquette représentant la structure interne d'une nacelle de moteur d'avion. Assemblages contraints, mises en plan normalisées ISO et rendu photoréaliste pour support de formation.</p>
         <div class="pc-tags">
-          <span class="ptag">Catia 3D experience</span><span class="ptag">Assemblage contrainte modelisation 3D</span>
+          <span class="ptag">CATIA 3DEXPERIENCE</span><span class="ptag">Assemblage contrainte modelisation 3D</span>
           <span class="ptag">Fab lab</span><span class="ptag">Rendu 3D</span><span class="ptag">Aéronautique</span>
         </div>
         <button class="pc-btn" onclick="openModal('maquette')">Voir le détail</button>
@@ -775,7 +784,7 @@ footer{background:var(--dk2);padding:1.5rem 1.25rem;padding-bottom:calc(1.5rem +
           <span class="pc-co">Électrotechnique</span>
         </div>
         <h3 class="pc-ti">Animation<br><em>Cinématique</em></h3>
-        <p class="pc-body">Production d'animations cinématiques et vidéos techniques pour illustrer le fonctionnement d'équipements électriques. Catia 3D, mécanismes articulés, montage vidéo client.</p>
+        <p class="pc-body">Production d'animations cinématiques et vidéos techniques pour illustrer le fonctionnement d'équipements électriques. CATIA 3D, mécanismes articulés, montage vidéo client.</p>
         <div class="pc-tags">
           <span class="ptag">solidworks</span><span class="ptag">Animation</span>
           <span class="ptag">Vidéo technique</span><span class="ptag">Montage</span>
@@ -830,9 +839,7 @@ footer{background:var(--dk2);padding:1.5rem 1.25rem;padding-bottom:calc(1.5rem +
             <div class="canva-spinner"></div>
             <span>Chargement Canva…</span>
           </div>
-          <iframe
-            class="canva-frame"
-            id="iframe-u34"
+          <iframe class="canva-frame" title="Présentation Canva du projet u34" id="iframe-u34"
             loading="lazy"
             src="https://www.canva.com/design/DAGIAh1dUYk/sFDn6dk3cU9S9uRSPXC2Xg/view?embed"
             allowfullscreen
@@ -864,9 +871,7 @@ footer{background:var(--dk2);padding:1.5rem 1.25rem;padding-bottom:calc(1.5rem +
             <div class="canva-spinner"></div>
             <span>Chargement Canva…</span>
           </div>
-          <iframe
-            class="canva-frame"
-            id="iframe-co"
+          <iframe class="canva-frame" title="Présentation Canva du projet co" id="iframe-co"
             loading="lazy"
             src="https://www.canva.com/design/DAGFByvrm_A/_SBJUbFxZK90-42_RH1u4w/view?embed"
             allowfullscreen
@@ -921,7 +926,7 @@ footer{background:var(--dk2);padding:1.5rem 1.25rem;padding-bottom:calc(1.5rem +
         <div class="tl-dot"></div>
         <div class="tl-yr">2024 · 8 semaines</div>
         <div class="tl-name">Stage · SIE Electric</div>
-        <div class="tl-school">Animation cinématique 3D, vidéo technique client · Catia 3D</div>
+        <div class="tl-school">Animation cinématique 3D, vidéo technique client · CATIA 3D</div>
         <span class="tl-badge">Mission 02 complétée</span>
       </div>
       <div class="tl-item">
@@ -950,7 +955,7 @@ footer{background:var(--dk2);padding:1.5rem 1.25rem;padding-bottom:calc(1.5rem +
       <div class="sk-card rv">
         <div class="sk-head">Expertise Logicielle</div>
         <div class="sk-row"><span class="sk-name">SolidWorks</span><div class="sk-bar"><div class="sk-fill" data-w=".93"></div></div><span class="sk-lv">Expert</span></div>
-        <div class="sk-row"><span class="sk-name">Catia 3D</span><div class="sk-bar"><div class="sk-fill" data-w=".75"></div></div><span class="sk-lv">Confirmé</span></div>
+        <div class="sk-row"><span class="sk-name">CATIA 3D</span><div class="sk-bar"><div class="sk-fill" data-w=".75"></div></div><span class="sk-lv">Confirmé</span></div>
         <div class="sk-row"><span class="sk-name">AutoCAD</span><div class="sk-bar"><div class="sk-fill" data-w=".62"></div></div><span class="sk-lv">Intermédiaire</span></div>
         <div class="sk-row"><span class="sk-name">PIX</span><div class="sk-bar"><div class="sk-fill" data-w=".70"></div></div><span class="sk-lv">Certifié</span></div>
         <div class="sk-row"><span class="sk-name">Suite Office</span><div class="sk-bar"><div class="sk-fill" data-w=".82"></div></div><span class="sk-lv">Avancé</span></div>
@@ -994,7 +999,7 @@ footer{background:var(--dk2);padding:1.5rem 1.25rem;padding-bottom:calc(1.5rem +
       <div class="acc-item rv"><button class="acc-btn" aria-expanded="false"><span class="acc-q">Pourquoi le BTS ATI après un Bac Pro EDPI ?</span><span class="acc-icon">+</span></button><div class="acc-body"><div class="acc-body-in"><p class="acc-a">Le Bac Pro EDPI m'a donné une solide base en <strong>dessin technique et CAO</strong>. Le BTS ATI est la suite naturelle pour monter en compétences sur les <strong>automatismes, l'ingénierie système</strong> et la gestion de projets industriels complets.</p></div></div></div>
       <div class="acc-item rv"><button class="acc-btn" aria-expanded="false"><span class="acc-q">Quelles sont les dates de stage ?</span><span class="acc-icon">+</span></button><div class="acc-body"><div class="acc-body-in"><p class="acc-a">Le stage peut-etre du <strong>10 mai au 2 Juillet</strong>. ces dates sont <strong>Adaptable</strong> si besoin</p></div></div></div>
       <div class="acc-item rv"><button class="acc-btn" aria-expanded="false"><span class="acc-q">Quelle est votre disponibilité et mobilité ?</span><span class="acc-icon">+</span></button><div class="acc-body"><div class="acc-body-in"><p class="acc-a">Disponible pour un <strong>stage de fin de BTS ATI de mai à juillet 2027</strong>. Basé à Le Havre, mobile sur la Normandie et l'axe Seine. <strong>Permis B Obtenu</strong>.</p></div></div></div>
-      <div class="acc-item rv"><button class="acc-btn" aria-expanded="false"><span class="acc-q">Qu'avez-vous appris chez SIE Electric ?</span><span class="acc-icon">+</span></button><div class="acc-body"><div class="acc-body-in"><p class="acc-a">La <strong>communication technique par le visuel</strong> : transformer une pièce mécanique en animation compréhensible pour un client non-technicien. Maîtriser à la fois <strong>Catia 3D et la narration technique</strong> est une compétence transversale rare.</p></div></div></div>
+      <div class="acc-item rv"><button class="acc-btn" aria-expanded="false"><span class="acc-q">Qu'avez-vous appris chez SIE Electric ?</span><span class="acc-icon">+</span></button><div class="acc-body"><div class="acc-body-in"><p class="acc-a">La <strong>communication technique par le visuel</strong> : transformer une pièce mécanique en animation compréhensible pour un client non-technicien. Maîtriser à la fois <strong>CATIA 3D et la narration technique</strong> est une compétence transversale rare.</p></div></div></div>
       <div class="acc-item rv"><button class="acc-btn" aria-expanded="false"><span class="acc-q">Quelles sont vos habilitations ?</span><span class="acc-icon">+</span></button><div class="acc-body"><div class="acc-body-in"><p class="acc-a"><strong>Habilitation Électrique B0V/H0V</strong>, <strong>SST</strong> (Sauveteur Secouriste du Travail), <strong>Certification PIX</strong> (2024), maîtrise SolidWorks niveau <strong>Expert</strong>. Mobile Normandie / Axe Seine avec permis B.</p></div></div></div>
     </div>
   </div>
@@ -1094,17 +1099,17 @@ const MODALS = {
     label:'Mission 02 · SIE Electric', title:'Vidéo Technique & Animation',
     body:`<p>Production d'<strong>animations cinématiques 3D</strong> et de vidéos techniques pour illustrer le fonctionnement d'équipements électriques industriels.</p>
 <div class="m-grid">
-  <div class="m-cell"><div class="m-lab">Logiciel</div><div class="m-val">Catia 3D</div></div>
+  <div class="m-cell"><div class="m-lab">Logiciel</div><div class="m-val">CATIA 3D</div></div>
   <div class="m-cell"><div class="m-lab">Durée</div><div class="m-val">8 semaines</div></div>
   <div class="m-cell"><div class="m-lab">Type</div><div class="m-val">Animation client livrée</div></div>
   <div class="m-cell"><div class="m-lab">Secteur</div><div class="m-val">Électrotechnique</div></div>
 </div>
 <div style="position:relative;width:100%;margin:.85rem 0;border-radius:12px;overflow:hidden;border:1px solid var(--bd);background:#0a0d0f">
-  <img src="sie.gif" alt="Animation cinématique SIE Electric" loading="lazy"
+  <img src="sie.gif" alt="Animation cinématique SIE Electric" loading="lazy" decoding="async"
     style="display:block;width:100%;height:auto;max-height:420px;object-fit:cover;border-radius:11px"
     onerror="this.parentElement.innerHTML='<div style=padding:2rem;text-align:center;font-family:DM Mono,monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(26,21,17,.35)><div style=font-size:28px;margin-bottom:.6rem>🎬</div>Placez sie.gif dans le même dossier</div>'" />
 </div>
-<div class="modal-tags"><span class="ptag">Catia 3D</span><span class="ptag">Animation</span><span class="ptag">Vidéo technique</span><span class="ptag">Communication client</span></div>`
+<div class="modal-tags"><span class="ptag">CATIA 3D</span><span class="ptag">Animation</span><span class="ptag">Vidéo technique</span><span class="ptag">Communication client</span></div>`
   },
   animation:{
     label:'Mission 03 · Le Havre Seine Métropole', title:'Numérisation & Archivage',
@@ -1146,7 +1151,7 @@ mPanel.addEventListener('touchmove',e=>{if(!drag)return;const dy=e.touches[0].cl
 mPanel.addEventListener('touchend',e=>{if(!drag)return;drag=false;mPanel.style.transition='';const dy=e.changedTouches[0].clientY-sy;mPanel.style.transform='';if(dy>90)closeModal();});
 
 /* ══ HAMBURGER ══ */
-const ham=document.getElementById('ham'),mobNav=document.getElementById('mob-nav');
+const recruitBtn=document.querySelector('.fab-main'),recruitOptions=document.getElementById('recruit-options'); if(recruitBtn){recruitBtn.addEventListener('click',()=>{const open=recruitBtn.getAttribute('aria-expanded')==='true';recruitBtn.setAttribute('aria-expanded',String(!open));if(recruitOptions)recruitOptions.style.display=open?'none':'flex';});} const ham=document.getElementById('ham'),mobNav=document.getElementById('mob-nav');
 let navOpen=false;
 function openNav(){navOpen=true;ham.classList.add('open');mobNav.classList.add('open');ham.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}
 function closeNav(){navOpen=false;ham.classList.remove('open');mobNav.classList.remove('open');ham.setAttribute('aria-expanded','false');document.body.style.overflow='';}
@@ -1473,11 +1478,11 @@ function boot(){
 </script>
 
 <div class="fab-container">
-  <div class="fab-options">
+  <div class="fab-options" id="recruit-options">
     <a href="#" class="fab-btn-mini js-anti-spam" data-e="YmF0dGFnbGlhbGF1cmVudDExQGdtYWlsLmNvbQ==" data-type="mail" title="M'envoyer un email">✉</a>
     <a href="CV Laurent BATTAGLIA..pdf" download class="fab-btn-mini" title="Télécharger mon CV">📥</a>
   </div>
-  <button class="fab-main">
+  <button type="button" class="fab-main" aria-expanded="false" aria-controls="recruit-options">
     <span class="fab-text">Me recruter</span>
     <span class="fab-icon">+</span>
   </button>
