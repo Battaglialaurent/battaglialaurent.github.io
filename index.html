@@ -145,6 +145,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 /* ── Sections ── */
 section{position:relative}
 .sec{padding:clamp(72px,11vw,150px) var(--pad)}
+#travaux{padding-bottom:clamp(40px,5vw,70px)}
 .dark{background:var(--night);color:var(--nink)}
 .alt{background:var(--bg2)}
 .sh{display:flex;justify-content:space-between;align-items:flex-end;gap:1.5rem;flex-wrap:wrap;margin-bottom:clamp(30px,5vw,64px)}
@@ -171,7 +172,7 @@ section{position:relative}
 .c4{outline:1px solid var(--nline);outline-offset:-1px}
 @media(min-width:620px){.board{grid-template-columns:1fr 1fr}}
 @media(min-width:900px) and (pointer:fine){
-  .board{display:block;position:relative;height:clamp(640px,56vw,760px);touch-action:none}
+  .board{display:block;position:relative;height:clamp(300px,29vw,420px);touch-action:none}
   .cart{position:absolute;width:min(252px,20.5%);min-height:0;aspect-ratio:252/330;cursor:grab;user-select:none;-webkit-user-select:none;touch-action:none;will-change:transform}
   .cart.drag{cursor:grabbing;filter:brightness(1.1)}
   .cart.snap{transition:transform .8s var(--ease)}
@@ -317,7 +318,7 @@ footer .fl{display:flex;flex-wrap:wrap;gap:8px 22px}
   <div class="ov-core">
     <div class="ov-row"><p>Laurent Battaglia</p><p>Portfolio 2026</p></div>
     <div><p>Ouverture du portfolio</p><p class="ov-n" id="ov-n">000</p></div>
-    <div class="ov-row"><p>49.4944° N / 0.1079° E</p><p>Le Havre, Normandie</p></div>
+    <div class="ov-row"><p>Le Havre, Normandie</p></div>
   </div>
 </div>
 
@@ -340,7 +341,7 @@ footer .fl{display:flex;flex-wrap:wrap;gap:8px 22px}
 <main id="main">
 <section class="hero" id="top">
   <canvas id="epure" aria-hidden="true"></canvas>
-  <div class="hero-meta mono"><span>Portfolio technique · BTS ATI</span><span>49.4944° N / 0.1079° E · Le Havre</span></div>
+  <div class="hero-meta mono"><span>Portfolio technique · BTS ATI</span><span>Le Havre</span></div>
   <h1 class="h1" aria-label="Laurent Battaglia"><span class="nm">Laurent</span><span class="nm">Battaglia</span></h1>
   <p class="stmt"><span class="ln"><span>Dessiner ce qui sera fabriqué.</span></span></p>
   <div class="hero-grid">
@@ -586,10 +587,10 @@ document.addEventListener('play',function(e){if(e.target.tagName==='VIDEO'&&redu
   function build(){
     var d=new Date(),R=rng(d.getFullYear()*400+d.getMonth()*32+d.getDate());
     var r=cv.getBoundingClientRect();W=r.width;H=r.height;segs=[];total=0;
-    var u=Math.min(W,H)/15,cx=W*(W<700?.62:.7),cy=H*.36,c30=Math.cos(Math.PI/6),s30=.5;
+    var u=Math.min(W,H)/15,cx=W*(W<700?.66:.78),cy=H*.36,c30=Math.cos(Math.PI/6),s30=.5;
     function P(x,y,z){return[cx+(x-y)*c30*u,cy+(x+y)*s30*u-z*u]}
     function L(a,b,k){var l=Math.hypot(b[0]-a[0],b[1]-a[1]);segs.push({a:a,b:b,l:l,k:k||0,s:total});total+=l}
-    var n=W<700?5:8,i,j;
+    var n=W<700?3:5,i,j;
     for(i=0;i<n;i++){
       var x=Math.floor(R()*7)-3,y=Math.floor(R()*7)-3,w=1+Math.floor(R()*2.4),dp=1+Math.floor(R()*2.4),h=.8+Math.floor(R()*30)/10;
       var A=[P(x,y,0),P(x+w,y,0),P(x+w,y+dp,0),P(x,y+dp,0)],B=[P(x,y,h),P(x+w,y,h),P(x+w,y+dp,h),P(x,y+dp,h)];
@@ -663,13 +664,12 @@ try{if(!localStorage.getItem(K))setTimeout(function(){ck.classList.add('show')},
 $('#ck-yes').addEventListener('click',function(){sv('accepted')});$('#ck-no').addEventListener('click',function(){sv('declined')});
 $('#ck-open').addEventListener('click',function(){ck.classList.add('show')});
 
-/* ── Ouverture ── */
+/* ── Ouverture (jouée à chaque chargement de la page) ── */
 var ov=$('#ov'),on=$('#ov-n');
 function ready(){document.body.classList.add('ready');
   if(/^#(.+)/.test(location.hash)){var k=P.map(function(p){return p.id}).indexOf(location.hash.slice(1));if(k>-1)openCase(k,carts[k])}}
 function overture(force){
-  var seen=false;try{seen=sessionStorage.getItem('lb-ov')}catch(e){}
-  if((seen&&!force)||reduce){ov.classList.add('done');ready();return}
+  if(reduce){ov.classList.add('done');ready();return}
   document.body.classList.remove('ready');ov.classList.remove('go','done');document.body.classList.add('lock');
   var t0=null,D=3200;on.textContent='000';
   function f(t){if(!t0)t0=t;var k=Math.min((t-t0)/D,1),e=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2;
@@ -677,7 +677,7 @@ function overture(force){
     window.lgK(e);if(k<1)requestAnimationFrame(f);else finish()}
   var fin=false;function finish(){if(fin)return;fin=true;on.textContent='100';window.lgK(1);ov.classList.add('go');
     setTimeout(function(){document.body.classList.remove('lock');ready()},350);
-    setTimeout(function(){ov.classList.add('done')},1400);try{sessionStorage.setItem('lb-ov','1')}catch(e){}}
+    setTimeout(function(){ov.classList.add('done')},1400)}
   requestAnimationFrame(f);setTimeout(finish,5200);
 }
 $('#replay').addEventListener('click',function(){window.scrollTo(0,0);ov.classList.remove('done');overture(true)});
