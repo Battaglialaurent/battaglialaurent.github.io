@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="no-js">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="theme-color" content="#12100b">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f7f5">
   <meta name="description" content="Portfolio de Laurent Battaglia, étudiant en BTS Assistance Technique d'Ingénieur au Havre. Compétences en CAO, SolidWorks, CATIA 3D, automatismes et conception industrielle. Recherche d'un stage de fin de BTS en 2027.">
   <meta name="author" content="Laurent Battaglia">
   <meta name="google-site-verification" content="luX_-aqhjl2vvVU7Y2YLlkLspa_LrUqPYH13sazEiZA">
@@ -14,7 +14,6 @@
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="shortcut icon" href="favicon.ico">
   <link rel="manifest" href="site.webmanifest">
-
   <meta name="msapplication-TileColor" content="#05050a">
 
   <title>Laurent Battaglia — BTS ATI 2027 | Portfolio</title>
@@ -23,7 +22,12 @@
   <meta property="og:url" content="https://battaglialaurent.github.io/">
   <meta property="og:title" content="Laurent Battaglia — BTS ATI 2027 | Portfolio">
   <meta property="og:description" content="Portfolio de Laurent Battaglia, étudiant en BTS ATI au Havre. CAO, SolidWorks, CATIA 3D, automatismes et conception industrielle. Stage de fin de BTS en 2027.">
-  <meta property="og:image" content="https://battaglialaurent.github.io/social-card.png">
+  <meta property="og:image" content="https://battaglialaurent.github.io/social-card.jpg">
+  <meta property="og:image:alt" content="Laurent Battaglia — Portfolio BTS ATI">
+  <meta property="og:locale" content="fr_FR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Laurent Battaglia — BTS ATI 2027 | Portfolio">
+  <meta name="twitter:image" content="https://battaglialaurent.github.io/social-card.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
 
@@ -34,1495 +38,653 @@
     "name": "Laurent Battaglia",
     "url": "https://battaglialaurent.github.io/",
     "jobTitle": "Étudiant en BTS Assistance Technique d'Ingénieur",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Le Havre",
-      "addressCountry": "FR"
-    },
-    "sameAs": [
-      "https://www.linkedin.com/in/laurent-battaglia-7bb813369"
-    ]
+    "description": "Étudiant en BTS ATI au Havre, spécialisé en CAO (SolidWorks, CATIA), automatismes et conception industrielle. Recherche un stage de mai à juillet 2027.",
+    "alumniOf": {"@type": "EducationalOrganization", "name": "Lycée Jules Siegfried", "address": {"@type": "PostalAddress", "addressLocality": "Le Havre", "addressCountry": "FR"}},
+    "knowsAbout": ["SolidWorks", "CATIA", "CAO", "Modélisation 3D", "Automatismes", "Impression 3D"],
+    "address": {"@type": "PostalAddress", "addressLocality": "Le Havre", "addressCountry": "FR"},
+    "sameAs": ["https://www.linkedin.com/in/laurent-battaglia-7bb813369"]
   }
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
-<style>
-  /* Styles pour le bouton flottant (FAB) */
-.fab-container {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  z-index: 9999;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 15px;
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script>document.documentElement.className='js'</script>
+  <style>
+:root{
+  --bg:#f7f7f5; --bg2:#ededea; --ink:#0b0c0e; --mut:#63676e; --line:rgba(11,12,14,.16);
+  --night:#0a0b0d; --night2:#131518; --nink:#eceded; --nmut:#9a9ea5; --nline:rgba(236,237,237,.18);
+  --blue:#2438ff; --blue-soft:#c9ceff;
+  --f:'Geist',system-ui,-apple-system,'Segoe UI',sans-serif; --m:'Geist Mono',ui-monospace,Menlo,monospace;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --pad:clamp(20px,4vw,56px);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--f);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.lock{overflow:hidden}
+a{color:inherit}
+img,video{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+::selection{background:var(--blue);color:#fff}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.dark :focus-visible,#case :focus-visible,#menu :focus-visible{outline-color:#fff}
+.skip{position:absolute;left:-9999px;top:10px;z-index:1000;background:var(--ink);color:#fff;padding:10px 16px;font:500 13px var(--m)}
+.skip:focus{left:10px}
+.mono{font-family:var(--m);font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+
+/* ── Ouverture ── */
+#ov{display:none}
+.js #ov{display:block;position:fixed;inset:0;z-index:900;pointer-events:all;color:var(--nink)}
+.ov-p{position:absolute;left:0;right:0;height:50.2%;background:var(--night);transition:transform 1s var(--ease)}
+.ov-top{top:0}.ov-bot{bottom:0}
+.ov-core{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:var(--pad);transition:opacity .35s}
+.ov-core p{font:400 12px var(--m);letter-spacing:.06em;text-transform:uppercase;color:var(--nmut)}
+.ov-n{font:600 clamp(72px,14vw,190px)!important;letter-spacing:-.06em!important;line-height:.8;color:var(--nink)!important;text-transform:none!important;font-family:var(--f)!important;font-variant-numeric:tabular-nums}
+.ov-row{display:flex;justify-content:space-between;gap:1rem}
+#ov.go .ov-core{opacity:0}
+#ov.go .ov-top{transform:translateY(-101%)}
+#ov.go .ov-bot{transform:translateY(101%)}
+#ov.done{display:none!important}
+.ov3d{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;transform:translateY(-5vh);transition:transform 1s var(--ease),opacity .6s}
+#ov.go .ov3d{transform:translateY(-5vh) scale(1.5);opacity:0}
+.ov-core>div:nth-child(2){position:absolute;left:var(--pad);bottom:calc(var(--pad) + 40px)}
+#lg{display:block}
+
+/* ── Barre ── */
+#bar{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content:space-between;align-items:flex-start;padding:18px var(--pad);color:#fff;mix-blend-mode:difference;pointer-events:none}
+#bar>*{pointer-events:auto}
+.brand{text-decoration:none;font-weight:600;font-size:15px;line-height:1.1;letter-spacing:-.01em}
+.brand small{display:block;font:400 11px var(--m);letter-spacing:.06em;text-transform:uppercase;opacity:.7;margin-top:3px}
+.nav{display:none;gap:clamp(18px,3vw,44px);list-style:none}
+.nav a{text-decoration:none;font-size:14px;font-weight:500;display:block;line-height:1.2}
+.nav a span{display:block;font:400 11px var(--m);letter-spacing:.05em;text-transform:uppercase;opacity:.6;margin-top:3px}
+.nav a:hover span{opacity:1}
+.mbtn{font:500 13px var(--m);letter-spacing:.06em;text-transform:uppercase;padding:6px 0}
+@media(min-width:900px){.nav{display:flex}.mbtn{display:none}}
+#menu{position:fixed;inset:0;z-index:480;background:var(--night);color:var(--nink);padding:90px var(--pad) 40px;display:flex;flex-direction:column;justify-content:flex-end;gap:.2rem;transform:translateY(-100%);transition:transform .6s var(--ease);visibility:hidden}
+#menu.open{transform:none;visibility:visible}
+#menu a{font-size:clamp(40px,12vw,72px);font-weight:600;letter-spacing:-.04em;line-height:1.05;text-decoration:none;border-top:1px solid var(--nline);padding:.35em 0}
+
+/* ── Accueil ── */
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:110px var(--pad) 28px;position:relative;overflow:hidden}
+.hero-meta{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;color:var(--mut);margin-bottom:clamp(20px,4vw,44px)}
+.hero-grid{display:grid;gap:28px;margin-top:clamp(28px,5vw,56px);align-items:end}
+.hero-lead{font-size:clamp(17px,2vw,21px);line-height:1.45;max-width:36em;letter-spacing:-.01em}
+.hero-lead p+p{color:var(--mut);margin-top:.6em;font-size:.88em}
+.avail{border-top:1px solid var(--ink);padding-top:14px}
+.avail b{display:block;font-weight:600;font-size:clamp(20px,2.4vw,28px);letter-spacing:-.03em;line-height:1.15;margin:.35em 0 .2em}
+.avail .mono{display:flex;gap:.6em;align-items:center;color:var(--mut)}
+.dot{width:7px;height:7px;border-radius:50%;background:#16a34a;flex:none}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;font:500 13px var(--m);letter-spacing:.05em;text-transform:uppercase;text-decoration:none;border:1px solid var(--ink);border-radius:999px;transition:background .25s,color .25s,border-color .25s}
+.btn.solid{background:var(--ink);color:var(--bg)}
+.btn.solid:hover{background:var(--blue);border-color:var(--blue)}
+.btn:not(.solid):hover{background:var(--ink);color:var(--bg)}
+.dark .btn{border-color:var(--nink)}
+.dark .btn.solid{background:var(--nink);color:var(--night)}
+.dark .btn.solid:hover{background:var(--blue);border-color:var(--blue);color:#fff}
+.dark .btn:not(.solid):hover{background:var(--nink);color:var(--night)}
+.cote{position:relative;height:22px;margin-top:clamp(26px,4vw,48px);color:var(--mut)}
+.cote::before{content:'';position:absolute;left:0;right:0;top:50%;height:1px;background:var(--line)}
+.cote::after{content:'';position:absolute;left:0;right:0;top:4px;bottom:4px;border-left:1px solid var(--mut);border-right:1px solid var(--mut)}
+.cote span{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:var(--bg);padding:0 14px;white-space:nowrap}
+@media(min-width:900px){.hero-grid{grid-template-columns:1.3fr 1fr;gap:clamp(40px,8vw,140px)}}
+#epure{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.hero>:not(#epure){position:relative;z-index:1}
+.h1{font-size:clamp(60px,17vw,300px);font-weight:600;line-height:.84;letter-spacing:-.06em;margin-left:-.04em}
+.nm{display:block;color:transparent;-webkit-text-stroke:1.6px var(--ink);text-stroke:1.6px var(--ink);transition:color 1.3s var(--ease)}
+.ready .nm{color:var(--ink)}
+.ready .nm:nth-child(2){transition-delay:.35s}
+.no-js .nm{color:var(--ink)}
+.stmt{margin-top:clamp(18px,3vw,34px);font-size:clamp(26px,4.4vw,64px);font-weight:500;letter-spacing:-.045em;line-height:1}
+.ln{display:block;overflow:hidden;padding-bottom:.08em}
+.ln>span{display:block;transform:translateY(106%);transition:transform 1.1s var(--ease) .7s}
+.ready .ln>span,.no-js .ln>span{transform:none}
+
+/* ── Sections ── */
+section{position:relative}
+.sec{padding:clamp(72px,11vw,150px) var(--pad)}
+.dark{background:var(--night);color:var(--nink)}
+.alt{background:var(--bg2)}
+.sh{display:flex;justify-content:space-between;align-items:flex-end;gap:1.5rem;flex-wrap:wrap;margin-bottom:clamp(30px,5vw,64px)}
+.h2{font-size:clamp(46px,9.5vw,150px);font-weight:600;line-height:.9;letter-spacing:-.055em}
+.sh .mono{color:var(--mut);text-align:right;line-height:1.7}
+.dark .sh .mono,.dark .hint{color:var(--nmut)}
+.h2 i{font-style:normal;color:var(--blue)}
+.dark .h2 i{color:#8f9bff}
+
+/* ── Cartouches ── */
+.board-bar{display:flex;justify-content:space-between;gap:1rem;align-items:center;margin-bottom:22px}
+.hint{color:var(--nmut)}
+.reset{font:500 12px var(--m);letter-spacing:.05em;text-transform:uppercase;border-bottom:1px solid currentColor;padding:4px 0;display:none}
+.board{display:grid;gap:18px}
+.cart{--c:#2438ff;--t:#fff;position:relative;display:flex;flex-direction:column;justify-content:space-between;min-height:340px;padding:18px 18px 46px;text-align:left;background:var(--c);color:var(--t);cursor:pointer;
+  clip-path:polygon(0 0,100% 0,100% calc(100% - 26px),calc(100% - 26px) 100%,0 100%);transition:filter .3s}
+.cart::after{content:'';position:absolute;left:18px;right:44px;bottom:14px;height:12px;background:repeating-linear-gradient(90deg,currentColor 0 2px,transparent 2px 7px);opacity:.35}
+.cart:hover{filter:brightness(1.07)}
+.cart-top{display:flex;justify-content:space-between;font:400 12px var(--m);letter-spacing:.05em;text-transform:uppercase}
+.cart-n{font-size:clamp(80px,9vw,128px);font-weight:600;letter-spacing:-.06em;line-height:.8;margin:18px 0 auto}
+.cart h3{font-size:clamp(24px,2.5vw,32px);font-weight:600;letter-spacing:-.035em;line-height:1.02;margin-top:22px;max-width:9em}
+.cart .co{font:400 12px var(--m);letter-spacing:.05em;text-transform:uppercase;opacity:.75;margin-top:10px}
+.c1{--c:#2438ff;--t:#fff}.c2{--c:#e9e8e1;--t:#0b0c0e}.c3{--c:#b9bdc2;--t:#0b0c0e}.c4{--c:#1d2024;--t:#eceded;box-shadow:inset 0 0 0 1px var(--nline)}.c5{--c:#ff5a1f;--t:#0b0c0e}
+.c4{outline:1px solid var(--nline);outline-offset:-1px}
+@media(min-width:620px){.board{grid-template-columns:1fr 1fr}}
+@media(min-width:900px) and (pointer:fine){
+  .board{display:block;position:relative;height:clamp(640px,56vw,760px);touch-action:none}
+  .cart{position:absolute;width:min(252px,20.5%);min-height:0;aspect-ratio:252/330;cursor:grab;user-select:none;-webkit-user-select:none;touch-action:none;will-change:transform}
+  .cart.drag{cursor:grabbing;filter:brightness(1.1)}
+  .cart.snap{transition:transform .8s var(--ease)}
+  .reset{display:inline-block}
 }
 
-/* Bouton principal "Me recruter" */
-.fab-main {
-  background: var(--gold);
-  color: #fff;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 50px;
-  font-family: 'DM Mono', monospace;
-  font-size: 12px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(201, 168, 92, 0.4);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  transition: transform 0.3s cubic-bezier(.34,1.56,.64,1);
-}
+/* ── Étude de cas ── */
+#case{position:fixed;inset:0;z-index:600;background:var(--bg);color:var(--ink);overflow-y:auto;overscroll-behavior:contain;clip-path:inset(100% 0 0 0);visibility:hidden;transition:clip-path .8s var(--ease),visibility 0s .8s}
+#case.open{clip-path:inset(0);visibility:visible;transition:clip-path .8s var(--ease),visibility 0s}
+.case-band{height:clamp(120px,20vw,220px);background:var(--c,#2438ff);color:var(--t,#fff);display:flex;align-items:flex-end;justify-content:space-between;padding:0 var(--pad) 18px;position:relative}
+.case-band .big{font-size:clamp(90px,20vw,280px);font-weight:600;letter-spacing:-.07em;line-height:.74;position:absolute;right:var(--pad);bottom:-.02em;opacity:.95}
+.case-top{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:14px var(--pad);background:rgba(247,247,245,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.case-top button{font:500 12px var(--m);letter-spacing:.05em;text-transform:uppercase;padding:8px 0}
+.case-top .grp{display:flex;gap:22px;align-items:center}
+.case-in{padding:clamp(30px,5vw,64px) var(--pad) 90px;max-width:1500px;margin:0 auto}
+.case-in h2{font-size:clamp(42px,8.5vw,132px);font-weight:600;letter-spacing:-.055em;line-height:.92;max-width:11em}
+.case-sub{margin-top:18px;color:var(--mut)}
+.case-grid{display:grid;gap:36px;margin-top:clamp(32px,5vw,70px)}
+.case-meta{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--ink)}
+.case-meta div{padding:12px 0 14px;border-bottom:1px solid var(--line)}
+.case-meta div:nth-child(odd){padding-right:14px}
+.case-meta dt{font:400 11.5px var(--m);letter-spacing:.05em;text-transform:uppercase;color:var(--mut);margin-bottom:3px}
+.case-meta dd{font-weight:500;font-size:16.5px;line-height:1.3}
+.case-txt p{font-size:clamp(18px,2vw,23px);line-height:1.5;letter-spacing:-.012em;max-width:34em}
+.case-txt p+p{margin-top:1em;color:var(--mut)}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.tags span{font:400 12px var(--m);letter-spacing:.03em;border:1px solid var(--line);border-radius:999px;padding:6px 13px}
+.media{margin-top:clamp(30px,5vw,60px);background:var(--night);aspect-ratio:16/9;position:relative;overflow:hidden}
+.media video,.media iframe{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover}
+.media-note{margin-top:10px;display:flex;justify-content:space-between;gap:1rem;color:var(--mut)}
+.media-note a{text-underline-offset:3px}
+.case-nav{display:grid;gap:0;margin-top:clamp(50px,8vw,100px);border-top:1px solid var(--ink)}
+.case-nav button{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;text-align:left;padding:22px 0;border-bottom:1px solid var(--line);font-size:clamp(24px,4vw,48px);font-weight:600;letter-spacing:-.04em}
+.case-nav button:hover{color:var(--blue)}
+.case-nav .mono{color:var(--mut)}
+@media(min-width:900px){.case-grid{grid-template-columns:5fr 7fr;gap:clamp(40px,7vw,120px)}}
 
-.fab-main:hover {
-  transform: scale(1.05);
-}
-
-/* Conteneur des options (Email et CV) */
-.fab-options {
-  display: none;
-  flex-direction: column;
-  gap: 10px;
-  transition: all 0.3s ease;
-}
-
-/* Petits boutons circulaires */
-.fab-btn-mini {
-  background: var(--dk);
-  color: var(--gold);
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  border: 1px solid var(--dbd);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  transition: all 0.3s ease;
-  font-size: 18px;
-}
-
-.fab-btn-mini:hover {
-  background: var(--gold);
-  color: #fff;
-  transform: translateY(-3px);
-}
-
-.fab-container:hover .fab-options {
-  display: flex;
-  animation: fadeInOptions 0.3s ease forwards;
-}
-
-@keyframes fadeInOptions {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@media (max-width: 900px) {
-  .fab-container {
-    bottom: 20px;
-    right: 20px;
-  }
-  .fab-text {
-    display: none;
-  }
-  .fab-main {
-    width: 50px;
-    height: 50px;
-    padding: 0;
-    justify-content: center;
-  }
-}
-
-/* ══ CANVA IFRAME LOADER ══ */
-.canva-wrap {
-  position: relative;
-  width: 100%;
-  height: 0;
-  padding-top: 56.25%;
-  margin-top: 1rem;
-  border-radius: 10px;
-  overflow: hidden;
-  border: 1px solid var(--bd);
-}
-.canva-placeholder {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: .75rem;
-  background: var(--lt2);
-  z-index: 2;
-  border-radius: 10px;
-  transition: opacity .4s ease;
-}
-.canva-spinner {
-  width: 28px;
-  height: 28px;
-  border: 2px solid var(--bd2);
-  border-top-color: var(--gold);
-  border-radius: 50%;
-  animation: spin .8s linear infinite;
-}
-.canva-placeholder span {
-  font-family: 'DM Mono', monospace;
-  font-size: 7px;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  color: var(--ink3);
-}
-.canva-frame {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  border: none;
-  padding: 0;
-  margin: 0;
-  opacity: 0;
-  transition: opacity .5s ease;
-}
-@keyframes spin { to { transform: rotate(360deg); } }
-
-/* ══ TOKENS ══ */
-:root {
-  --dk:#12100b; --dk2:#1a1712; --dk3:#221e16;
-  --lt:#f5f0e7; --lt2:#ede7da; --lt3:#e5dfd2;
-  --ink:#1a1511; --ink2:rgba(26,21,17,.55); --ink3:rgba(26,21,17,.30); --ink4:rgba(26,21,17,.12);
-  --cr:#eeeae1; --cr2:rgba(238,234,225,.52); --cr3:rgba(238,234,225,.22); --cr4:rgba(238,234,225,.08);
-  --gold:#c9a85c; --g2:rgba(201,168,92,.18); --g3:rgba(201,168,92,.07);
-  --blu:#4a80f5; --b3:rgba(74,128,245,.14); --b4:rgba(74,128,245,.06);
-  --grn:#2db06b;
-  --card:#ffffff; --card2:rgba(0,0,0,.03); --bd:rgba(0,0,0,.07); --bd2:rgba(0,0,0,.12);
-  --dcard:rgba(255,255,255,.025); --dbd:rgba(255,255,255,.06);
-  --r:14px; --rb:999px;
-  --ease:cubic-bezier(.16,1,.3,1); --spring:cubic-bezier(.34,1.56,.64,1);
-  --safe-b:env(safe-area-inset-bottom,0px); --safe-t:env(safe-area-inset-top,0px);
-}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{font-size:16px;scroll-behavior:smooth;overflow-x:hidden}
-body{background:var(--lt);color:var(--ink);font-family:'Syne',sans-serif;font-size:15px;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--lt2)}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
-::selection{background:var(--gold);color:#fff}
-
+/* ── Parcours : frise ── */
+.tl{--p:0;list-style:none;position:relative}
+.no-js .tl{--p:1}
+.tl::before,.tl::after{content:'';position:absolute;left:6px;top:10px;bottom:10px;width:2px}
+.tl::before{background:var(--line)}
+.tl::after{background:var(--blue);transform-origin:top;transform:scaleY(var(--p))}
+.tli{--a:var(--blue);--at:var(--blue);position:relative;padding:0 0 46px 36px}
+.tli:last-child{padding-bottom:0}
+.tli.k-s{--a:#ff5a1f;--at:#c2410c}
+.tli.k-d{--a:#16a34a;--at:#15803d}
+.tli::before{content:'';position:absolute;left:0;top:7px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--a);z-index:1;transition:transform .5s var(--ease),background .4s}
+.js .tli::before{transform:scale(.4)}
+.tli.in::before{background:var(--a);transform:none}
+.tli.now::after{content:'';position:absolute;left:0;top:7px;width:14px;height:14px;border-radius:50%;background:var(--a);opacity:.45;animation:pulse 2.4s ease-out infinite}
+@keyframes pulse{to{transform:scale(2.8);opacity:0}}
+.tl-y{display:block;font:500 13px var(--m);letter-spacing:.04em;color:var(--mut);margin-bottom:8px}
+.tl-k{display:inline-block;font:500 11px var(--m);letter-spacing:.06em;text-transform:uppercase;color:var(--at);background:color-mix(in srgb,var(--a) 11%,transparent);border-radius:999px;padding:3px 10px;margin-bottom:10px}
+.tl-b h3{font-size:clamp(26px,3.6vw,44px);font-weight:600;letter-spacing:-.04em;line-height:1.05;transition:color .25s}
+.tl-b p{color:var(--mut);font-size:17px;max-width:36em;margin-top:8px}
+.tl-b .st{display:block;margin-top:12px;color:var(--at)}
+.tl-go,.tl summary{display:inline-flex;align-items:center;min-height:44px;margin-top:6px;font:500 12px var(--m);letter-spacing:.05em;text-transform:uppercase;color:var(--at);cursor:pointer;list-style:none}
+.tl summary::-webkit-details-marker{display:none}
+.tl details p{color:var(--ink);margin-top:4px}
+.js .tli .tl-y,.js .tli .tl-b{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .8s var(--ease)}
+.js .tli .tl-b{transition-delay:.1s}
+.js .tli.in .tl-y,.js .tli.in .tl-b{opacity:1;transform:none}
+@media(hover:hover){.tli:hover .tl-b h3{color:var(--at)}}
 @media(min-width:900px){
-  .custom-cursor-enabled body, .custom-cursor-enabled body *{ cursor: none !important; }
+  .tl::before,.tl::after{left:176px}
+  .tli{display:grid;grid-template-columns:170px 1fr;padding:0 0 60px}
+  .tli::before,.tli.now::after{left:170px}
+  .tl-y{text-align:right;padding:6px 28px 0 0;margin:0}
+  .tl-b{padding-left:50px}
 }
 
-#cb {
-  position: fixed; top: 0; left: 0; z-index: 99998;
-  width: 38px; height: 38px; margin: -19px 0 0 -19px; border-radius: 50%;
-  background: #fff;
-  mix-blend-mode: difference;
-  pointer-events: none;
-  will-change: transform, opacity;
-  display: none;
-  opacity: 0;
+/* ── Compétences ── */
+.two{display:grid;gap:clamp(40px,6vw,90px)}
+@media(min-width:900px){.two{grid-template-columns:1fr 1fr}}
+.h3{font:500 12px var(--m);letter-spacing:.05em;text-transform:uppercase;color:var(--mut);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--ink)}
+.sk{display:grid;grid-template-columns:1fr auto;align-items:center;gap:6px 18px;padding:15px 0;border-bottom:1px solid var(--line)}
+.sk b{font-weight:600;font-size:clamp(20px,2.4vw,26px);letter-spacing:-.03em}
+.sk .lv{font:400 12px var(--m);letter-spacing:.04em;text-transform:uppercase;color:var(--mut);text-align:right}
+.rule{grid-column:1/-1;height:9px;border-bottom:1px solid var(--ink);background:repeating-linear-gradient(90deg,var(--ink) 0 1px,transparent 1px 20%);position:relative}
+.rule::after{content:'';position:absolute;left:0;bottom:-1px;height:3px;width:var(--w);background:var(--blue);transform-origin:left;transform:scaleX(0);transition:transform 1.4s var(--ease)}
+.in .rule::after{transform:scaleX(1)}
+.no-js .rule::after{transform:none}
+.li{display:flex;justify-content:space-between;gap:1rem;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line);font-size:18px;letter-spacing:-.01em}
+.li small{font:400 12px var(--m);letter-spacing:.04em;text-transform:uppercase;color:var(--mut);white-space:nowrap}
+.li em{font-style:normal;color:var(--mut);font-size:15px;display:block}
+.stack{display:flex;flex-direction:column;gap:clamp(34px,5vw,56px)}
+
+/* ── FAQ ── */
+.faq details{border-top:1px solid var(--ink)}
+.faq details:last-child{border-bottom:1px solid var(--ink)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:1.5rem;align-items:baseline;padding:22px 0;font-size:clamp(21px,3vw,34px);font-weight:600;letter-spacing:-.035em;line-height:1.1}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';font:400 28px var(--m);transition:transform .4s var(--ease);flex:none}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 0 26px;max-width:38em;color:var(--mut);font-size:18px}
+.faq details p b{color:var(--ink);font-weight:600}
+
+/* ── Contact ── */
+.ct{min-height:100svh;display:flex;flex-direction:column;justify-content:space-between;gap:60px}
+.ct .h2{font-size:clamp(54px,14vw,230px);line-height:.86}
+.ct-grid{display:grid;gap:36px}
+.ct-grid>p{font-size:clamp(17px,1.9vw,21px);max-width:30em;color:var(--nmut);line-height:1.5}
+.ct-grid>p b{color:var(--nink);font-weight:500}
+.links a{display:flex;justify-content:space-between;gap:1rem;align-items:baseline;padding:18px 0;border-top:1px solid var(--nline);text-decoration:none;font-size:clamp(20px,2.4vw,28px);font-weight:600;letter-spacing:-.03em;transition:padding .35s var(--ease),color .25s}
+.links a:last-child{border-bottom:1px solid var(--nline)}
+.links a:hover{padding-left:12px;color:#8f9bff}
+.links small{font:400 12px var(--m);letter-spacing:.04em;text-transform:uppercase;color:var(--nmut)}
+@media(min-width:900px){.ct-grid{grid-template-columns:1fr 1fr;gap:clamp(40px,8vw,140px);align-items:end}}
+footer{background:var(--night);color:var(--nmut);padding:26px var(--pad) 30px;border-top:1px solid var(--nline);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 28px;font:400 12px var(--m);letter-spacing:.04em;text-transform:uppercase}
+footer a,footer button{text-decoration:none;color:inherit;font:inherit;letter-spacing:inherit;text-transform:inherit;display:inline-flex;align-items:center;min-height:44px}
+footer a:hover,footer button:hover{color:var(--nink)}
+footer .fl{display:flex;flex-wrap:wrap;gap:8px 22px}
+
+/* ── Cookies ── */
+#ck{position:fixed;left:12px;right:12px;bottom:12px;z-index:700;background:var(--ink);color:#fff;padding:18px 20px;display:none;flex-direction:column;gap:14px;max-width:560px;font-size:14px;line-height:1.5}
+#ck.show{display:flex}
+#ck a{color:#cfd3ff}
+#ck div{display:flex;gap:8px}
+#ck button{flex:1;min-height:44px;border:1px solid #fff;border-radius:999px;font:500 12px var(--m);letter-spacing:.05em;text-transform:uppercase}
+#ck button.p{background:#fff;color:var(--ink)}
+@media(min-width:700px){#ck{left:auto;right:20px;bottom:20px}}
+
+/* ── Cibles tactiles ≥ 44 px ── */
+.mbtn,.case-top button{min-height:44px;min-width:44px;display:inline-flex;align-items:center}
+.reset,.row summary{min-height:44px;display:inline-flex;align-items:center}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
+  .nm{color:var(--ink)}
+  .ln>span,.rule::after{transform:none}
+  .tli.now::after{animation:none;opacity:0}
 }
-#cd {
-  position: fixed; top: 0; left: 0; z-index: 99999;
-  width: 6px; height: 6px; margin: -3px 0 0 -3px; border-radius: 50%;
-  background: #fff;
-  mix-blend-mode: difference;
-  pointer-events: none;
-  will-change: transform, opacity;
-  display: none;
-  opacity: 0;
-}
-
-.cursor-spark {
-  position: fixed; z-index: 99997;
-  border-radius: 50%; pointer-events: none;
-  background: var(--gold);
-  mix-blend-mode: difference;
-  animation: spark-out .55s cubic-bezier(.16,1,.3,1) forwards;
-}
-@keyframes spark-out {
-  0%   { transform: translate(-50%,-50%) scale(1); opacity: .9; }
-  100% { transform: translate(-50%,-50%) scale(3.5); opacity: 0; }
-}
-
-#cursor-label {
-  position: fixed; pointer-events: none; z-index: 9800;
-  background: var(--gold); color: #fff;
-  font-family: 'DM Mono', monospace; font-size: 7px;
-  letter-spacing: .14em; text-transform: uppercase;
-  padding: 5px 10px; border-radius: 20px;
-  opacity: 0; transform: translate(-50%, -200%);
-  transition: opacity .2s, transform .2s var(--ease);
-  white-space: nowrap; display: none;
-}
-#cursor-label.show { opacity: 1; transform: translate(-50%, -220%); }
-
-#spbar{position:fixed;top:0;left:0;z-index:9999;height:3px;width:100%;pointer-events:none}
-#spfill{height:100%;background:linear-gradient(90deg,var(--gold),#f5cf7a,var(--gold));width:0%;border-radius:0 2px 2px 0;box-shadow:0 0 12px rgba(201,168,92,.6);transition:width .05s linear}
-
-#grain{position:fixed;inset:0;z-index:9900;pointer-events:none;opacity:.03;
-background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-background-size:200px;animation:grain .1s steps(1) infinite}
-@keyframes grain{0%{background-position:0 0}10%{background-position:-5% -10%}20%{background-position:-15% 5%}30%{background-position:7% -25%}40%{background-position:-5% 25%}50%{background-position:-15% 10%}60%{background-position:15% 0}70%{background-position:0 15%}80%{background-position:3% 35%}90%{background-position:-10% 10%}100%{background-position:0 0}}
-
-#loader{position:fixed;inset:0;z-index:9995;background:var(--dk);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;transition:opacity .6s var(--ease)}
-.ld-name{font-family:'Playfair Display',serif;font-size:clamp(22px,7vw,50px);font-weight:400;letter-spacing:-.02em;overflow:hidden;color:var(--cr)}
-.ld-name span{display:block;transform:translateY(110%);transition:transform 1s var(--ease)}
-.ld-track{width:min(200px,60vw);height:1px;background:var(--dbd);border-radius:2px;overflow:hidden}
-.ld-bar{height:100%;background:linear-gradient(90deg,var(--gold),#f5cf7a);width:0%;transition:width .04s linear;border-radius:2px}
-.ld-pct{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.22em;color:var(--cr3)}
-.ld-done .ld-bar{width:108%!important;transition:width .4s var(--spring)!important}
-
-#topbar{position:fixed;top:0;left:0;right:0;height:56px;padding:0 1.25rem;padding-top:var(--safe-t);
-display:flex;align-items:center;justify-content:space-between;z-index:800;
-border-bottom:1px solid transparent;transition:border-color .4s,background .4s,backdrop-filter .4s}
-#topbar.sc-dark{background:rgba(18,16,11,.93);backdrop-filter:blur(20px);border-color:var(--dbd);color:var(--cr)}
-#topbar.sc-light{background:rgba(245,240,231,.92);backdrop-filter:blur(20px);border-color:var(--bd);color:var(--ink)}
-.tb-logo{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.26em;transition:color .3s}
-#topbar.sc-dark .tb-logo{color:var(--cr3)} #topbar.sc-dark .tb-logo em{color:var(--gold)}
-#topbar.sc-light .tb-logo{color:var(--ink3)} #topbar.sc-light .tb-logo em{color:var(--gold)}
-.tb-logo em{font-style:normal}
-.tb-nav{display:none;gap:2rem;list-style:none}
-.tb-nav a{font-family:'Syne',sans-serif;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;position:relative;transition:color .25s}
-#topbar.sc-dark .tb-nav a{color:var(--cr3)} #topbar.sc-dark .tb-nav a:hover{color:var(--cr)}
-#topbar.sc-light .tb-nav a{color:var(--ink3)} #topbar.sc-light .tb-nav a:hover{color:var(--ink)}
-.tb-nav a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:var(--gold);transition:width .35s var(--ease)}
-.tb-nav a:hover::after{width:100%}
-.tb-status{display:none;align-items:center;gap:.45rem;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.18em;color:var(--cr3)}
-#topbar.sc-light .tb-status{color:var(--ink3)}
-.tb-dot{width:5px;height:5px;border-radius:50%;background:var(--grn);animation:blink 2.5s ease-in-out infinite}
-@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.2;transform:scale(.6)}}
-.tb-ham{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:42px;height:42px;background:var(--dcard);border:1px solid var(--dbd);border-radius:12px;-webkit-tap-highlight-color:transparent;transition:all .3s}
-#topbar.sc-light .tb-ham{background:var(--card2);border-color:var(--bd)}
-.tb-ham span{display:block;width:18px;height:1.5px;border-radius:2px;transition:all .4s var(--ease)}
-#topbar.sc-dark .tb-ham span{background:var(--cr2)} #topbar.sc-light .tb-ham span{background:var(--ink2)}
-.tb-ham:active{border-color:var(--gold)} .tb-ham.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);background:var(--gold)!important} .tb-ham.open span:nth-child(2){opacity:0} .tb-ham.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);background:var(--gold)!important}
-
-#mob-nav{position:fixed;inset:0;z-index:790;background:rgba(18,16,11,.97);backdrop-filter:blur(24px);
-display:flex;flex-direction:column;align-items:stretch;justify-content:center;padding:5rem 1.5rem 3rem;
-opacity:0;pointer-events:none;transition:opacity .38s var(--ease)}
-#mob-nav.open{opacity:1;pointer-events:all}
-.mob-link{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 0;border-bottom:1px solid var(--dbd);text-decoration:none;-webkit-tap-highlight-color:transparent;transform:translateX(-16px);opacity:0;transition:transform .45s var(--ease),opacity .4s,color .25s}
-#mob-nav.open .mob-link{transform:translateX(0);opacity:1}
-#mob-nav.open .mob-link:nth-child(1){transition-delay:.04s}#mob-nav.open .mob-link:nth-child(2){transition-delay:.08s}#mob-nav.open .mob-link:nth-child(3){transition-delay:.12s}#mob-nav.open .mob-link:nth-child(4){transition-delay:.16s}#mob-nav.open .mob-link:nth-child(5){transition-delay:.20s}#mob-nav.open .mob-link:nth-child(6){transition-delay:.24s}#mob-nav.open .mob-link:nth-child(7){transition-delay:.28s}
-.mob-link:first-child{border-top:1px solid var(--dbd)}
-.mob-num{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;color:var(--cr4)}
-.mob-title{font-family:'Playfair Display',serif;font-size:clamp(26px,8vw,40px);font-weight:400;font-style:italic;color:var(--cr2);transition:color .25s}
-.mob-link:active .mob-title{color:var(--gold)}
-.mob-arr{font-size:18px;color:var(--cr4)}
-.mob-footer{margin-top:auto;padding-top:2rem;font-family:'DM Mono',monospace;font-size:7.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--cr4);text-align:center}
-
-#sidenav{display:none;position:fixed;left:1.25rem;top:50%;transform:translateY(-50%);z-index:600;flex-direction:column;gap:1.4rem}
-.sn{display:flex;align-items:center;gap:.5rem;text-decoration:none}
-.sn-l{width:14px;height:1px;background:var(--ink3);transition:width .4s var(--ease),background .3s}
-.sn-t{font-family:'DM Mono',monospace;font-size:7px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink3);white-space:nowrap;opacity:0;transform:translateX(-6px);transition:opacity .35s var(--ease),transform .35s var(--ease)}
-.sn:hover .sn-l,.sn.active .sn-l{width:26px;background:var(--gold)}
-.sn:hover .sn-t,.sn.active .sn-t{opacity:1;color:var(--ink);transform:translateX(0)}
-.on-dark .sn-l{background:var(--cr3)} .on-dark .sn:hover .sn-t,.on-dark .sn.active .sn-t{color:var(--cr)}
-.on-dark .sn-t{color:var(--cr3)}
-
-main{padding-top:56px}
-.sec{min-height:100svh;display:flex;align-items:center;position:relative;overflow:hidden}
-.inner{width:100%;max-width:1180px;margin:0 auto;padding:3.5rem 1.25rem}
-.sec-label{display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
-.sec-num{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.26em}
-.sec-rule{flex:1;height:1px}
-.sec-tag{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.2em;text-transform:uppercase}
-.lt-sec .sec-num,.lt-sec .sec-tag{color:var(--ink3)} .lt-sec .sec-rule{background:var(--bd)}
-.dk-sec .sec-num,.dk-sec .sec-tag{color:var(--cr3)} .dk-sec .sec-rule{background:var(--dbd)}
-
-#hero{background:var(--dk);color:var(--cr);align-items:flex-start}
-#hero .inner{padding-top:clamp(2.5rem,8svh,5.5rem)}
-.h-grid{position:absolute;inset:0;pointer-events:none;
-background-image:linear-gradient(var(--dbd) 1px,transparent 1px),linear-gradient(90deg,var(--dbd) 1px,transparent 1px);
-background-size:56px 56px;opacity:.35;transform:translateY(0);transition:transform .05s}
-.h-orb{position:absolute;border-radius:50%;pointer-events:none;filter:blur(80px)}
-.h-orb-1{width:min(480px,85vw);height:min(480px,85vw);background:radial-gradient(circle,rgba(201,168,92,.1) 0%,transparent 65%);right:-5%;top:5%;animation:oF 7s ease-in-out infinite}
-.h-orb-2{width:min(240px,55vw);height:min(240px,55vw);background:radial-gradient(circle,rgba(74,128,245,.07) 0%,transparent 65%);left:5%;bottom:15%;animation:oF 11s ease-in-out infinite reverse}
-@keyframes oF{0%,100%{transform:scale(1) translateY(0)}50%{transform:scale(1.07) translateY(-14px)}}
-.h-pre{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.28em;text-transform:uppercase;color:var(--cr3);margin-bottom:1.75rem;display:flex;align-items:center;gap:.75rem;opacity:0;transform:translateY(8px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
-.h-pre.vis{opacity:1;transform:translateY(0)}
-.h-preline{width:22px;height:1px;background:var(--gold);flex-shrink:0}
-.h-display{font-family:'Playfair Display',serif;font-size:clamp(54px,16vw,172px);font-weight:900;line-height:.86;letter-spacing:-.04em;color:var(--cr)}
-.h-row{display:block;overflow:hidden}
-.h-word{display:block;transform:translateY(110%);will-change:transform}
-.h-badge{margin-top:clamp(1.1rem,4vw,2rem);opacity:0;transform:translateY(8px);transition:opacity .9s var(--ease) .6s,transform .9s var(--ease) .6s}
-.h-badge.vis{opacity:1;transform:translateY(0)}
-.h-bts{font-family:'DM Mono',monospace;font-size:clamp(6.5px,1.8vw,10px);letter-spacing:.28em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:.75rem;margin-bottom:.4rem}
-.h-bts::before{content:'';width:18px;height:1px;background:var(--gold);flex-shrink:0}
-.h-avail{font-family:'DM Mono',monospace;font-size:clamp(6px,1.5vw,9px);letter-spacing:.22em;text-transform:uppercase;color:var(--grn);display:flex;align-items:center;gap:.5rem;margin-left:26px}
-.h-avail::before{content:'→'}
-.h-desc{margin-top:clamp(1.25rem,4vw,2.25rem);font-size:clamp(12px,3vw,14px);font-weight:300;line-height:1.95;color:var(--cr2);max-width:420px;opacity:0;transform:translateY(10px);transition:opacity .9s var(--ease) .75s,transform .9s var(--ease) .75s}
-.h-desc.vis{opacity:1;transform:translateY(0)}
-.h-desc strong{color:var(--cr);font-weight:500}
-.tw-cursor{display:inline-block;width:2px;height:1em;background:var(--gold);vertical-align:-.05em;margin-left:2px;animation:blink-cur .8s step-end infinite}
-@keyframes blink-cur{0%,100%{opacity:1}50%{opacity:0}}
-.h-tags{margin-top:1.25rem;display:flex;flex-wrap:wrap;gap:.35rem;opacity:0;transition:opacity .9s var(--ease) .9s}
-.h-tags.vis{opacity:1}
-.htag{font-family:'DM Mono',monospace;font-size:7px;letter-spacing:.14em;text-transform:uppercase;padding:5px 12px;border-radius:var(--rb);border:1px solid var(--dbd);color:var(--cr2);background:transparent;transition:all .3s var(--spring);-webkit-tap-highlight-color:transparent;display:inline-block}
-.htag:hover{color:var(--gold);border-color:var(--g2);background:var(--g3);transform:scale(1.06) rotate(-1deg)}
-.h-scroll-hint{margin-top:2.5rem;display:none;align-items:center;gap:.75rem;font-family:'DM Mono',monospace;font-size:7px;letter-spacing:.22em;text-transform:uppercase;color:var(--cr4);opacity:0;transition:opacity 1s var(--ease) 1.1s}
-.h-scroll-hint.vis{opacity:1}
-.h-scroll-line{width:1px;height:38px;background:var(--dbd);overflow:hidden;position:relative}
-.h-scroll-line::after{content:'';position:absolute;top:-100%;left:0;width:100%;height:100%;background:var(--gold);animation:sdrop 2s var(--ease) infinite}
-@keyframes sdrop{0%{top:-100%}55%{top:0}100%{top:100%}}
-
-.mq-wrap{overflow:hidden;background:var(--gold);padding:.8rem 0;position:relative;z-index:2}
-.mq-track{display:flex;gap:2rem;width:max-content;animation:mq 22s linear infinite}
-.mq-track:hover{animation-play-state:paused}
-.mq-track span{font-family:'Playfair Display',serif;font-size:clamp(13px,3.5vw,18px);font-weight:400;font-style:italic;color:var(--dk);white-space:nowrap}
-.mq-track .dot{font-style:normal;opacity:.3;font-family:'Syne',sans-serif}
-@keyframes mq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-
-.cr-clip{clip-path:inset(0 0 100% 0);transition:clip-path 1.1s var(--ease)}
-.cr-clip.vis{clip-path:inset(0 0 0% 0)}
-.rv{opacity:0;transform:translateY(24px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
-.rv.vis{opacity:1;transform:translateY(0)}
-
-#projets{align-items:flex-start;background:var(--lt)}
-.proj-stack{display:flex;flex-direction:column;gap:8px;width:100%}
-.pc{background:var(--card);border:1px solid var(--bd);border-radius:var(--r);padding:1.5rem;
-position:relative;overflow:hidden;-webkit-tap-highlight-color:transparent;
-transform-style:preserve-3d;box-shadow:0 2px 12px rgba(0,0,0,.05);
-transition:border-color .4s var(--ease),box-shadow .4s var(--ease),transform .15s linear}
-.pc::before{content:'';position:absolute;inset:0;background:radial-gradient(500px circle at var(--mx,50%) var(--my,50%),rgba(201,168,92,.07),transparent 55%);opacity:0;transition:opacity .4s;pointer-events:none;border-radius:inherit}
-.pc:hover::before{opacity:1}
-.pc:hover{box-shadow:0 12px 40px rgba(0,0,0,.1);border-color:rgba(201,168,92,.25)}
-.pc-feat{background:linear-gradient(135deg,#fffdf7 0%,var(--card) 60%);border-color:rgba(201,168,92,.15)}
-.pc-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:.85rem;flex-wrap:wrap;gap:.3rem}
-.pc-num{font-family:'DM Mono',monospace;font-size:7px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink3)}
-.pc-co{font-family:'DM Mono',monospace;font-size:7px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
-.pc-ti{font-family:'Playfair Display',serif;font-size:clamp(20px,5.5vw,32px);font-weight:400;line-height:1.1;color:var(--ink);margin-bottom:.55rem}
-.pc-ti em{font-style:italic;font-weight:200;color:var(--ink2)}
-.pc-body{font-size:clamp(11.5px,3vw,13px);font-weight:300;line-height:1.85;color:var(--ink2);margin-bottom:.85rem}
-.pc-tags{display:flex;flex-wrap:wrap;gap:.28rem;margin-bottom:.75rem}
-.ptag{font-family:'DM Mono',monospace;font-size:7px;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:var(--rb);border:1px solid var(--bd2);color:var(--ink2);transition:all .3s var(--spring);display:inline-block}
-.ptag:hover{background:var(--g2);border-color:rgba(201,168,92,.4);color:var(--gold);transform:scale(1.05) rotate(-.5deg)}
-.pc-btn{display:inline-flex;align-items:center;gap:.45rem;font-family:'DM Mono',monospace;font-size:7.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--dk);border:1px solid var(--bd2);padding:7px 14px;border-radius:var(--rb);background:transparent;transition:all .3s var(--spring);-webkit-tap-highlight-color:transparent}
-.pc-btn:hover,.pc-btn:active{background:var(--gold);border-color:var(--gold);color:#fff;transform:scale(1.04)}
-.pc-btn::before{content:'↗'}
-.pc-ghost{position:absolute;bottom:-.5rem;right:.25rem;font-family:'Playfair Display',serif;font-size:clamp(60px,18vw,100px);font-weight:900;color:rgba(0,0,0,.03);pointer-events:none;user-select:none;line-height:1}
-.pc-meta{position:absolute;bottom:1rem;right:1.25rem;font-family:'DM Mono',monospace;font-size:7px;letter-spacing:.12em;color:var(--ink4)}
-.pc-stat-row{display:flex;gap:1px;background:var(--bd);border-radius:10px;overflow:hidden;margin-top:1rem}
-.pc-stat-cell{flex:1;background:var(--lt2);padding:.8rem .6rem;text-align:center}
-.pc-sv{font-family:'Playfair Display',serif;font-size:clamp(18px,5vw,28px);font-weight:200;font-style:italic;color:var(--gold);line-height:1}
-.pc-sl{font-family:'DM Mono',monospace;font-size:6.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);margin-top:.18rem}
-
-#reel{background:var(--dk);color:var(--cr);min-height:auto}
-.reel-bg{position:absolute;inset:0;pointer-events:none;
-background:repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(255,255,255,.02) 40px),
-repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(255,255,255,.02) 40px)}
-.reel-inner{position:relative;z-index:1;text-align:center;padding:4rem 1.5rem;width:100%;max-width:900px;margin:0 auto}
-.reel-ey{font-family:'DM Mono',monospace;font-size:7.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--cr4);margin-bottom:2.5rem;display:flex;align-items:center;justify-content:center;gap:.75rem}
-.reel-ey::before,.reel-ey::after{content:'';width:24px;height:1px;background:var(--dbd)}
-.reel-nums{display:flex;justify-content:center;gap:clamp(2rem,8vw,5rem);flex-wrap:wrap}
-.rn-item{display:flex;flex-direction:column;align-items:center;gap:.3rem}
-.rn-val{font-family:'Playfair Display',serif;font-size:clamp(48px,12vw,80px);font-weight:200;font-style:italic;color:var(--gold);line-height:1;transition:all .2s}
-.rn-item:hover .rn-val{transform:scale(1.07);text-shadow:0 0 40px rgba(201,168,92,.4)}
-.rn-lab{font-family:'DM Mono',monospace;font-size:7.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--cr3)}
-
-#timeline{background:var(--lt);align-items:flex-start;min-height:auto}
-.tl-wrap{width:100%;max-width:1180px;margin:0 auto;padding:4rem 1.25rem}
-.tl-title{font-family:'Playfair Display',serif;font-size:clamp(28px,7vw,56px);font-weight:400;font-style:italic;color:var(--ink);margin-bottom:2.5rem}
-.tl-title em{color:var(--gold)}
-.tl-track{position:relative;padding-left:2rem}
-.tl-spine{position:absolute;left:.5rem;top:.5rem;bottom:.5rem;width:1px;background:var(--bd)}
-.tl-spine-fill{position:absolute;left:0;top:0;width:100%;background:linear-gradient(180deg,var(--gold),rgba(201,168,92,.2));transform-origin:top;transform:scaleY(0);transition:transform 2s var(--ease)}
-.tl-spine-fill.go{transform:scaleY(1)}
-.tl-item{position:relative;padding:1.25rem 1.25rem 1.25rem 2rem;margin-bottom:.5rem;border:1px solid transparent;border-radius:12px;transition:all .35s var(--ease);cursor:default}
-.tl-item:hover{border-color:var(--bd2);background:var(--card);box-shadow:0 4px 20px rgba(0,0,0,.06)}
-.tl-dot{position:absolute;left:-1.85rem;top:1.6rem;width:10px;height:10px;border-radius:50%;background:var(--lt);border:2px solid var(--bd2);transition:all .3s var(--spring)}
-.tl-item.active .tl-dot,.tl-item:hover .tl-dot{border-color:var(--gold);background:var(--gold);transform:scale(1.2)}
-.tl-item.active{border-color:rgba(201,168,92,.2);background:linear-gradient(135deg,#fffdf5,var(--lt));box-shadow:0 4px 20px rgba(201,168,92,.08)}
-.tl-yr{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.2em;color:var(--ink3);margin-bottom:.3rem}
-.tl-name{font-family:'Playfair Display',serif;font-size:clamp(17px,4.5vw,22px);font-weight:400;color:var(--ink);margin-bottom:.2rem}
-.tl-school{font-size:11px;font-weight:300;color:var(--ink2);margin-bottom:.35rem}
-.tl-badge{display:inline-block;font-family:'DM Mono',monospace;font-size:7px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);border:1px solid var(--g2);padding:2px 9px;border-radius:var(--rb);background:var(--g3);transition:all .3s var(--spring)}
-.tl-badge:hover{transform:scale(1.04) rotate(-.5deg);background:var(--g2)}
-.tl-badge.current{animation:tlpulse 2.5s infinite}
-@keyframes tlpulse{0%,100%{border-color:rgba(201,168,92,.2);background:var(--g3)}50%{border-color:var(--gold);background:var(--g2)}}
-
-#skills{background:var(--lt2);align-items:flex-start}
-.sk-grid{display:flex;flex-direction:column;gap:6px;width:100%}
-.sk-card{background:var(--card);border:1px solid var(--bd);border-radius:var(--r);padding:1.5rem;box-shadow:0 2px 8px rgba(0,0,0,.04);transition:box-shadow .35s,border-color .35s}
-.sk-card:hover{box-shadow:0 8px 32px rgba(0,0,0,.08);border-color:rgba(201,168,92,.2)}
-.sk-head{font-family:'DM Mono',monospace;font-size:7.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--ink3);margin-bottom:1.5rem;padding-bottom:.75rem;border-bottom:1px solid var(--bd)}
-.sk-row{display:flex;align-items:center;gap:.85rem;padding:.55rem 0;border-bottom:1px solid var(--bd)}
-.sk-row:last-child{border:none}
-.sk-name{font-size:clamp(12px,3vw,13.5px);color:var(--ink);min-width:90px;flex-shrink:0}
-.sk-bar{flex:1;height:2px;background:var(--lt3);border-radius:2px;overflow:hidden}
-.sk-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,rgba(201,168,92,.4),var(--gold));transform:scaleX(0);transform-origin:left;transition:transform 1.8s var(--ease)}
-.sk-lv{font-family:'DM Mono',monospace;font-size:7.5px;letter-spacing:.1em;color:var(--ink3);min-width:60px;text-align:right}
-.form-list{display:flex;flex-direction:column;gap:2px}
-.form-item{padding:.85rem 1rem;border:1px solid transparent;border-radius:10px;transition:all .3s var(--ease)}
-.form-item:hover{border-color:var(--bd2);background:var(--lt);box-shadow:0 2px 8px rgba(0,0,0,.05)}
-.form-yr{font-family:'DM Mono',monospace;font-size:7.5px;letter-spacing:.12em;color:var(--ink3);margin-bottom:.18rem}
-.form-ti{font-family:'Playfair Display',serif;font-size:clamp(15px,4vw,17px);color:var(--ink);margin-bottom:.1rem}
-.form-sc{font-size:11px;font-weight:300;color:var(--ink2)}
-.f-badge{display:inline-block;margin-top:.3rem;font-family:'DM Mono',monospace;font-size:6.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);border:1px solid var(--g2);padding:2px 8px;border-radius:var(--rb);background:var(--g3);transition:all .3s var(--spring);cursor:pointer}
-.f-badge:hover{transform:scale(1.05) rotate(-.6deg);background:var(--g2)}
-.hab-list{display:flex;flex-direction:column;gap:2px}
-.hab-item{display:flex;align-items:center;gap:.85rem;padding:.75rem 1rem;border:1px solid transparent;border-radius:10px;transition:all .3s var(--ease)}
-.hab-item:hover{border-color:var(--bd2);background:var(--lt);box-shadow:0 2px 8px rgba(0,0,0,.05)}
-.hab-ico{font-size:14px;flex-shrink:0}
-.hab-name{font-size:clamp(11px,3vw,12.5px);color:var(--ink);flex:1;line-height:1.35}
-.hab-ok{font-family:'DM Mono',monospace;font-size:6.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);border:1px solid var(--g2);padding:2px 8px;border-radius:var(--rb);background:var(--g3);flex-shrink:0}
-.pass-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px}
-.pass-item{padding:1rem;border:1px solid var(--bd);border-radius:10px;background:var(--lt);position:relative;overflow:hidden;transition:all .35s var(--spring);-webkit-tap-highlight-color:transparent}
-.pass-item::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--g3),transparent);transform:translateY(105%);transition:transform .35s var(--ease)}
-.pass-item:hover{border-color:var(--g2);box-shadow:0 4px 16px rgba(201,168,92,.12);transform:translateY(-2px)}
-.pass-item:hover::before{transform:translateY(0)}
-.pass-item>*{position:relative;z-index:1}
-.pass-ico{font-size:20px;margin-bottom:.3rem}
-.pass-lb{font-family:'Playfair Display',serif;font-size:clamp(13px,3.5vw,15px);color:var(--ink)}
-.pass-sub{font-size:10px;font-weight:300;color:var(--ink2)}
-
-#faq{background:var(--lt);align-items:flex-start;min-height:auto}
-.faq-title{font-family:'Playfair Display',serif;font-size:clamp(30px,9vw,62px);font-weight:400;font-style:italic;line-height:.95;margin-bottom:2.25rem;color:var(--ink)}
-.faq-title em{color:var(--gold)}
-.acc-item{border-bottom:1px solid var(--bd)}
-.acc-btn{width:100%;display:flex;align-items:center;justify-content:space-between;padding:1.15rem 0;background:none;border:none;text-align:left;gap:.75rem;-webkit-tap-highlight-color:transparent}
-.acc-q{font-family:'Syne',sans-serif;font-size:clamp(12.5px,3.5vw,15px);font-weight:500;color:var(--ink);transition:color .25s}
-.acc-btn:hover .acc-q,.acc-btn:active .acc-q{color:var(--gold)}
-.acc-icon{font-family:'DM Mono',monospace;font-size:16px;color:var(--ink3);transition:transform .4s var(--ease),color .25s;flex-shrink:0;width:20px;text-align:center}
-.acc-btn[aria-expanded="true"] .acc-icon{transform:rotate(45deg);color:var(--gold)}
-.acc-body{height:0;overflow:hidden;transition:height .45s var(--ease)}
-.acc-body-in{padding:0 0 1.15rem}
-.acc-a{font-size:clamp(12px,3vw,13px);font-weight:300;line-height:1.9;color:var(--ink2);max-width:600px}
-.acc-a strong{color:var(--ink);font-weight:500}
-
-#contact{background:var(--dk);color:var(--cr)}
-.ct-ey{font-family:'DM Mono',monospace;font-size:7.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--cr4);margin-bottom:1.1rem;display:flex;align-items:center;gap:.6rem}
-.ct-ey::before{content:'';width:14px;height:1px;background:var(--gold);flex-shrink:0}
-.ct-title{font-family:'Playfair Display',serif;font-size:clamp(38px,11vw,84px);font-weight:400;line-height:.9;letter-spacing:-.025em;margin-bottom:1.25rem;color:var(--cr)}
-.ct-title em{font-style:italic;font-weight:200;color:var(--gold)}
-.ct-body{font-size:clamp(12px,3vw,13px);font-weight:300;line-height:1.9;color:var(--cr2);margin-bottom:1.5rem}
-.ct-body strong{color:var(--cr);font-weight:500}
-.ct-avail{display:inline-flex;align-items:center;gap:.5rem;border:1px solid rgba(45,176,107,.2);border-radius:var(--rb);padding:6px 14px;background:rgba(45,176,107,.05);font-family:'DM Mono',monospace;font-size:7.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(45,176,107,.8);margin-bottom:1rem}
-.ct-avail-dot{width:5px;height:5px;border-radius:50%;background:var(--grn);animation:blink 2.5s infinite}
-.btn-cv{display:inline-flex;align-items:center;gap:.65rem;font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--dk);background:var(--cr);padding:14px 24px;border-radius:var(--rb);text-decoration:none;transition:all .35s var(--spring);-webkit-tap-highlight-color:transparent;margin-bottom:2rem;position:relative;overflow:hidden}
-.btn-cv::before{content:'';position:absolute;inset:0;background:var(--gold);transform:translateX(-100%);transition:transform .4s var(--ease)}
-.btn-cv:hover,.btn-cv:active{color:#fff;transform:scale(1.04)} .btn-cv:hover::before{transform:translateX(0)}
-.btn-cv span{position:relative;z-index:1}
-.ct-links{display:flex;flex-direction:column;gap:.4rem}
-.ctlink{display:flex;align-items:center;gap:1rem;padding:1rem 1.15rem;border:1px solid var(--dbd);border-radius:12px;background:var(--dcard);color:var(--cr2);text-decoration:none;font-size:clamp(11px,3vw,12px);font-weight:300;transition:all .35s var(--ease);position:relative;overflow:hidden;-webkit-tap-highlight-color:transparent}
-.ctlink::before{content:'';position:absolute;inset:0;background:var(--g3);transform:translateX(-108%);transition:transform .4s var(--ease)}
-.ctlink:hover,.ctlink:active{color:var(--cr);border-color:var(--g2)}.ctlink:hover::before,.ctlink:active::before{transform:translateX(0)}
-.ctlink>*{position:relative;z-index:1}
-.ctlink-ico{font-size:14px;color:var(--gold);width:16px;text-align:center;flex-shrink:0}
-.ctlink-main{font-weight:500;display:block;font-size:clamp(11px,3vw,12px)}
-.ctlink-sub{font-size:9px;color:var(--cr3);display:block;margin-top:1px}
-
-footer{background:var(--dk2);padding:1.5rem 1.25rem;padding-bottom:calc(1.5rem + var(--safe-b));display:flex;flex-wrap:wrap;gap:.35rem 1.5rem;justify-content:space-between;align-items:center;border-top:1px solid var(--dbd)}
-.f-legal{display:flex;flex-wrap:wrap;gap:.9rem;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.08em}
-.f-legal a{color:var(--cr3);text-decoration:none;transition:color .25s}
-.f-legal a:hover{color:var(--gold)}
-
-/* ══ COOKIE BANNER ══ */
-#cookie-banner{position:fixed;left:0;right:0;bottom:0;z-index:100000;background:var(--dk2);border-top:1px solid var(--dbd);padding:1.1rem 1.25rem calc(1.1rem + var(--safe-b));display:flex;flex-wrap:wrap;gap:1rem 1.5rem;align-items:center;justify-content:space-between;transform:translateY(110%);transition:transform .5s var(--ease);box-shadow:0 -8px 30px rgba(0,0,0,.35)}
-#cookie-banner.show{transform:translateY(0)}
-#cookie-banner p{color:var(--cr2);font-size:12.5px;line-height:1.55;max-width:640px;margin:0}
-#cookie-banner a{color:var(--gold);text-decoration:underline}
-.ck-actions{display:flex;gap:.6rem;flex-wrap:wrap}
-.ck-btn{font-family:'DM Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;padding:.65rem 1.1rem;border-radius:8px;cursor:pointer;border:1px solid var(--dbd);background:transparent;color:var(--cr2);transition:.25s}
-.ck-btn:hover{border-color:var(--gold);color:var(--gold)}
-.ck-btn.primary{background:var(--gold);color:#1a1511;border-color:var(--gold)}
-.ck-btn.primary:hover{opacity:.88;color:#1a1511}
-@media(max-width:640px){#cookie-banner{flex-direction:column;align-items:stretch}.ck-actions{justify-content:stretch}.ck-btn{flex:1}}
-.f-sig{font-family:'Playfair Display',serif;font-size:12px;font-style:italic;color:var(--cr3)}
-.f-line{font-family:'DM Mono',monospace;font-size:7.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--cr4)}
-
-#loryx-modal{position:fixed;inset:0;z-index:9000;display:flex;align-items:flex-end;justify-content:center;pointer-events:none;opacity:0;transition:opacity .38s var(--ease)}
-#loryx-modal.open{pointer-events:all;opacity:1}
-.modal-bd{position:absolute;inset:0;background:rgba(26,21,17,.55);backdrop-filter:blur(12px)}
-.modal-panel{position:relative;z-index:1;background:var(--lt);border:1px solid var(--g2);border-bottom:none;border-radius:20px 20px 0 0;width:100%;max-height:88svh;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:1.75rem 1.25rem calc(1.75rem + var(--safe-b));transform:translateY(100%);transition:transform .45s var(--ease);box-shadow:0 -20px 80px rgba(0,0,0,.15);overscroll-behavior:contain}
-#loryx-modal.open .modal-panel{transform:translateY(0)}
-.modal-handle{width:36px;height:3px;background:var(--bd2);border-radius:2px;margin:0 auto 1.5rem}
-.modal-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--bd)}
-.modal-label{font-family:'DM Mono',monospace;font-size:7.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:.35rem}
-.modal-title{font-family:'Playfair Display',serif;font-size:clamp(20px,6vw,30px);font-weight:400;line-height:1.05;color:var(--ink)}
-.modal-close{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);background:none;border:1px solid var(--bd2);padding:6px 12px;border-radius:var(--rb);transition:all .25s;flex-shrink:0;margin-top:.2rem;-webkit-tap-highlight-color:transparent}
-.modal-close:hover{color:var(--ink);background:var(--lt2)}
-.modal-body{font-size:clamp(12px,3vw,13px);font-weight:300;line-height:1.9;color:var(--ink2)}
-.modal-body strong{color:var(--ink);font-weight:500}
-.modal-body h4{font-family:'DM Mono',monospace;font-size:7.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink3);margin:1.5rem 0 .6rem}
-.m-grid{display:grid;grid-template-columns:1fr 1fr;gap:.4rem;margin:.85rem 0}
-.m-cell{background:var(--lt2);border:1px solid var(--bd);border-radius:10px;padding:.8rem .9rem}
-.m-lab{font-family:'DM Mono',monospace;font-size:6.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);margin-bottom:.18rem}
-.m-val{font-size:clamp(11.5px,3vw,12.5px);color:var(--ink)}
-.modal-tags{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.85rem}
-.m-video{background:var(--lt2);border:1px solid var(--bd);border-radius:12px;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;margin:.85rem 0;overflow:hidden}
-.m-vph{text-align:center;padding:1.5rem}
-.m-vph .vi{font-size:32px;margin-bottom:.75rem;opacity:.4}
-.m-vph p{font-family:'DM Mono',monospace;font-size:7.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3)}
-.m-dip{border:2px solid var(--gold);border-radius:14px;padding:2rem 1.5rem;background:linear-gradient(135deg,#fffdf5,var(--lt));position:relative;text-align:center;margin:.85rem 0;cursor:pointer;transition:box-shadow .3s}
-.m-dip:hover{box-shadow:0 8px 32px rgba(201,168,92,.2)}
-.m-dip::before{content:'';position:absolute;inset:8px;border:1px solid rgba(201,168,92,.18);border-radius:8px;pointer-events:none}
-.dh{font-family:'DM Mono',monospace;font-size:7px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink3);margin-bottom:1.25rem}
-.dt{font-family:'Playfair Display',serif;font-size:clamp(14px,4vw,18px);color:var(--ink);margin-bottom:.18rem}
-.ds{font-family:'Playfair Display',serif;font-size:clamp(12px,3.5vw,15px);font-style:italic;color:var(--ink2);margin-bottom:1.25rem}
-.dn{font-family:'Playfair Display',serif;font-size:clamp(22px,6vw,30px);font-weight:700;color:var(--gold);letter-spacing:-.02em;margin-bottom:1.25rem}
-.dm{display:inline-block;font-family:'DM Mono',monospace;font-size:7.5px;letter-spacing:.2em;text-transform:uppercase;color:#fff;background:var(--gold);padding:5px 18px;border-radius:var(--rb)}
-.dy{font-family:'DM Mono',monospace;font-size:7px;letter-spacing:.18em;color:var(--ink3);margin-top:1rem}
-.dnote{font-size:10px;color:var(--ink3);font-style:italic;margin-top:.75rem}
-
-.confetti-piece{position:fixed;width:8px;height:8px;pointer-events:none;z-index:10000;border-radius:1px;animation:confetti-fall 1.2s ease-in forwards}
-@keyframes confetti-fall{0%{transform:translateY(0) rotate(0deg);opacity:1}100%{transform:translateY(300px) rotate(720deg);opacity:0}}
-
-@media(min-width:900px){
-  #cb,#cd,#cursor-label{display:block}
-  .inner{padding:5.5rem 2.5rem 5.5rem 4.5rem}
-  #projets .inner,#skills .inner,#faq .inner{padding-top:4rem;padding-bottom:4rem}
-  .tl-wrap{padding:4rem 2.5rem 4rem 4.5rem}
-  .tb-nav{display:flex} .tb-status{display:flex} .tb-ham{display:none} #sidenav{display:flex}
-  #topbar{padding:0 2.5rem;height:54px} main{padding-top:54px}
-  #loryx-modal{align-items:center;padding:1.5rem}
-  .modal-panel{border-radius:20px;border-bottom:1px solid var(--g2);max-width:700px;max-height:86vh;padding:2.25rem;transform:translateY(20px) scale(.96)}
-  #loryx-modal.open .modal-panel{transform:translateY(0) scale(1)}
-  .modal-handle{display:none}
-  .h-display{font-size:clamp(80px,13.5vw,172px)}
-  .h-scroll-hint{display:flex}
-  .proj-stack{display:grid;grid-template-columns:repeat(12,1fr);gap:6px}
-  .pc-feat{grid-column:span 8;grid-row:span 2} .pc-sm-a{grid-column:span 4} .pc-sm-b{grid-column:span 4}
-  .pc-sie{grid-column:span 6} .pc-lhsm{grid-column:span 6}
-  .sk-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
-  .ct-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
-  .btn-cv{margin-bottom:0}
-  #sidenav{cursor:none}
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .canva-frame { display:none; }
-  .canva-placeholder { display:flex !important; }
-}
-</style>
+  </style>
 </head>
 <body>
+<a class="skip" href="#main">Aller au contenu</a>
 
-<div id="spbar" aria-hidden="true"><div id="spfill"></div></div>
-<div id="grain" aria-hidden="true"></div>
-
-<div id="cb" aria-hidden="true"></div>
-<div id="cd" aria-hidden="true"></div>
-<div id="cursor-label" aria-hidden="true"></div>
-
-<!-- LOADER -->
-<div id="loader">
-  <div class="ld-name"><span id="ld-n">Laurent Battaglia</span></div>
-  <div class="ld-track"><div class="ld-bar" id="ld-b"></div></div>
-  <div class="ld-pct" id="ld-p">0%</div>
-</div>
-
-<!-- MODAL -->
-<div id="loryx-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
-  <div class="modal-bd" id="modal-bd"></div>
-  <div class="modal-panel" id="modal-panel" tabindex="-1">
-    <div class="modal-handle"></div>
-    <div class="modal-top">
-      <div>
-        <div class="modal-label" id="modal-label">Mission</div>
-        <h2 class="modal-title" id="modal-title">Titre</h2>
-      </div>
-      <button class="modal-close" id="modal-close-btn" aria-label="Fermer le détail du projet">[ × ]</button>
-    </div>
-    <div class="modal-body" id="modal-body"></div>
+<div id="ov" aria-hidden="true">
+  <div class="ov-p ov-top"></div><div class="ov-p ov-bot"></div>
+  <div class="ov3d" aria-hidden="true"><canvas id="lg"></canvas></div>
+  <div class="ov-core">
+    <div class="ov-row"><p>Laurent Battaglia</p><p>Portfolio 2026</p></div>
+    <div><p>Ouverture du portfolio</p><p class="ov-n" id="ov-n">000</p></div>
+    <div class="ov-row"><p>49.4944° N / 0.1079° E</p><p>Le Havre, Normandie</p></div>
   </div>
 </div>
 
-<!-- MOBILE NAV -->
-<nav id="mob-nav" aria-label="Menu mobile">
-  <a class="mob-link" href="#hero"     onclick="closeNav()"><span class="mob-num">01</span><span class="mob-title">Home</span><span class="mob-arr">→</span></a>
-  <a class="mob-link" href="#projets"  onclick="closeNav()"><span class="mob-num">02</span><span class="mob-title">Projets</span><span class="mob-arr">→</span></a>
-  <a class="mob-link" href="#bacpro"   onclick="closeNav()"><span class="mob-num">02b</span><span class="mob-title">Bac Pro</span><span class="mob-arr">→</span></a>
-  <a class="mob-link" href="#reel"     onclick="closeNav()"><span class="mob-num">03</span><span class="mob-title">Vision</span><span class="mob-arr">→</span></a>
-  <a class="mob-link" href="#timeline" onclick="closeNav()"><span class="mob-num">04</span><span class="mob-title">Parcours</span><span class="mob-arr">→</span></a>
-  <a class="mob-link" href="#skills"   onclick="closeNav()"><span class="mob-num">05</span><span class="mob-title">Skills</span><span class="mob-arr">→</span></a>
-  <a class="mob-link" href="#contact"  onclick="closeNav()"><span class="mob-num">06</span><span class="mob-title">Contact</span><span class="mob-arr">→</span></a>
-  <div class="mob-footer">BTS ATI · Le Havre · ou Stage Mai–Juil 2027</div>
-</nav>
-
-<!-- TOPBAR -->
-<header id="topbar">
-  <div class="tb-logo">LB<em>.</em>26</div>
-  <ul class="tb-nav">
-    <li><a href="#hero">Home</a></li>
-    <li><a href="#projets">Projets</a></li>
-    <li><a href="#bacpro">Bac Pro</a></li>
-    <li><a href="#timeline">Parcours</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <div class="tb-status"><div class="tb-dot"></div>Disponible · Le Havre</div>
-  <button class="tb-ham" id="ham" aria-label="Menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
+<header id="bar">
+  <a class="brand" href="#top">Laurent Battaglia<small>BTS ATI · Le Havre</small></a>
+  <nav aria-label="Navigation principale">
+    <ul class="nav">
+      <li><a href="#travaux">Travaux<span>Projets choisis</span></a></li>
+      <li><a href="#parcours">Parcours<span>Études &amp; stages</span></a></li>
+      <li><a href="#competences">Compétences<span>Logiciels &amp; habilitations</span></a></li>
+      <li><a href="#contact">Contact<span>Stage 2027</span></a></li>
+    </ul>
+  </nav>
+  <button class="mbtn" id="mbtn" aria-expanded="false" aria-controls="menu">Menu</button>
 </header>
-
-<!-- SIDENAV -->
-<nav id="sidenav" aria-label="Navigation sections">
-  <a href="#hero"     class="sn" data-s="hero">    <div class="sn-l"></div><span class="sn-t">01 — Hero</span></a>
-  <a href="#projets"  class="sn" data-s="projets"> <div class="sn-l"></div><span class="sn-t">02 — Projets</span></a>
-  <a href="#reel"     class="sn" data-s="reel">    <div class="sn-l"></div><span class="sn-t">03 — Vision</span></a>
-  <a href="#timeline" class="sn" data-s="timeline"><div class="sn-l"></div><span class="sn-t">04 — Parcours</span></a>
-  <a href="#skills"   class="sn" data-s="skills">  <div class="sn-l"></div><span class="sn-t">05 — Skills</span></a>
-  <a href="#contact"  class="sn" data-s="contact"> <div class="sn-l"></div><span class="sn-t">06 — Contact</span></a>
+<nav id="menu" aria-label="Menu mobile">
+  <a href="#travaux">Travaux</a><a href="#parcours">Parcours</a><a href="#competences">Compétences</a><a href="#faq">Questions</a><a href="#contact">Contact</a>
 </nav>
 
-<main>
-
-<!-- 01 HERO -->
-<section id="hero" class="sec dk-sec" data-color="dark">
-  <div class="h-grid" id="h-grid" aria-hidden="true"></div>
-  <div class="h-orb h-orb-1" aria-hidden="true"></div>
-  <div class="h-orb h-orb-2" aria-hidden="true"></div>
-  <div class="inner">
-    <p class="h-pre" id="hpre"><span class="h-preline"></span>Ingénieur Technique — Le Havre — 2027</p>
-    <h1 class="h-display" aria-label="Laurent Battaglia">
-      <div class="h-row"><span class="h-word">LAURENT</span></div>
-      <div class="h-row"><span class="h-word">BATTAGLIA</span></div>
-    </h1>
-    <div class="h-badge" id="hbadge">
-      <div class="h-bts">BTS — ASSISTANCE TECHNIQUE D'INGÉNIEUR</div>
-      <div class="h-avail">DISPONIBILITÉ STAGE ou alternance : MAI — JUILLET 2027</div>
+<main id="main">
+<section class="hero" id="top">
+  <canvas id="epure" aria-hidden="true"></canvas>
+  <div class="hero-meta mono"><span>Portfolio technique · BTS ATI</span><span>49.4944° N / 0.1079° E · Le Havre</span></div>
+  <h1 class="h1" aria-label="Laurent Battaglia"><span class="nm">Laurent</span><span class="nm">Battaglia</span></h1>
+  <p class="stmt"><span class="ln"><span>Dessiner ce qui sera fabriqué.</span></span></p>
+  <div class="hero-grid">
+    <div class="hero-lead">
+      <p>Étudiant en BTS Assistance Technique d’Ingénieur au Havre. Modélisation 3D, électrotechnique, automatismes et organisation industrielle.</p>
+      <p>Trois stages effectués : Safran Nacelles, SIE Electric, Le Havre Seine Métropole.</p>
+      <div class="cta"><a class="btn solid" href="#travaux">Voir les travaux</a><a class="btn" href="CV-Laurent-Battaglia.pdf" download>Télécharger le CV</a></div>
     </div>
-    <p class="h-desc" id="hdesc">
-      Etudiant en formation <strong>modélisation 3D, électrotechnique, automatismes &amp; organisation industrielle</strong>.
-      Trois stages effectués — Safran Nacelles, SIE Electric, Le Havre Seine Métropole.<span class="tw-cursor"></span>
-    </p>
-    <div class="h-tags" id="htags">
-      <span class="htag">BTS ATI</span>
-      <span class="htag">SolidWorks</span>
-      <span class="htag">Catia 3D</span>
-      <span class="htag">Automatismes</span>
-      <span class="htag">Impression 3D</span>
-      <span class="htag">Permis B</span>
+    <div class="avail">
+      <span class="mono"><i class="dot"></i>Disponible · stage ou alternance</span>
+      <b>10 mai – 2 juillet 2027</b>
+      <span class="mono">Dates adaptables si besoin</span>
     </div>
-    <div class="h-scroll-hint" id="hscroll"><div class="h-scroll-line"></div>Défiler</div>
   </div>
+  <div class="cote mono" aria-hidden="true"><span>BTS ATI · 2025 — 2027</span></div>
 </section>
 
-<!-- MARQUEE -->
-<div class="mq-wrap" aria-hidden="true">
-  <div class="mq-track" id="mq-track">
-    <span>SolidWorks</span><span class="dot">·</span><span>Modélisation 3D</span><span class="dot">·</span>
-    <span>Safran Nacelles</span><span class="dot">·</span><span>Modélisation d'une nacelle</span><span class="dot">·</span>
-    <span>Topographie</span><span class="dot">·</span><span>BTS ATI 2026</span><span class="dot">·</span>
-    <span>Habilitation B0V/H0V</span><span class="dot">·</span><span>Catia 3D</span><span class="dot">·</span>
-    <span>Mention Bien EDPI</span><span class="dot">·</span><span>Stage Mai–Juil 2027</span><span class="dot">·</span>
-    <span>SolidWorks Expert</span><span class="dot">·</span><span>Modélisation 3D</span><span class="dot">·</span>
-    <span>Safran Nacelles</span><span class="dot">·</span><span>Modélisation d'une nacelle</span><span class="dot">·</span>
-    <span>Topographie</span><span class="dot">·</span><span>BTS ATI 2026</span><span class="dot">·</span>
-    <span>Habilitation B0V/H0V</span><span class="dot">·</span><span>Catia 3D</span><span class="dot">·</span>
-    <span>Mention Bien EDPI</span><span class="dot">·</span><span>Stage Mai–Juil 2027</span><span class="dot">·</span>
-  </div>
-</div>
-
-<!-- 02 PROJETS BTS -->
-<section id="projets" class="sec lt-sec" style="align-items:flex-start" data-color="light">
-  <div class="inner">
-    <div class="sec-label rv"><span class="sec-num">02</span><div class="sec-rule"></div><span class="sec-tag">Index des Travaux</span></div>
-    <div class="proj-stack">
-
-      <div class="pc pc-feat rv" id="card-maquette">
-        <div class="pc-top">
-          <span class="pc-num">MISSION 01 — SAFRAN NACELLES</span>
-          <span class="pc-co">Aéronautique</span>
-        </div>
-        <h3 class="pc-ti">Modélisation 3D<br><em>Maquette Pédagogique</em></h3>
-        <p class="pc-body">Conception et modélisation paramétrique d'une maquette représentant la structure interne d'une nacelle de moteur d'avion. Assemblages contraints, mises en plan normalisées ISO et rendu photoréaliste pour support de formation.</p>
-        <div class="pc-tags">
-          <span class="ptag">Catia 3D experience</span><span class="ptag">Assemblage contrainte modelisation 3D</span>
-          <span class="ptag">Fab lab</span><span class="ptag">Rendu 3D</span><span class="ptag">Aéronautique</span>
-        </div>
-        <button class="pc-btn" onclick="openModal('maquette')">Voir le détail</button>
-        <div class="pc-stat-row">
-          <div class="pc-stat-cell"><div class="pc-sv">93<span style="font-size:.42em;vertical-align:super">%</span></div><div class="pc-sl">Maîtrise catia 3D</div></div>
-          <div class="pc-stat-cell"><div class="pc-sv">6</div><div class="pc-sl">Semaines</div></div>
-          <div class="pc-stat-cell"><div class="pc-sv">TB</div><div class="pc-sl">Appréciation</div></div>
-        </div>
-        <div class="pc-ghost">01</div>
-        <div class="pc-meta">2024 · 6 semaines</div>
-      </div>
-
-      <div class="pc pc-sm-a rv" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.65rem;text-align:center;min-height:130px;background:linear-gradient(135deg,#fffdf5,var(--card))">
-        <div style="font-family:'Playfair Display',serif;font-size:clamp(38px,11vw,56px);font-weight:200;font-style:italic;color:var(--gold);line-height:1">3<span style="font-size:.4em;vertical-align:super">+</span></div>
-        <div style="font-family:'DM Mono',monospace;font-size:7px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink3)">Stages industriels</div>
-      </div>
-
-      <div class="pc pc-sm-b rv" style="display:flex;flex-direction:column;justify-content:space-between;gap:.85rem;min-height:130px">
-        <div>
-          <div class="pc-co">Bac Pro EDPI · 2024</div>
-          <div style="font-family:'Playfair Display',serif;font-size:clamp(22px,6.5vw,36px);font-weight:400;font-style:italic;line-height:1.1;margin-top:.4rem;color:var(--ink)">Mention<br><span style="color:var(--gold)">Bien.</span></div>
-        </div>
-        <button class="pc-btn" onclick="openModal('diplome')">Voir le diplôme</button>
-      </div>
-
-      <div class="pc pc-sie rv" id="card-sie">
-        <div class="pc-top">
-          <span class="pc-num">MISSION 02 — SIE ELECTRIC</span>
-          <span class="pc-co">Électrotechnique</span>
-        </div>
-        <h3 class="pc-ti">Animation<br><em>Cinématique</em></h3>
-        <p class="pc-body">Production d'animations cinématiques et vidéos techniques pour illustrer le fonctionnement d'équipements électriques. Catia 3D, mécanismes articulés, montage vidéo client.</p>
-        <div class="pc-tags">
-          <span class="ptag">solidworks</span><span class="ptag">Animation</span>
-          <span class="ptag">Vidéo technique</span><span class="ptag">Montage</span>
-        </div>
-        <button class="pc-btn" onclick="openModal('mission2')">Voir la vidéo</button>
-        <div class="pc-ghost">02</div>
-        <div class="pc-meta">2024 · 8 semaines</div>
-      </div>
-
-      <div class="pc pc-lhsm rv" id="card-topo">
-        <div class="pc-top">
-          <span class="pc-num">MISSION 03 — LE HAVRE MÉTROPOLE</span>
-          <span class="pc-co">Collectivité</span>
-        </div>
-        <h3 class="pc-ti"><em>Numérisation</em><br>&amp; Archivage</h3>
-        <p class="pc-body">Numérisation et archivage de précision pour la collectivité havraise. Relevés topographiques, données géospatiales, livrables SIG pour urbanisme et infrastructures.</p>
-        <div class="pc-tags">
-          <span class="ptag">Topographie</span><span class="ptag">Repérage topographique</span>
-          <span class="ptag">Métrologie</span><span class="ptag">Archivage</span>
-        </div>
-        <button class="pc-btn" onclick="openModal('animation')">Voir les rendus</button>
-        <div class="pc-ghost">03</div>
-        <div class="pc-meta">2024 · 5 semaines</div>
-      </div>
-
-    </div>
-  </div>
+<section class="sec dark" id="travaux" aria-labelledby="t-h">
+  <div class="sh"><h2 class="h2" id="t-h">Travaux<i>.</i></h2><p class="mono">05 projets<br>2023 — 2024</p></div>
+  <div class="board-bar"><p class="hint mono" id="hint">Sélectionner un projet pour l’ouvrir</p><button class="reset mono" id="reset" type="button">Réinitialiser la disposition</button></div>
+  <div class="board" id="board"></div>
 </section>
 
-<!-- 02b PROJETS BAC PRO -->
-<section id="bacpro" class="sec lt-sec" data-color="light" style="align-items:flex-start;min-height:auto">
-  <div class="inner">
-    <div class="sec-label rv"><span class="sec-num">02b</span><div class="sec-rule"></div><span class="sec-tag">Projets Bac Pro EDPI</span></div>
-    <div style="display:flex;flex-direction:column;gap:8px">
-
-      <!-- PROJET U34 -->
-      <div class="pc rv" style="background:linear-gradient(135deg,#fffdf5,var(--card))">
-        <div class="pc-top">
-          <span class="pc-num">PROJET U34 — BAC PRO EDPI</span>
-          <span class="pc-co">Conception industrielle</span>
-        </div>
-        <h3 class="pc-ti">Projet <em>U34</em></h3>
-        <p class="pc-body">Projet de conception industrielle réalisé dans le cadre du Bac Pro EDPI. Modélisation, mise en plan et analyse fonctionnelle d'un produit industriel.</p>
-        <div class="pc-tags">
-          <span class="ptag">SolidWorks</span><span class="ptag">Mise en plan</span>
-          <span class="ptag">Analyse fonctionnelle</span><span class="ptag">Bac Pro EDPI</span>
-        </div>
-
-        <!-- ══ IFRAME CANVA AVEC SPINNER ══ -->
-        <div class="canva-wrap">
-          <a class="canva-placeholder" id="ph-u34" href="https://www.canva.com/design/DAGIAh1dUYk/sFDn6dk3cU9S9uRSPXC2Xg/view" target="_blank" rel="noopener" aria-label="Ouvrir la présentation Canva dans un nouvel onglet">
-            <div class="canva-spinner"></div>
-            <span>Chargement Canva…</span>
-          </a>
-          <iframe
-            class="canva-frame"
-            id="iframe-u34"
-            loading="lazy"
-            src="https://www.canva.com/design/DAGIAh1dUYk/sFDn6dk3cU9S9uRSPXC2Xg/view?embed"
-            allowfullscreen
-            allow="fullscreen"
-            onload="canvaLoaded('u34')"
-          ></iframe>
-        </div>
-
-        <div class="pc-ghost">U34</div>
-        <div class="pc-meta">2023–2024 · Bac Pro</div>
-      </div>
-
-      <!-- CHEF D'OEUVRE -->
-      <div class="pc rv" style="background:linear-gradient(135deg,#fffdf5,var(--card))">
-        <div class="pc-top">
-          <span class="pc-num">CHEF D'ŒUVRE — BAC PRO EDPI</span>
-          <span class="pc-co">Projet final</span>
-        </div>
-        <h3 class="pc-ti">Chef <em>d'Œuvre</em></h3>
-        <p class="pc-body">Projet de fin de Bac Pro EDPI — réalisation complète démontrant la maîtrise des compétences en conception et définition de produits industriels.</p>
-        <div class="pc-tags">
-          <span class="ptag">CAO</span><span class="ptag">Dossier technique</span>
-          <span class="ptag">Présentation</span><span class="ptag">Mention Bien</span>
-        </div>
-
-        <!-- ══ IFRAME CANVA AVEC SPINNER ══ -->
-        <div class="canva-wrap">
-          <a class="canva-placeholder" id="ph-co" href="https://www.canva.com/design/DAGFByvrm_A/_SBJUbFxZK90-42_RH1u4w/view" target="_blank" rel="noopener" aria-label="Ouvrir la présentation Canva dans un nouvel onglet">
-            <div class="canva-spinner"></div>
-            <span>Chargement Canva…</span>
-          </a>
-          <iframe
-            class="canva-frame"
-            id="iframe-co"
-            loading="lazy"
-            src="https://www.canva.com/design/DAGFByvrm_A/_SBJUbFxZK90-42_RH1u4w/view?embed"
-            allowfullscreen
-            allow="fullscreen"
-            onload="canvaLoaded('co')"
-          ></iframe>
-        </div>
-
-        <div class="pc-ghost">CO</div>
-        <div class="pc-meta">2023–2024 · Bac Pro</div>
-      </div>
-
-    </div>
-  </div>
+<section class="sec" id="parcours" aria-labelledby="p-h">
+  <div class="sh"><h2 class="h2" id="p-h">Parcours<i>.</i></h2><p class="mono">Études, stages<br>2021 — 2027</p></div>
+  <ol class="tl">
+    <li class="tli k-f now"><span class="tl-y">2025 — 2027</span><div class="tl-b"><span class="tl-k">Formation</span><h3>BTS ATI</h3><p>Automatismes &amp; Ingénierie Industrielle · Lycée Jules Siegfried, Le Havre</p><span class="st">En cours · stage mai–juil. 2027</span></div></li>
+    <li class="tli k-s"><span class="tl-y">2024 · 5 semaines</span><div class="tl-b"><span class="tl-k">Stage</span><h3>Le Havre Seine Métropole</h3><p>Numérisation topographique, données géospatiales SIG</p><button class="tl-go" type="button" data-p="2">Voir le projet 03 →</button></div></li>
+    <li class="tli k-s"><span class="tl-y">2024 · 8 semaines</span><div class="tl-b"><span class="tl-k">Stage</span><h3>SIE Electric</h3><p>Animation cinématique 3D, vidéo technique client · Catia 3D</p><button class="tl-go" type="button" data-p="1">Voir le projet 02 →</button></div></li>
+    <li class="tli k-s"><span class="tl-y">2024 · 6 semaines</span><div class="tl-b"><span class="tl-k">Stage</span><h3>Safran Nacelles</h3><p>Modélisation 3D de la maquette pédagogique d’une nacelle · SolidWorks Expert</p><button class="tl-go" type="button" data-p="0">Voir le projet 01 →</button></div></li>
+    <li class="tli k-f"><span class="tl-y">2021 — 2024</span><div class="tl-b"><span class="tl-k">Formation</span><h3>Bac Pro EDPI</h3><p>Étude et Définition de Produits Industriels · Lycée Jules Siegfried, Le Havre</p><span class="st">Mention Bien</span>
+      <details><summary>Voir le détail du diplôme</summary><p>Baccalauréat Professionnel Étude et Définition de Produits Industriels, obtenu en juin 2024 au Lycée Jules Siegfried, Le Havre. Dessin technique industriel, CAO SolidWorks, représentation normalisée ISO, analyse fonctionnelle et structurelle de produits industriels.</p></details></div></li>
+    <li class="tli k-d"><span class="tl-y">2022</span><div class="tl-b"><span class="tl-k">Mobilité</span><h3>Permis B</h3><p>Mobile sur la Normandie et l’axe Seine</p><span class="st">Obtenu</span></div></li>
+  </ol>
 </section>
 
-<!-- 03 REEL -->
-<section id="reel" class="sec dk-sec" data-color="dark" style="min-height:auto">
-  <div class="reel-bg" aria-hidden="true"></div>
-  <div class="reel-inner">
-    <div class="reel-ey">PONCTUEL · MOTIVÉ · ENVIE D'APPRENDRE</div>
-    <div class="reel-nums">
-      <div class="rn-item rv"><div class="rn-val" data-count="3" data-suffix="+">0</div><div class="rn-lab">Stages</div></div>
-      <div class="rn-item rv"><div class="rn-val" data-count="19">0</div><div class="rn-lab">Semaines terrain</div></div>
-      <div class="rn-item rv"><div class="rn-val" data-count="2" data-suffix="+">0</div><div class="rn-lab">Logiciels CAO</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- 04 TIMELINE -->
-<section id="timeline" class="sec lt-sec" data-color="light" style="align-items:flex-start;min-height:auto">
-  <div class="tl-wrap">
-    <div class="sec-label rv"><span class="sec-num">04</span><div class="sec-rule"></div><span class="sec-tag">Parcours — Timeline</span></div>
-    <h2 class="tl-title rv">Cursus<br><em>Mes études.</em></h2>
-    <div class="tl-track rv">
-      <div class="tl-spine"><div class="tl-spine-fill"></div></div>
-      <div class="tl-item active">
-        <div class="tl-dot"></div>
-        <div class="tl-yr">2025 — 2027 (en cours)</div>
-        <div class="tl-name">BTS ATI</div>
-        <div class="tl-school">Automatismes &amp; Ingénierie Industrielle · Lycée Jules Siegfried, Le Havre</div>
-        <span class="tl-badge current">En cours · Stage mai–juil 2027</span>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-yr">2024 · 5 semaines</div>
-        <div class="tl-name">Stage · Le Havre Seine Métropole</div>
-        <div class="tl-school">Numérisation topographique, données géospatiales SIG</div>
-        <span class="tl-badge">Mission 03 complétée</span>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-yr">2024 · 8 semaines</div>
-        <div class="tl-name">Stage · SIE Electric</div>
-        <div class="tl-school">Animation cinématique 3D, vidéo technique client · Catia 3D</div>
-        <span class="tl-badge">Mission 02 complétée</span>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-yr">2024 · 6 semaines</div>
-        <div class="tl-name">Stage · Safran Nacelles</div>
-        <div class="tl-school">Modélisation 3D maquette pédagogique nacelle · SolidWorks Expert</div>
-        <span class="tl-badge">Mission 01 complétée</span>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-yr">2021 — 2024</div>
-        <div class="tl-name">Bac Pro EDPI</div>
-        <div class="tl-school">Étude et Définition de Produits Industriels · Lycée Jules Siegfried, Le Havre</div>
-        <span class="tl-badge" onclick="openModal('diplome')" style="cursor:pointer">Mention Bien — Voir le diplôme ↗</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 05 SKILLS -->
-<section id="skills" class="sec lt-sec" data-color="light" style="align-items:flex-start">
-  <div class="inner">
-    <div class="sec-label rv"><span class="sec-num">05</span><div class="sec-rule"></div><span class="sec-tag">Matrice des Capacités</span></div>
-    <div class="sk-grid">
-      <div class="sk-card rv">
-        <div class="sk-head">Expertise Logicielle</div>
-        <div class="sk-row"><span class="sk-name">SolidWorks</span><div class="sk-bar"><div class="sk-fill" data-w=".93"></div></div><span class="sk-lv">Expert</span></div>
-        <div class="sk-row"><span class="sk-name">Catia 3D</span><div class="sk-bar"><div class="sk-fill" data-w=".75"></div></div><span class="sk-lv">Confirmé</span></div>
-        <div class="sk-row"><span class="sk-name">AutoCAD</span><div class="sk-bar"><div class="sk-fill" data-w=".62"></div></div><span class="sk-lv">Intermédiaire</span></div>
-        <div class="sk-row"><span class="sk-name">PIX</span><div class="sk-bar"><div class="sk-fill" data-w=".70"></div></div><span class="sk-lv">Certifié</span></div>
-        <div class="sk-row"><span class="sk-name">Suite Office</span><div class="sk-bar"><div class="sk-fill" data-w=".82"></div></div><span class="sk-lv">Avancé</span></div>
-      </div>
-      <div class="sk-card rv">
-        <div class="sk-head">Parcours de Formation</div>
-        <div class="form-list">
-          <div class="form-item"><div class="form-yr">2025 — 2027</div><div class="form-ti">BTS ATI</div><div class="form-sc">Lycée Jules Siegfried — Le Havre</div><span class="f-badge">En cours</span></div>
-          <div class="form-item"><div class="form-yr">2021 — 2024</div><div class="form-ti">Bac Pro EDPI</div><div class="form-sc">Lycée Jules Siegfried — Le Havre</div><span class="f-badge" onclick="openModal('diplome')">Mention Bien ↗</span></div>
-          <div class="form-item"><div class="form-yr">2022</div><div class="form-ti">Permis B — </div><div class="form-sc"></div></div>
-        </div>
-      </div>
-      <div class="sk-card rv">
-        <div class="sk-head">Habilitations &amp; Certifications</div>
-        <div class="hab-list">
-          <div class="hab-item"><span class="hab-ico">⚡</span><span class="hab-name">Habilitation Électrique B0V / H0V</span><span class="hab-ok">Valide</span></div>
-          <div class="hab-item"><span class="hab-ico">🚑</span><span class="hab-name">SST — Sauveteur Secouriste du Travail</span><span class="hab-ok">Valide</span></div>
-          <div class="hab-item"><span class="hab-ico">🚗</span><span class="hab-name">Mobilité Normandie · Permis B</span><span class="hab-ok">Valide</span></div>
-          <div class="hab-item"><span class="hab-ico">🖥</span><span class="hab-name">Certification PIX</span><span class="hab-ok">Obtenue</span></div>
-          <div class="hab-item"><span class="hab-ico">📐</span><span class="hab-name">SolidWorks Expert</span><span class="hab-ok">Certifié</span></div>
-        </div>
-      </div>
-      <div class="sk-card rv">
-        <div class="sk-head">Profil Personnel</div>
-        <div class="pass-grid">
-          <div class="pass-item"><span class="pass-ico">🎵</span><div class="pass-lb">Clarinette</div><div class="pass-sub">Depuis 2015</div></div>
-          <div class="pass-item"><span class="pass-ico">🖨</span><div class="pass-lb">Impression 3D</div><div class="pass-sub">FDM · Prototypage</div></div>
-          <div class="pass-item"><span class="pass-ico">✈</span><div class="pass-lb">Aéronautique</div><div class="pass-sub">Passion &amp; veille</div></div>
-          <div class="pass-item"><span class="pass-ico">🔧</span><div class="pass-lb">Mécanique</div><div class="pass-sub">DIY · Conception</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 06 FAQ -->
-<section id="faq" class="sec lt-sec" data-color="light" style="align-items:flex-start;min-height:auto">
-  <div class="inner">
-    <h2 class="faq-title rv">Questions<br><em>Recruteur.</em></h2>
+<section class="sec alt" id="competences" aria-labelledby="c-h">
+  <div class="sh"><h2 class="h2" id="c-h">Compétences<i>.</i></h2><p class="mono">Logiciels<br>Habilitations · Profil</p></div>
+  <div class="two">
     <div>
-      <div class="acc-item rv"><button class="acc-btn" aria-expanded="false"><span class="acc-q">Pourquoi le BTS ATI après un Bac Pro EDPI ?</span><span class="acc-icon">+</span></button><div class="acc-body"><div class="acc-body-in"><p class="acc-a">Le Bac Pro EDPI m'a donné une solide base en <strong>dessin technique et CAO</strong>. Le BTS ATI est la suite naturelle pour monter en compétences sur les <strong>automatismes, l'ingénierie système</strong> et la gestion de projets industriels complets.</p></div></div></div>
-      <div class="acc-item rv"><button class="acc-btn" aria-expanded="false"><span class="acc-q">Quelles sont les dates de stage ?</span><span class="acc-icon">+</span></button><div class="acc-body"><div class="acc-body-in"><p class="acc-a">Le stage peut-etre du <strong>10 mai au 2 Juillet</strong>. ces dates sont <strong>Adaptable</strong> si besoin</p></div></div></div>
-      <div class="acc-item rv"><button class="acc-btn" aria-expanded="false"><span class="acc-q">Quelle est votre disponibilité et mobilité ?</span><span class="acc-icon">+</span></button><div class="acc-body"><div class="acc-body-in"><p class="acc-a">Disponible pour un <strong>stage de fin de BTS ATI de mai à juillet 2027</strong>. Basé à Le Havre, mobile sur la Normandie et l'axe Seine. <strong>Permis B Obtenu</strong>.</p></div></div></div>
-      <div class="acc-item rv"><button class="acc-btn" aria-expanded="false"><span class="acc-q">Qu'avez-vous appris chez SIE Electric ?</span><span class="acc-icon">+</span></button><div class="acc-body"><div class="acc-body-in"><p class="acc-a">La <strong>communication technique par le visuel</strong> : transformer une pièce mécanique en animation compréhensible pour un client non-technicien. Maîtriser à la fois <strong>Catia 3D et la narration technique</strong> est une compétence transversale rare.</p></div></div></div>
-      <div class="acc-item rv"><button class="acc-btn" aria-expanded="false"><span class="acc-q">Quelles sont vos habilitations ?</span><span class="acc-icon">+</span></button><div class="acc-body"><div class="acc-body-in"><p class="acc-a"><strong>Habilitation Électrique B0V/H0V</strong>, <strong>SST</strong> (Sauveteur Secouriste du Travail), <strong>Certification PIX</strong> (2024), maîtrise SolidWorks niveau <strong>Expert</strong>. Mobile Normandie / Axe Seine avec permis B.</p></div></div></div>
+      <h3 class="h3">Logiciels</h3>
+      <div class="sk"><b>SolidWorks</b><span class="lv">Expert</span><i class="rule" style="--w:100%"></i></div>
+      <div class="sk"><b>Catia 3D</b><span class="lv">Confirmé</span><i class="rule" style="--w:80%"></i></div>
+      <div class="sk"><b>Suite Office</b><span class="lv">Avancé</span><i class="rule" style="--w:80%"></i></div>
+      <div class="sk"><b>AutoCAD</b><span class="lv">Intermédiaire</span><i class="rule" style="--w:60%"></i></div>
+      <div class="li"><span>PIX</span><small>Certifié</small></div>
+    </div>
+    <div class="stack">
+      <div>
+        <h3 class="h3">Habilitations &amp; certifications</h3>
+        <div class="li"><span>Habilitation électrique B0V / H0V</span><small>Valide</small></div>
+        <div class="li"><span>SST — Sauveteur Secouriste du Travail</span><small>Valide</small></div>
+        <div class="li"><span>Mobilité Normandie · Permis B</span><small>Valide</small></div>
+        <div class="li"><span>Certification PIX</span><small>Obtenue</small></div>
+        <div class="li"><span>SolidWorks Expert</span><small>Certifié</small></div>
+      </div>
+      <div>
+        <h3 class="h3">Profil personnel</h3>
+        <div class="li"><span>Clarinette<em>Depuis 2015</em></span></div>
+        <div class="li"><span>Impression 3D<em>FDM · Prototypage</em></span></div>
+        <div class="li"><span>Aéronautique<em>Passion &amp; veille</em></span></div>
+        <div class="li"><span>Mécanique<em>DIY · Conception</em></span></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- 07 CONTACT -->
-<section id="contact" class="sec dk-sec" data-color="dark">
-  <div class="inner">
-    <div class="ct-grid">
-      <div>
-        <p class="ct-ey rv">07 — Stage Mai–Juillet 2027</p>
-        <h2 class="ct-title rv">Travaillons<br><em>ensemble.</em></h2>
-        <p class="ct-body rv">
-          Disponible pour un <strong>stage de fin de BTS ATI (mai–juillet 2027)</strong> ou une alternance.
-          Recherche d'un environnement technique exigeant — aéronautique, bureaux d'études, automatismes.<br><br>
-          Basé à <strong>Le Havre, Normandie</strong>. Réponse en <strong style="color:var(--grn)">24h</strong>.
-        </p>
-        <div class="ct-avail rv"><div class="ct-avail-dot"></div>Disponible — Stage Mai–Juillet 2027</div><br>
-        <a href="CV Laurent BATTAGLIA..pdf" download class="btn-cv rv" aria-label="Télécharger le CV de Laurent Battaglia"><span>Télécharger le CV →</span></a>
-      </div>
-      <div class="rv">
-        <div class="ct-links">
-          <a href="#" class="ctlink js-anti-spam" data-e="YmF0dGFnbGlhbGF1cmVudDExQGdtYWlsLmNvbQ==" data-txt="YmF0dGFnbGlhbGF1cmVudDExQGdtYWlsLmNvbQ==" data-type="mail">
-            <span class="ctlink-ico">✉</span>
-            <span><span class="ctlink-main">Email</span><span class="ctlink-sub js-anti-spam-txt">···</span></span>
-          </a>
-          <a href="#" class="ctlink js-anti-spam" data-e="KzMzNjIxODQxNjEz" data-txt="MDYgMjEgODQgMTYgMTM=" data-type="tel">
-            <span class="ctlink-ico">☎</span>
-            <span><span class="ctlink-main">Téléphone</span><span class="ctlink-sub js-anti-spam-txt">···</span></span>
-          </a>
-          <a href="https://www.linkedin.com/in/laurent-battaglia-7bb813369" target="_blank" rel="noopener" class="ctlink">
-            <span class="ctlink-ico">↗</span>
-            <span><span class="ctlink-main">LinkedIn</span><span class="ctlink-sub">laurent-battaglia-7bb813369</span></span>
-          </a>
-        </div>
-      </div>
+<section class="sec faq" id="faq" aria-labelledby="f-h">
+  <div class="sh"><h2 class="h2" id="f-h">Questions<i>.</i></h2><p class="mono">Recruteurs</p></div>
+  <details><summary>Pourquoi le BTS ATI après un Bac Pro EDPI ?</summary><p>Le Bac Pro EDPI m’a donné une solide base en <b>dessin technique et CAO</b>. Le BTS ATI est la suite naturelle pour monter en compétences sur les <b>automatismes, l’ingénierie système</b> et la gestion de projets industriels complets.</p></details>
+  <details><summary>Quelles sont les dates de stage ?</summary><p>Le stage peut avoir lieu du <b>10 mai au 2 juillet</b>. Ces dates sont <b>adaptables</b> si besoin.</p></details>
+  <details><summary>Quelle est votre disponibilité et mobilité ?</summary><p>Disponible pour un <b>stage de fin de BTS ATI de mai à juillet 2027</b>. Basé au Havre, mobile sur la Normandie et l’axe Seine. <b>Permis B obtenu</b>.</p></details>
+  <details><summary>Qu’avez-vous appris chez SIE Electric ?</summary><p>La <b>communication technique par le visuel</b> : transformer une pièce mécanique en animation compréhensible pour un client non technicien. Maîtriser à la fois <b>Catia 3D et la narration technique</b> est une compétence transversale rare.</p></details>
+  <details><summary>Quelles sont vos habilitations ?</summary><p><b>Habilitation électrique B0V/H0V</b>, <b>SST</b> (Sauveteur Secouriste du Travail), <b>certification PIX</b> (2024), SolidWorks niveau <b>Expert</b>. Mobile Normandie / axe Seine avec permis B.</p></details>
+</section>
+
+<section class="sec dark ct" id="contact" aria-labelledby="ct-h">
+  <h2 class="h2" id="ct-h">Travaillons<br>ensemble<i>.</i></h2>
+  <div class="ct-grid">
+    <p>Disponible pour un <b>stage de fin de BTS ATI (mai–juillet 2027)</b> ou une alternance. Je recherche un environnement technique exigeant : aéronautique, bureaux d’études, automatismes. Basé au Havre, en Normandie. <b>Réponse sous 24 h.</b></p>
+    <div class="links">
+      <a href="CV-Laurent-Battaglia.pdf" download>Télécharger le CV <small>PDF</small></a>
+      <a href="#" class="reveal" data-e="YmF0dGFnbGlhbGF1cmVudDExQGdtYWlsLmNvbQ==" data-type="mail"><span class="rt">Afficher l’email</span> <small>Email</small></a>
+      <a href="#" class="reveal" data-e="KzMzNjIxODQxNjEz" data-txt="MDYgMjEgODQgMTYgMTM=" data-type="tel"><span class="rt">Afficher le téléphone</span> <small>Téléphone</small></a>
+      <a href="https://www.linkedin.com/in/laurent-battaglia-7bb813369" target="_blank" rel="noopener">LinkedIn <small>laurent-battaglia</small></a>
     </div>
   </div>
 </section>
 </main>
 
 <footer>
-  <span class="f-sig">Laurent Battaglia — 2027</span>
-  <span class="f-line">BTS ATI · Le Havre · Stage Mai–Juil 2027</span>
-  <span class="f-legal">
-    <a href="mentions-legales.html">Mentions légales</a>
-    <a href="politique-confidentialite.html">Confidentialité (RGPD)</a>
-    <a href="cgu.html">CGU</a>
-    <a href="#" id="f-cookie-manage">Gérer les cookies</a>
-  </span>
+  <span>© 2026 Laurent Battaglia · Le Havre</span>
+  <div class="fl">
+    <a href="mentions-legales.html">Mentions légales</a><a href="politique-confidentialite.html">Confidentialité</a><a href="cgu.html">CGU</a>
+    <button type="button" id="ck-open">Gérer les cookies</button><button type="button" id="replay">Rejouer l’ouverture</button>
+  </div>
 </footer>
 
-<script>
-/* ══ CANVA LOADER ══ */
-function canvaLoaded(id) {
-  var iframe = document.getElementById('iframe-' + id);
-  var placeholder = document.getElementById('ph-' + id);
-  if (!iframe || !placeholder) return;
-  iframe.style.opacity = '1';
-  placeholder.style.opacity = '0';
-  setTimeout(function() { placeholder.style.display = 'none'; }, 420);
-}
+<div id="case" role="dialog" aria-modal="true" aria-label="Étude de cas" aria-hidden="true">
+  <div class="case-top"><button type="button" id="case-close">← Travaux</button><div class="grp"><span class="mono" id="case-count"></span></div></div>
+  <div id="case-body"></div>
+</div>
 
-/* Fallback : si l'événement load ne se déclenche pas dans les 6 secondes */
-window.addEventListener('load', function() {
-  setTimeout(function() {
-    ['u34', 'co'].forEach(function(id) {
-      var ph = document.getElementById('ph-' + id);
-      var fr = document.getElementById('iframe-' + id);
-      if (ph && ph.style.display !== 'none') {
-        if (fr) fr.style.opacity = '1';
-        ph.style.opacity = '0';
-        setTimeout(function() { ph.style.display = 'none'; }, 420);
-      }
-    });
-  }, 6000);
+<div id="ck" role="dialog" aria-label="Cookies">
+  <p>Ce site ne dépose que des données techniques locales (mémorisation de ce choix) et charge des polices Google Fonts, ce qui peut transmettre votre adresse IP à Google. Aucune donnée personnelle n’est collectée. <a href="politique-confidentialite.html">En savoir plus</a>.</p>
+  <div><button type="button" id="ck-no">Refuser</button><button type="button" class="p" id="ck-yes">Accepter</button></div>
+</div>
+
+<!-- Logo lynx en petits carrés (définit window.lgK) : à charger avant le script principal -->
+<script src="lynx-intro.js"></script>
+<script>
+(function(){
+'use strict';
+var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(typeof window.lgK!=='function')window.lgK=function(){};
+
+/* ── Données des projets ── */
+var P=[
+ {id:'safran',n:'01',c:'c1',year:'2024',cat:'Aéronautique',co:'Safran Nacelles',title:'Maquette pédagogique de nacelle',
+  txt:['Conception et modélisation paramétrique d’une maquette représentant la structure interne d’une nacelle de moteur d’avion. Assemblages contraints, mises en plan normalisées ISO et rendu photoréaliste pour un support de formation.','Modélisation paramétrique, assemblages contraints, mises en plan ISO, rendu photoréaliste pour la formation interne.'],
+  meta:[['Entreprise','Safran Nacelles'],['Logiciel','SolidWorks Expert'],['Durée','6 semaines'],['Norme','ISO 128 / 2553'],['Livrable','Maquette + mises en plan'],['Appréciation','TB']],
+  tags:['SolidWorks','Assemblage contraint','Norme ISO','Rendu 3D','Analyse fonctionnelle','Aéronautique']},
+ {id:'sie',n:'02',c:'c2',year:'2024',cat:'Électrotechnique',co:'SIE Electric',title:'Animation cinématique',
+  txt:['Production d’animations cinématiques 3D et de vidéos techniques pour illustrer le fonctionnement d’équipements électriques industriels. Mécanismes articulés, montage vidéo pour le client.'],
+  meta:[['Entreprise','SIE Electric'],['Logiciel','Catia 3D'],['Durée','8 semaines'],['Type','Animation client livrée'],['Secteur','Électrotechnique']],
+  tags:['Catia 3D','Animation','Vidéo technique','Montage','Communication client'],
+  media:{t:'video',src:'sie.mp4',poster:'sie-poster.jpg',label:'Animation cinématique SIE Electric'}},
+ {id:'metropole',n:'03',c:'c3',year:'2024',cat:'Collectivité',co:'Le Havre Seine Métropole',title:'Numérisation & archivage',
+  txt:['Numérisation et archivage de précision pour la collectivité havraise : numérisation, repérage et archivage de cartes topographiques pour les services d’urbanisme et d’infrastructure.','Relevés topographiques, données géospatiales et livrables SIG.'],
+  meta:[['Entreprise','Le Havre Seine Métropole'],['Domaine','Topographie & SIG'],['Durée','5 semaines'],['Données','Géospatiales / GIS'],['Usage','Urbanisme & infrastructures']],
+  tags:['Topographie','SIG / GIS','Métrologie','Archivage','Collectivité']},
+ {id:'u34',n:'04',c:'c4',year:'2023–2024',cat:'Bac Pro EDPI',co:'Conception industrielle',title:'Projet U34',
+  txt:['Projet de conception industrielle réalisé dans le cadre du Bac Pro EDPI. Modélisation, mise en plan et analyse fonctionnelle d’un produit industriel.'],
+  meta:[['Cadre','Bac Pro EDPI'],['Période','2023–2024'],['Logiciel','SolidWorks'],['Livrables','Mise en plan, analyse fonctionnelle']],
+  tags:['SolidWorks','Mise en plan','Analyse fonctionnelle','Bac Pro EDPI'],
+  media:{t:'canva',src:'https://www.canva.com/design/DAGIAh1dUYk/sFDn6dk3cU9S9uRSPXC2Xg/view?embed',link:'https://www.canva.com/design/DAGIAh1dUYk/sFDn6dk3cU9S9uRSPXC2Xg/view',label:'Présentation du projet U34'}},
+ {id:'chef-doeuvre',n:'05',c:'c5',year:'2023–2024',cat:'Projet final',co:'Bac Pro EDPI',title:'Chef d’œuvre',
+  txt:['Projet de fin de Bac Pro EDPI : réalisation complète démontrant la maîtrise des compétences en conception et définition de produits industriels.'],
+  meta:[['Cadre','Bac Pro EDPI'],['Période','2023–2024'],['Résultat','Mention Bien'],['Livrables','CAO, dossier technique, présentation']],
+  tags:['CAO','Dossier technique','Présentation','Mention Bien'],
+  media:{t:'canva',src:'https://www.canva.com/design/DAGFByvrm_A/_SBJUbFxZK90-42_RH1u4w/view?embed',link:'https://www.canva.com/design/DAGFByvrm_A/_SBJUbFxZK90-42_RH1u4w/view',label:'Présentation du chef d’œuvre'}}
+];
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+
+/* ── Cartouches ── */
+var board=$('#board'),carts=[];
+var POS=[[2,6,-2.5],[22,34,1.8],[42,4,-1],[62,36,2.6],[79,6,-1.8]];
+P.forEach(function(p,i){
+  var b=document.createElement('div');
+  b.className='cart '+p.c;b.tabIndex=0;b.setAttribute('role','button');b.dataset.i=i;
+  b.setAttribute('aria-label','Ouvrir le projet '+p.n+' : '+p.title);
+  b.innerHTML='<div class="cart-top"><span>'+esc(p.cat)+'</span><span>'+esc(p.year)+'</span></div><div class="cart-n" aria-hidden="true">'+p.n+'</div><div><h3>'+esc(p.title)+'</h3><div class="co">'+esc(p.co)+'</div></div>';
+  board.appendChild(b);carts.push(b);
 });
-
-/* ══════════════════════════════════════════════════════
-   MODAL DATA
-══════════════════════════════════════════════════════ */
-const MODALS = {
-  maquette:{
-    label:'Mission 01 · Safran Nacelles', title:'Maquette Pédagogique Nacelle',
-    body:`<p>Conception complète d'une maquette représentant la <strong>structure interne d'une nacelle de moteur d'avion</strong> chez Safran Nacelles.</p>
-<h4>Données de mission</h4>
-<div class="m-grid">
-  <div class="m-cell"><div class="m-lab">Logiciel</div><div class="m-val">SolidWorks Expert</div></div>
-  <div class="m-cell"><div class="m-lab">Durée</div><div class="m-val">6 semaines</div></div>
-  <div class="m-cell"><div class="m-lab">Norme</div><div class="m-val">ISO 128 / 2553</div></div>
-  <div class="m-cell"><div class="m-lab">Livrable</div><div class="m-val">Maquette + mises en plan</div></div>
-</div>
-<p><strong>Modélisation paramétrique</strong>, assemblages contraints, mises en plan ISO, rendu photoréaliste pour formation interne.</p>
-<div class="modal-tags"><span class="ptag">SolidWorks</span><span class="ptag">Assemblage contraint</span><span class="ptag">Norme ISO</span><span class="ptag">Rendu 3D</span><span class="ptag">Analyse fonctionnelle</span></div>`
-  },
-  mission2:{
-    label:'Mission 02 · SIE Electric', title:'Vidéo Technique & Animation',
-    body:`<p>Production d'<strong>animations cinématiques 3D</strong> et de vidéos techniques pour illustrer le fonctionnement d'équipements électriques industriels.</p>
-<div class="m-grid">
-  <div class="m-cell"><div class="m-lab">Logiciel</div><div class="m-val">Catia 3D</div></div>
-  <div class="m-cell"><div class="m-lab">Durée</div><div class="m-val">8 semaines</div></div>
-  <div class="m-cell"><div class="m-lab">Type</div><div class="m-val">Animation client livrée</div></div>
-  <div class="m-cell"><div class="m-lab">Secteur</div><div class="m-val">Électrotechnique</div></div>
-</div>
-<div style="position:relative;width:100%;margin:.85rem 0;border-radius:12px;overflow:hidden;border:1px solid var(--bd);background:#0a0d0f">
-  <img src="sie.gif" alt="Animation cinématique SIE Electric" loading="lazy"
-    style="display:block;width:100%;height:auto;max-height:420px;object-fit:cover;border-radius:11px"
-    onerror="this.parentElement.innerHTML='<div style=padding:2rem;text-align:center;font-family:DM Mono,monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(26,21,17,.35)><div style=font-size:28px;margin-bottom:.6rem>🎬</div>Placez sie.gif dans le même dossier</div>'" />
-</div>
-<div class="modal-tags"><span class="ptag">Catia 3D</span><span class="ptag">Animation</span><span class="ptag">Vidéo technique</span><span class="ptag">Communication client</span></div>`
-  },
-  animation:{
-    label:'Mission 03 · Le Havre Seine Métropole', title:'Numérisation & Archivage',
-    body:`<p>Numérisation, repérage et archivage de cartes topographiques pour les services d'urbanisme et d'infrastructure de la collectivité havraise.</p>
-<div class="m-grid">
-  <div class="m-cell"><div class="m-lab">Domaine</div><div class="m-val">Topographie & SIG</div></div>
-  <div class="m-cell"><div class="m-lab">Durée</div><div class="m-val">5 semaines</div></div>
-  <div class="m-cell"><div class="m-lab">Données</div><div class="m-val">Géospatiales / GIS</div></div>
-  <div class="m-cell"><div class="m-lab">Usage</div><div class="m-val">Urbanisme & infra</div></div>
-</div>
-<div class="modal-tags"><span class="ptag">Topographie</span><span class="ptag">SIG / GIS</span><span class="ptag">Métrologie</span><span class="ptag">Archivage</span><span class="ptag">Collectivité</span></div>`
-  },
-  diplome:{
-    label:'Diplôme · 2024', title:'Bac Pro EDPI — Mention Bien',
-    body:`<p>Baccalauréat Professionnel <strong>Étude et Définition de Produits Industriels</strong>, obtenu en juin 2024 au Lycée Jules Siegfried, Le Havre.</p>
-<div class="m-dip" id="dip-card" onclick="launchConfetti()">
-  <div class="dh">République Française · Éducation Nationale</div>
-  <div class="dt">Baccalauréat Professionnel</div>
-  <div class="ds">Étude et Définition de Produits Industriels</div>
-  <div class="dn">Laurent BATTAGLIA</div>
-  <span class="dm">Mention Bien</span>
-  <div class="dy">Session 2024 · Lycée Jules Siegfried · Le Havre</div>
-  <div class="dnote">🎉 Cliquer pour célébrer !</div>
-</div>
-<p>Dessin technique industriel, CAO SolidWorks, représentation normalisée ISO, analyse fonctionnelle et structurelle de produits industriels.</p>`
-  }
-};
-
-/* ══ MODAL ══ */
-const modal=document.getElementById('loryx-modal'),mPanel=document.getElementById('modal-panel');
-function openModal(t){lastModalTrigger=document.activeElement;const d=MODALS[t];if(!d)return;document.getElementById('modal-label').textContent=d.label;document.getElementById('modal-title').textContent=d.title;document.getElementById('modal-body').innerHTML=d.body;modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';modalPanel.focus();mPanel.scrollTop=0;}
-function closeModal(){modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.style.overflow='';if(lastModalTrigger&&lastModalTrigger.focus)lastModalTrigger.focus();}
-document.getElementById('modal-close-btn').addEventListener('click',closeModal);
-document.getElementById('modal-bd').addEventListener('click',closeModal);
-const modalPanel=document.getElementById('modal-panel');
-let lastModalTrigger=null;
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))closeModal();});
-let sy=0,drag=false;
-mPanel.addEventListener('touchstart',e=>{if(mPanel.scrollTop>4)return;sy=e.touches[0].clientY;drag=true;},{passive:true});
-mPanel.addEventListener('touchmove',e=>{if(!drag)return;const dy=e.touches[0].clientY-sy;if(dy>0){mPanel.style.transition='none';mPanel.style.transform=`translateY(${dy}px)`;}},{passive:true});
-mPanel.addEventListener('touchend',e=>{if(!drag)return;drag=false;mPanel.style.transition='';const dy=e.changedTouches[0].clientY-sy;mPanel.style.transform='';if(dy>90)closeModal();});
-
-/* ══ HAMBURGER ══ */
-const ham=document.getElementById('ham'),mobNav=document.getElementById('mob-nav');
-let navOpen=false;
-function openNav(){navOpen=true;ham.classList.add('open');mobNav.classList.add('open');ham.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}
-function closeNav(){navOpen=false;ham.classList.remove('open');mobNav.classList.remove('open');ham.setAttribute('aria-expanded','false');document.body.style.overflow='';}
-ham.addEventListener('click',()=>navOpen?closeNav():openNav());
-
-/* ══ CONFETTI ══ */
-function launchConfetti(){
-  const colors=['#c9a85c','#4a80f5','#2db06b','#f5cf7a','#ff6b4a','#c084fc'];
-  for(let i=0;i<40;i++){
-    const el=document.createElement('div');el.className='confetti-piece';
-    el.style.cssText=`left:${Math.random()*window.innerWidth}px;top:${window.innerHeight*.4}px;background:${colors[Math.floor(Math.random()*colors.length)]};width:${6+Math.random()*6}px;height:${6+Math.random()*6}px;animation-delay:${Math.random()*.4}s;animation-duration:${.9+Math.random()*.6}s;border-radius:${Math.random()>.5?'50%':'2px'}`;
-    document.body.appendChild(el);setTimeout(()=>el.remove(),2000);
-  }
+var canDrag=window.matchMedia('(min-width:900px) and (pointer:fine)');
+var st=[],zTop=10;
+function place(){
+  var W=board.clientWidth;
+  carts.forEach(function(c,i){
+    if(!canDrag.matches){c.style.cssText='';c.classList.remove('snap');return;}
+    var s=st[i]=st[i]||{dx:0,dy:0};
+    c.style.left=(POS[i][0]/100*W)+'px';c.style.top=POS[i][1]+'px';
+    c.style.transform='translate('+s.dx+'px,'+s.dy+'px) rotate('+POS[i][2]+'deg)';
+  });
+  $('#hint').textContent=canDrag.matches?'Glisser pour organiser · Sélectionner pour ouvrir':'Sélectionner un projet pour l’ouvrir';
 }
-
-/* ══ TEXT SCRAMBLE ══ */
-class Scramble{
-  constructor(el){this.el=el;this.chars='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';this.raf=null;}
-  run(newText){
-    const old=this.el.textContent;const len=Math.max(old.length,newText.length);
-    this.q=[];for(let i=0;i<len;i++){const s=Math.floor(Math.random()*18),e=s+Math.floor(Math.random()*14);this.q.push({from:old[i]||'',to:newText[i]||'',start:s,end:e,ch:''});}
-    cancelAnimationFrame(this.raf);this.frame=0;this._update();
+place();window.addEventListener('resize',place);
+(canDrag.addEventListener?canDrag.addEventListener('change',place):canDrag.addListener(place));
+carts.forEach(function(c,i){
+  var sx,sy,ox,oy,moved=false,active=false;
+  c.addEventListener('pointerdown',function(e){
+    if(!canDrag.matches||e.button>0)return;
+    active=true;moved=false;sx=e.clientX;sy=e.clientY;var s=st[i];ox=s.dx;oy=s.dy;
+    c.setPointerCapture(e.pointerId);c.classList.remove('snap');c.style.zIndex=++zTop;
+  });
+  c.addEventListener('pointermove',function(e){
+    if(!active)return;var dx=e.clientX-sx,dy=e.clientY-sy;
+    if(!moved&&Math.hypot(dx,dy)<6)return;
+    moved=true;c.classList.add('drag');
+    var br=board.getBoundingClientRect(),cw=c.offsetWidth,ch=c.offsetHeight,L=parseFloat(c.style.left),T=parseFloat(c.style.top);
+    var nx=Math.min(Math.max(ox+dx,-L),br.width-cw-L),ny=Math.min(Math.max(oy+dy,-T),br.height-ch-T);
+    st[i]={dx:nx,dy:ny};c.style.transform='translate('+nx+'px,'+ny+'px) rotate('+POS[i][2]+'deg)';
+  });
+  function end(e){
+    if(!active)return;active=false;c.classList.remove('drag');
+    try{c.releasePointerCapture(e.pointerId)}catch(x){}
+    if(!moved)openCase(i,c);
   }
-  _update(){
-    let out='',done=0;
-    for(let i=0;i<this.q.length;i++){
-      const q=this.q[i];
-      if(this.frame>=q.end){done++;out+=q.to;}
-      else if(this.frame>=q.start){if(!q.ch||Math.random()<.28)q.ch=this.chars[Math.floor(Math.random()*this.chars.length)];out+=`<span style="color:var(--gold);opacity:.4">${q.ch}</span>`;}
-      else out+=q.from;
-    }
-    this.el.innerHTML=out;
-    if(done<this.q.length){this.frame++;this.raf=requestAnimationFrame(()=>this._update());}
+  c.addEventListener('pointerup',end);c.addEventListener('pointercancel',function(){active=false;c.classList.remove('drag')});
+  c.addEventListener('click',function(){if(!canDrag.matches)openCase(i,c)});
+  c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openCase(i,c)}});
+});
+$('#reset').addEventListener('click',function(){st=[];carts.forEach(function(c){c.classList.add('snap')});place();});
+
+/* ── Étude de cas ── */
+var cs=$('#case'),csb=$('#case-body'),cur=-1,lastFocus=null;
+function render(i){
+  var p=P[i],nx=P[(i+1)%P.length],pv=P[(i+P.length-1)%P.length],m='';
+  if(p.media){
+    if(p.media.t==='video')m='<div class="media"><video src="'+p.media.src+'" poster="'+p.media.poster+'" controls autoplay muted loop playsinline preload="metadata" aria-label="'+esc(p.media.label)+'"></video></div>';
+    else m='<div class="media"><iframe src="'+p.media.src+'" title="'+esc(p.media.label)+'" loading="lazy" allowfullscreen allow="fullscreen"></iframe></div><p class="media-note mono"><span>Présentation Canva</span><a href="'+p.media.link+'" target="_blank" rel="noopener">Ouvrir dans un nouvel onglet ↗</a></p>';
   }
+  csb.innerHTML='<div class="case-band '+p.c+'" style="--c:var(--cc);--t:var(--ct)"><span class="mono">'+esc(p.cat)+' · '+esc(p.year)+'</span><span class="big" aria-hidden="true">'+p.n+'</span></div>'+
+  '<div class="case-in"><h2 tabindex="-1" id="case-h">'+esc(p.title)+'</h2><p class="case-sub mono">'+esc(p.co)+'</p>'+
+  '<div class="case-grid"><dl class="case-meta">'+p.meta.map(function(r){return '<div><dt>'+esc(r[0])+'</dt><dd>'+esc(r[1])+'</dd></div>'}).join('')+'</dl>'+
+  '<div class="case-txt">'+p.txt.map(function(t){return '<p>'+esc(t)+'</p>'}).join('')+'<div class="tags">'+p.tags.map(function(t){return '<span>'+esc(t)+'</span>'}).join('')+'</div></div></div>'+m+
+  '<div class="case-nav"><button type="button" data-go="'+((i+1)%P.length)+'"><span>'+esc(nx.title)+'</span><span class="mono">Suivant '+nx.n+'</span></button><button type="button" data-go="'+((i+P.length-1)%P.length)+'"><span>'+esc(pv.title)+'</span><span class="mono">Précédent '+pv.n+'</span></button></div></div>';
+  var colors={c1:['#2438ff','#fff'],c2:['#e9e8e1','#0b0c0e'],c3:['#b9bdc2','#0b0c0e'],c4:['#1d2024','#eceded'],c5:['#ff5a1f','#0b0c0e']}[p.c];
+  var band=$('.case-band',csb);band.style.setProperty('--cc',colors[0]);band.style.setProperty('--ct',colors[1]);
+  $('#case-count').textContent=p.n+' / 0'+P.length;
+  $$('[data-go]',csb).forEach(function(b){b.addEventListener('click',function(){cur=+b.dataset.go;render(cur);cs.scrollTop=0;history.replaceState(null,'','#'+P[cur].id);$('#case-h').focus({preventScroll:true})})});
 }
-
-/* ══ COUNTER ══ */
-function animateCounter(el,target,suffix=''){
-  const dur=1800,start=performance.now();
-  const ease=t=>1-(1-t)*(1-t)*(1-t);
-  (function step(now){const p=Math.min((now-start)/dur,1);el.textContent=Math.floor(ease(p)*target)+suffix;if(p<1)requestAnimationFrame(step);else el.textContent=target+suffix;})(start);
+function openCase(i,from){
+  lastFocus=from||document.activeElement;cur=i;render(i);
+  cs.classList.add('open');cs.setAttribute('aria-hidden','false');document.body.classList.add('lock');cs.scrollTop=0;
+  history.replaceState(null,'','#'+P[i].id);
+  setTimeout(function(){$('#case-close').focus({preventScroll:true})},60);
 }
+function closeCase(){
+  cs.classList.remove('open');cs.setAttribute('aria-hidden','true');document.body.classList.remove('lock');
+  history.replaceState(null,'',location.pathname+'#travaux');
+  if(lastFocus&&lastFocus.focus)lastFocus.focus({preventScroll:true});
+  setTimeout(function(){if(!cs.classList.contains('open'))csb.innerHTML=''},900);
+}
+$('#case-close').addEventListener('click',closeCase);
+document.addEventListener('keydown',function(e){
+  if(!cs.classList.contains('open'))return;
+  if(e.key==='Escape'){closeCase();return;}
+  if(e.key==='Tab'){
+    var f=$$('button,a[href],iframe,[tabindex="-1"]',cs).filter(function(x){return x.offsetParent!==null&&x.tabIndex>=0});
+    if(!f.length)return;var a=f[0],z=f[f.length-1];
+    if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}
+  }
+});
+document.addEventListener('play',function(e){if(e.target.tagName==='VIDEO'&&reduce)e.target.pause()},true);
 
-/* ══ LOADER ══ */
+/* ── Épure : dessin technique généré (une épure par jour) ── */
 (function(){
-  const bar=document.getElementById('ld-b'),pct=document.getElementById('ld-p'),nm=document.getElementById('ld-n');
-  let p=0;
-  requestAnimationFrame(()=>{nm.style.transition='transform 1s cubic-bezier(.16,1,.3,1)';nm.style.transform='translateY(0)';});
-  const iv=setInterval(()=>{p+=Math.random()*5+1.5;if(p>=100){p=100;clearInterval(iv);done();}bar.style.width=p+'%';pct.textContent=Math.round(p)+'%';},36);
-  function done(){
-    setTimeout(()=>document.getElementById('loader').classList.add('ld-done'),200);
-    setTimeout(()=>{const el=document.getElementById('loader');el.style.transition='opacity .65s cubic-bezier(.16,1,.3,1)';el.style.opacity='0';setTimeout(()=>{el.style.display='none';boot();},680);},600);
-  }
-})();
-
-/* ══════════════════════════════════════════════════════
-   BOOT
-══════════════════════════════════════════════════════ */
-function boot(){
-  if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches && window.matchMedia('(min-width:900px)').matches){document.documentElement.classList.add('custom-cursor-enabled');}
-  const desk=window.matchMedia('(min-width:900px)').matches;
-
-  setTimeout(()=>{
-    document.querySelectorAll('.h-word').forEach((el,i)=>{setTimeout(()=>{el.style.transition=`transform 1.3s cubic-bezier(.16,1,.3,1) ${i*.14}s`;el.style.transform='translateY(0)';},i*140);});
-    document.getElementById('hpre').classList.add('vis');
-    setTimeout(()=>document.getElementById('hbadge').classList.add('vis'),480);
-    setTimeout(()=>document.getElementById('hdesc').classList.add('vis'),640);
-    setTimeout(()=>document.getElementById('htags').classList.add('vis'),800);
-    const hs=document.getElementById('hscroll');if(hs)setTimeout(()=>hs.classList.add('vis'),960);
-  },100);
-
-  const spfill=document.getElementById('spfill');
-  function updateProgress(){const t=document.documentElement.scrollHeight-innerHeight;spfill.style.width=((scrollY/t)*100).toFixed(2)+'%';}
-  window.addEventListener('scroll',updateProgress,{passive:true});
-
-  const tb=document.getElementById('topbar');
-  const sn=document.getElementById('sidenav');
-  function updateTopbar(){
-    const mid=scrollY+54;let isDark=true;
-    document.querySelectorAll('section[data-color]').forEach(sec=>{
-      const top=sec.offsetTop,bot=top+sec.offsetHeight;
-      if(mid>=top&&mid<=bot)isDark=sec.dataset.color==='dark';
-    });
-    tb.classList.toggle('sc-dark',isDark);
-    tb.classList.toggle('sc-light',!isDark);
-    if(sn)sn.classList.toggle('on-dark',isDark);
-  }
-  window.addEventListener('scroll',updateTopbar,{passive:true});
-  updateTopbar();
-
-  const grid=document.getElementById('h-grid');
-  let lastS=0;
-  (function pl(){const s=scrollY;if(s!==lastS){lastS=s;if(grid)grid.style.transform=`translateY(${s*.25}px)`;}requestAnimationFrame(pl);})();
-
-  if(desk){
-    const cb=document.getElementById('cb');
-    const cd=document.getElementById('cd');
-    const cl=document.getElementById('cursor-label');
-    cb.style.display='block';
-    cd.style.display='block';
-    cl.style.display='block';
-
-    /* échelle cible par état (remplace les anciens width/height animés,
-       moins coûteux pour le navigateur et plus net visuellement) */
-    const SCALE={ '':1, H:1.95, L:1.4, T:2.85 };
-    const OPACITY={ '':1, H:1, L:1, T:.38 };
-
-    let mx=innerWidth/2, my=innerHeight/2, bx=mx, by=my;
-    let lastMx=mx, lastMy=my;
-    let curScale=1, targetScale=1, curOp=0, targetOp=0;
-    let stretchX=1, stretchY=1;
-    let ready=false, hidden=false, pressed=false;
-    let lastT=performance.now();
-
-    document.addEventListener('mousemove',e=>{
-      mx=e.clientX; my=e.clientY;
-      if(!ready){ ready=true; bx=mx; by=my; targetOp=OPACITY[document.body.dataset.cState||'']??1; }
-      if(hidden){ hidden=false; }
-    });
-
-    /* le curseur système reprend la main dès qu'on sort de la fenêtre
-       ou qu'on survole une iframe (Canva…), où les events ne remontent pas */
-    document.addEventListener('mouseleave',()=>{ hidden=true; targetOp=0; });
-    document.addEventListener('mouseenter',()=>{ hidden=false; });
-    document.querySelectorAll('iframe').forEach(f=>{
-      f.addEventListener('mouseenter',()=>{ targetOp=0; });
-      f.addEventListener('mouseleave',()=>{ if(!hidden)targetOp=OPACITY[document.body.dataset.cState||'']; });
-    });
-
-    document.addEventListener('mousedown',()=>{ pressed=true; });
-    document.addEventListener('mouseup',()=>{ pressed=false; });
-
-    (function loop(now){
-      const dt=Math.min((now-lastT)/16.7,3); lastT=now;
-      const follow=1-Math.pow(1-.16,dt);
-
-      const vx=mx-lastMx, vy=my-lastMy; lastMx=mx; lastMy=my;
-      const speed=Math.min(Math.hypot(vx,vy),40);
-      const ang=Math.atan2(vy,vx)*180/Math.PI;
-      const stretch=1+speed*.012;
-      stretchX+=(stretch-stretchX)*.25;
-      stretchY+=(1/stretch-stretchY)*.25;
-
-      bx+=(mx-bx)*follow;
-      by+=(my-by)*follow;
-      curScale+=(targetScale*(pressed?.72:1)-curScale)*Math.min(.22*dt,1);
-      curOp+=(targetOp-curOp)*Math.min(.25*dt,1);
-
-      cb.style.opacity=curOp.toFixed(2);
-      cb.style.transform=`translate(${bx.toFixed(1)}px,${by.toFixed(1)}px) rotate(${ang.toFixed(1)}deg) scale(${(curScale*stretchX).toFixed(3)},${(curScale*stretchY).toFixed(3)})`;
-      cd.style.opacity=curOp.toFixed(2);
-      cd.style.transform=`translate(${mx.toFixed(1)}px,${my.toFixed(1)}px) scale(${pressed?.55:1})`;
-      cl.style.left=mx+'px';
-      cl.style.top=my+'px';
-      requestAnimationFrame(loop);
-    })(performance.now());
-
-    function setC(s){
-      document.body.dataset.cState=s;
-      document.body.className=s?'c'+s:'';
-      targetScale=SCALE[s]??1;
-      if(!hidden)targetOp=OPACITY[s]??1;
-    }
-
-    document.querySelectorAll('.pc,.sk-card,.pass-item,.form-item,.hab-item,.tl-item,.rn-item').forEach(el=>{
-      el.addEventListener('mouseenter',()=>setC('H'));
-      el.addEventListener('mouseleave',()=>setC(''));
-    });
-
-    document.querySelectorAll('a,button,.pc-btn,.htag,.ptag,.f-badge,.acc-btn,.tl-badge,.ctlink,.btn-cv').forEach(el=>{
-      el.addEventListener('mouseenter',()=>setC('L'));
-      el.addEventListener('mouseleave',()=>setC(''));
-    });
-
-    document.querySelectorAll('.h-display,.ct-title,.tl-title,.faq-title,.pc-ti').forEach(el=>{
-      el.addEventListener('mouseenter',()=>setC('T'));
-      el.addEventListener('mouseleave',()=>setC(''));
-    });
-
-    document.addEventListener('click',e=>{
-      for(let i=0;i<6;i++){
-        const sp=document.createElement('div');
-        sp.className='cursor-spark';
-        const size=6+Math.random()*10;
-        sp.style.cssText=`left:${e.clientX}px;top:${e.clientY}px;width:${size}px;height:${size}px;animation-delay:${i*.04}s`;
-        document.body.appendChild(sp);
-        setTimeout(()=>sp.remove(),700);
+  var cv=$('#epure');if(!cv||!cv.getContext)return;var ctx=cv.getContext('2d');if(!ctx)return;
+  function rng(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+  var segs=[],total=0,W,H,drawn=0,raf=0,t0=0;
+  function build(){
+    var d=new Date(),R=rng(d.getFullYear()*400+d.getMonth()*32+d.getDate());
+    var r=cv.getBoundingClientRect();W=r.width;H=r.height;segs=[];total=0;
+    var u=Math.min(W,H)/15,cx=W*(W<700?.62:.7),cy=H*.36,c30=Math.cos(Math.PI/6),s30=.5;
+    function P(x,y,z){return[cx+(x-y)*c30*u,cy+(x+y)*s30*u-z*u]}
+    function L(a,b,k){var l=Math.hypot(b[0]-a[0],b[1]-a[1]);segs.push({a:a,b:b,l:l,k:k||0,s:total});total+=l}
+    var n=W<700?5:8,i,j;
+    for(i=0;i<n;i++){
+      var x=Math.floor(R()*7)-3,y=Math.floor(R()*7)-3,w=1+Math.floor(R()*2.4),dp=1+Math.floor(R()*2.4),h=.8+Math.floor(R()*30)/10;
+      var A=[P(x,y,0),P(x+w,y,0),P(x+w,y+dp,0),P(x,y+dp,0)],B=[P(x,y,h),P(x+w,y,h),P(x+w,y+dp,h),P(x,y+dp,h)];
+      for(j=0;j<4;j++){L(A[j],A[(j+1)%4]);L(B[j],B[(j+1)%4]);L(A[j],B[j])}
+      if(i%3===1){
+        var ex=x+w/2,ey=y+dp/2,rr=Math.min(w,dp)*.38,p0=null,m;
+        for(m=0;m<=24;m++){var an=m/24*Math.PI*2,q=P(ex+Math.cos(an)*rr,ey+Math.sin(an)*rr,h);if(p0)L(p0,q);p0=q}
       }
-    });
-
-    const labelMap={
-      '.ctlink':'Ouvrir ↗',
-      '.pc-btn':'Voir le détail',
-      '.btn-cv':'Télécharger',
-      '.tl-badge[onclick]':'Voir le diplôme',
-      '.f-badge[onclick]':'Voir le diplôme',
-    };
-    Object.entries(labelMap).forEach(([sel,txt])=>{
-      document.querySelectorAll(sel).forEach(el=>{
-        el.addEventListener('mouseenter',()=>{cl.textContent=txt;cl.classList.add('show');});
-        el.addEventListener('mouseleave',()=>cl.classList.remove('show'));
-      });
-    });
-
-    document.querySelectorAll('.pc').forEach(card=>{
-      card.addEventListener('mousemove',e=>{
-        const r=card.getBoundingClientRect();
-        const cx=(e.clientX-r.left)/r.width-.5, cy=(e.clientY-r.top)/r.height-.5;
-        card.style.transform=`perspective(900px) rotateX(${-cy*10}deg) rotateY(${cx*10}deg) scale(1.025)`;
-        card.style.transition='transform .06s linear';
-        card.style.setProperty('--mx',((e.clientX-r.left)/r.width*100).toFixed(1)+'%');
-        card.style.setProperty('--my',((e.clientY-r.top)/r.height*100).toFixed(1)+'%');
-      });
-      card.addEventListener('mouseleave',()=>{
-        card.style.transition='transform .55s cubic-bezier(.34,1.56,.64,1),box-shadow .4s';
-        card.style.transform='perspective(900px) rotateX(0deg) rotateY(0deg) scale(1)';
-      });
-    });
-
-    document.querySelectorAll('.btn-cv,.pc-btn,.fab-main').forEach(btn=>{
-      const pull=btn.classList.contains('btn-cv')?.28:.22;
-      btn.style.transition='transform .35s cubic-bezier(.34,1.56,.64,1)';
-      btn.addEventListener('mousemove',e=>{
-        const r=btn.getBoundingClientRect();
-        btn.style.transition='transform .06s linear';
-        btn.style.transform=`translate(${(e.clientX-r.left-r.width/2)*pull}px,${(e.clientY-r.top-r.height/2)*pull}px) scale(1.04)`;
-      });
-      btn.addEventListener('mouseleave',()=>{
-        btn.style.transition='transform .35s cubic-bezier(.34,1.56,.64,1)';
-        btn.style.transform='';
-      });
-    });
-
-    const secs=document.querySelectorAll('section[id]');
-    const sns=document.querySelectorAll('.sn[data-s]');
-    secs.forEach(s=>new IntersectionObserver(entries=>{
-      entries.forEach(e=>{if(e.isIntersecting)sns.forEach(a=>a.classList.toggle('active',a.dataset.s===e.target.id));});
-    },{threshold:.38}).observe(s));
-
+      if(i===2){
+        var o=P(x+w+.9,y+dp+.9,0),o2=P(x+.9,y+dp+.9,0);
+        L(P(x+w,y+dp,0),o,1);L(P(x,y+dp,0),o2,1);L(o,o2,1);
+        segs.cote={at:[(o[0]+o2[0])/2,(o[1]+o2[1])/2],txt:String(w*40)};
+      }
+    }
   }
-
-  const ro=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-      if(!e.isIntersecting)return;
-      const delay=e.target.dataset.delay||0;
-      setTimeout(()=>e.target.classList.add('vis'),delay);
-      ro.unobserve(e.target);
-    });
-  },{threshold:.1,rootMargin:'0px 0px -40px 0px'});
-  document.querySelectorAll('.rv').forEach((el,i)=>{
-    if(el.closest('.proj-stack')||el.closest('.sk-grid')||el.closest('.reel-nums'))el.dataset.delay=i%6*80;
-    ro.observe(el);
-  });
-
-  const so=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-      if(!e.isIntersecting)return;
-      e.target.querySelectorAll('.sk-fill').forEach((b,i)=>setTimeout(()=>{b.style.transform=`scaleX(${b.dataset.w||1})`;},200+i*140));
-      so.unobserve(e.target);
-    });
-  },{threshold:.3});
-  document.querySelectorAll('.sk-card').forEach(c=>so.observe(c));
-
-  const co=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-      if(!e.isIntersecting)return;
-      e.target.querySelectorAll('[data-count]').forEach((el,i)=>{
-        const n=parseInt(el.dataset.count),s=el.dataset.suffix||'';
-        setTimeout(()=>animateCounter(el,n,s),i*200);
-      });
-      co.unobserve(e.target);
-    });
-  },{threshold:.5});
-  document.querySelectorAll('.reel-nums').forEach(el=>co.observe(el));
-
-  const scrambleObs=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-      if(!e.isIntersecting)return;
-      const target=e.target.querySelector('em')||e.target;
-      const sc=new Scramble(target);sc.run(target.textContent);
-      scrambleObs.unobserve(e.target);
-    });
-  },{threshold:.6});
-  document.querySelectorAll('.faq-title,.tl-title,.ct-title').forEach(el=>scrambleObs.observe(el));
-
-  const tlO=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-      if(!e.isIntersecting)return;
-      const f=e.target.querySelector('.tl-spine-fill');if(f)setTimeout(()=>f.classList.add('go'),200);
-      tlO.unobserve(e.target);
-    });
-  },{threshold:.2});
-  document.querySelectorAll('.tl-track').forEach(t=>tlO.observe(t));
-  document.querySelectorAll('.tl-item').forEach(item=>{
-    item.addEventListener('click',()=>{document.querySelectorAll('.tl-item').forEach(i=>i.classList.remove('active'));item.classList.add('active');});
-  });
-
-  document.querySelectorAll('.acc-btn').forEach(btn=>{
-    btn.addEventListener('click',()=>{
-      const open=btn.getAttribute('aria-expanded')==='true';
-      document.querySelectorAll('.acc-btn').forEach(b=>{b.setAttribute('aria-expanded','false');b.nextElementSibling.style.height='0';});
-      if(!open){btn.setAttribute('aria-expanded','true');const bd=btn.nextElementSibling;bd.style.height=bd.scrollHeight+'px';}
-    });
-  });
-
-  const mq=document.getElementById('mq-track');
-  if(mq){
-    mq.addEventListener('mouseenter',()=>mq.style.animationDuration='8s');
-    mq.addEventListener('mouseleave',()=>mq.style.animationDuration='22s');
+  function stroke(sg,from,to){
+    var ax=sg.a[0],ay=sg.a[1],bx=sg.b[0],by=sg.b[1];
+    ctx.beginPath();ctx.moveTo(ax+(bx-ax)*from,ay+(by-ay)*from);ctx.lineTo(ax+(bx-ax)*to,ay+(by-ay)*to);
+    ctx.strokeStyle=sg.k?'rgba(36,56,255,.55)':'rgba(11,12,14,.17)';ctx.stroke();
   }
+  function setup(){var dpr=Math.min(window.devicePixelRatio||1,2),r=cv.getBoundingClientRect();cv.width=r.width*dpr;cv.height=r.height*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);ctx.lineWidth=1;ctx.lineJoin='round'}
+  function label(){var c=segs.cote;if(!c)return;ctx.fillStyle='rgba(36,56,255,.8)';ctx.font='500 12px "Geist Mono",monospace';ctx.textAlign='center';ctx.fillText(c.txt,c.at[0],c.at[1]-6)}
+  function full(){setup();ctx.clearRect(0,0,W,H);segs.forEach(function(s){stroke(s,0,1)});label()}
+  function play(ts){
+    if(!t0)t0=ts;var pos=Math.min((ts-t0)/7000,1)*total;
+    segs.forEach(function(s){var a=Math.max(0,Math.min(1,(drawn-s.s)/s.l)),b=Math.max(0,Math.min(1,(pos-s.s)/s.l));if(b>a)stroke(s,a,b)});
+    drawn=pos;if(pos<total)raf=requestAnimationFrame(play);else label();
+  }
+  function start(){cancelAnimationFrame(raf);build();setup();ctx.clearRect(0,0,W,H);drawn=0;t0=0;
+    if(reduce)full();else setTimeout(function(){raf=requestAnimationFrame(play)},600)}
+  var lastW=0;window.addEventListener('resize',function(){if(Math.abs(cv.getBoundingClientRect().width-lastW)>40){lastW=cv.getBoundingClientRect().width;cancelAnimationFrame(raf);build();full()}});
+  lastW=cv.getBoundingClientRect().width;start();
+})();
 
-  /* ══ ANTI-SPAM : reconstruction des liens email/tél au runtime ══ */
-  document.querySelectorAll('.js-anti-spam').forEach(el=>{
-    const type=el.dataset.type;
-    const target=el.dataset.e?atob(el.dataset.e):'';
-    el.addEventListener('click',e=>{
-      e.preventDefault();
-      window.location.href=(type==='tel'?'tel:':'mailto:')+target;
-    });
-    const txtEl=el.querySelector('.js-anti-spam-txt');
-    if(txtEl&&el.dataset.txt)txtEl.textContent=atob(el.dataset.txt);
-  });
+/* ── Parcours : frise ── */
+var tl=$('.tl');
+if(tl){
+  var tis=$$('.tli',tl);
+  if('IntersectionObserver' in window){var io2=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io2.unobserve(e.target)}})},{threshold:.2,rootMargin:'0px 0px -8% 0px'});tis.forEach(function(l){io2.observe(l)})}
+  else tis.forEach(function(l){l.classList.add('in')});
+  if(reduce)tl.style.setProperty('--p',1);
+  else{var tk=0,up=function(){tk=0;var r=tl.getBoundingClientRect(),p=(innerHeight*.65-r.top)/r.height;tl.style.setProperty('--p',Math.max(0,Math.min(1,p)).toFixed(3))};
+    window.addEventListener('scroll',function(){if(!tk)tk=requestAnimationFrame(up)},{passive:true});window.addEventListener('resize',up);up()}
+  $$('[data-p]',tl).forEach(function(b){b.addEventListener('click',function(){openCase(+b.dataset.p,b)})});
 }
-</script>
 
-<div class="fab-container">
-  <div class="fab-options">
-    <a href="#" class="fab-btn-mini js-anti-spam" data-e="YmF0dGFnbGlhbGF1cmVudDExQGdtYWlsLmNvbQ==" data-type="mail" title="M'envoyer un email">✉</a>
-    <a href="CV Laurent BATTAGLIA..pdf" download class="fab-btn-mini" title="Télécharger mon CV">📥</a>
-  </div>
-  <button class="fab-main">
-    <span class="fab-text">Me recruter</span>
-    <span class="fab-icon">+</span>
-  </button>
-</div>
+/* ── Menu mobile ── */
+var mb=$('#mbtn'),menu=$('#menu');
+function setMenu(o){menu.classList.toggle('open',o);mb.setAttribute('aria-expanded',o);mb.textContent=o?'Fermer':'Menu';document.body.classList.toggle('lock',o)}
+mb.addEventListener('click',function(){setMenu(!menu.classList.contains('open'))});
+$$('a',menu).forEach(function(a){a.addEventListener('click',function(){setMenu(false)})});
 
-<!-- ══ BANNIÈRE COOKIES / RGPD ══ -->
-<div id="cookie-banner" role="dialog" aria-live="polite" aria-label="Gestion des cookies">
-  <p>
-    Ce site dépose uniquement des données techniques locales (mémorisation de votre choix de cookies) et charge des polices via Google Fonts, ce qui peut transmettre votre adresse IP à Google.
-    Aucune donnée personnelle n'est collectée ni revendue. En savoir plus dans la
-    <a href="politique-confidentialite.html">politique de confidentialité</a>.
-  </p>
-  <div class="ck-actions">
-    <button class="ck-btn" id="ck-decline">Refuser</button>
-    <button class="ck-btn primary" id="ck-accept">Accepter</button>
-  </div>
-</div>
-<script>
-(function(){
-  const KEY='lb_cookie_consent';
-  const banner=document.getElementById('cookie-banner');
-  function show(){banner.classList.add('show');}
-  function hide(){banner.classList.remove('show');}
-  try{
-    const saved=localStorage.getItem(KEY);
-    if(!saved)show();
-  }catch(e){show();}
-  document.getElementById('ck-accept').addEventListener('click',()=>{
-    try{localStorage.setItem(KEY,JSON.stringify({choice:'accepted',date:new Date().toISOString()}));}catch(e){}
-    hide();
-  });
-  document.getElementById('ck-decline').addEventListener('click',()=>{
-    try{localStorage.setItem(KEY,JSON.stringify({choice:'declined',date:new Date().toISOString()}));}catch(e){}
-    hide();
-  });
-  const manage=document.getElementById('f-cookie-manage');
-  if(manage)manage.addEventListener('click',e=>{e.preventDefault();show();});
+/* ── Compétences : règles graduées au défilement ── */
+if('IntersectionObserver' in window){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.35});
+  $$('.sk').forEach(function(s){io.observe(s)});
+}else{$$('.sk').forEach(function(s){s.classList.add('in')})}
+
+/* ── Contacts masqués ── */
+$$('.reveal').forEach(function(a){a.addEventListener('click',function(e){
+  var t=atob(a.dataset.e),txt=a.dataset.txt?atob(a.dataset.txt):t;
+  if(a.dataset.shown){return}
+  e.preventDefault();a.dataset.shown='1';
+  a.href=(a.dataset.type==='tel'?'tel:':'mailto:')+t;$('.rt',a).textContent=txt;
+})});
+
+/* ── Cookies ── */
+var K='lb-cookies',ck=$('#ck');
+function sv(c){try{localStorage.setItem(K,JSON.stringify({choice:c,date:new Date().toISOString()}))}catch(e){}ck.classList.remove('show')}
+try{if(!localStorage.getItem(K))setTimeout(function(){ck.classList.add('show')},1800)}catch(e){}
+$('#ck-yes').addEventListener('click',function(){sv('accepted')});$('#ck-no').addEventListener('click',function(){sv('declined')});
+$('#ck-open').addEventListener('click',function(){ck.classList.add('show')});
+
+/* ── Ouverture ── */
+var ov=$('#ov'),on=$('#ov-n');
+function ready(){document.body.classList.add('ready');
+  if(/^#(.+)/.test(location.hash)){var k=P.map(function(p){return p.id}).indexOf(location.hash.slice(1));if(k>-1)openCase(k,carts[k])}}
+function overture(force){
+  var seen=false;try{seen=sessionStorage.getItem('lb-ov')}catch(e){}
+  if((seen&&!force)||reduce){ov.classList.add('done');ready();return}
+  document.body.classList.remove('ready');ov.classList.remove('go','done');document.body.classList.add('lock');
+  var t0=null,D=3200;on.textContent='000';
+  function f(t){if(!t0)t0=t;var k=Math.min((t-t0)/D,1),e=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2;
+    on.textContent=('00'+Math.round(e*100)).slice(-3);
+    window.lgK(e);if(k<1)requestAnimationFrame(f);else finish()}
+  var fin=false;function finish(){if(fin)return;fin=true;on.textContent='100';window.lgK(1);ov.classList.add('go');
+    setTimeout(function(){document.body.classList.remove('lock');ready()},350);
+    setTimeout(function(){ov.classList.add('done')},1400);try{sessionStorage.setItem('lb-ov','1')}catch(e){}}
+  requestAnimationFrame(f);setTimeout(finish,5200);
+}
+$('#replay').addEventListener('click',function(){window.scrollTo(0,0);ov.classList.remove('done');overture(true)});
+overture(false);
 })();
 </script>
+<!-- Parcours interactif (filtres, barre des semaines, détails) -->
+<script src="parcours.js"></script>
 </body>
 </html>
